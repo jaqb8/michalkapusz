@@ -67,12 +67,12 @@ function Home() {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-white p-4 rounded-lg shadow">
                 <Trophy className="text-blue-600 mb-2" />
-                <h3 className="font-semibold mb-1">5+ lat</h3>
+                <h3 className="font-semibold mb-1">8+ lat</h3>
                 <p className="text-sm text-gray-600">Doświadczenia</p>
               </div>
               <div className="bg-white p-4 rounded-lg shadow">
                 <Calendar className="text-blue-600 mb-2" />
-                <h3 className="font-semibold mb-1">500+</h3>
+                <h3 className="font-semibold mb-1">5000+</h3>
                 <p className="text-sm text-gray-600">
                   Przeprowadzonych treningów
                 </p>
@@ -128,14 +128,14 @@ function Home() {
               <Phone className="text-blue-600 h-6 w-6" />
               <div>
                 <h3 className="font-semibold">Telefon</h3>
-                <p className="text-gray-600">+48 123 456 789</p>
+                <p className="text-gray-600">+48 605 242 945</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Mail className="text-blue-600 h-6 w-6" />
               <div>
                 <h3 className="font-semibold">Email</h3>
-                <p className="text-gray-600">michal.kapusz@example.com</p>
+                <p className="text-gray-600">michalkapusz5@gmail.com</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
