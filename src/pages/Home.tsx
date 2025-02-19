@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, Mail, MapPin, Phone, Trophy } from "lucide-react";
+import { Calendar, Mail, MapPin, Phone, Trophy, Instagram } from "lucide-react";
 
 function Home() {
   return (
@@ -20,7 +20,7 @@ function Home() {
                 Michał Kapusz
               </h1>
               <p className="text-xl text-white mb-6">
-                Profesjonalny Trener Tenisa
+                Licencjonowany Trener Tenisa
               </p>
               <div className="flex gap-4">
                 <a
@@ -149,6 +149,20 @@ function Home() {
                   Istnieje możliwość prowadzenia treningów na innych kortach na
                   terenie Wrocławia.
                 </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <Instagram className="text-blue-600 h-6 w-6" />
+              <div>
+                <h3 className="font-semibold">Instagram</h3>
+                <a
+                  href="https://instagram.com/michal_kapusz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  @michal_kapusz
+                </a>
               </div>
             </div>
           </div>
