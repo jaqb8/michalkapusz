@@ -69,9 +69,10 @@ function Home() {
       </div>
 
       {/* O Mnie Section */}
-      <section id="omnie" className="py-20 container mx-auto px-4">
+      <section className="py-20 container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <img
+            id="omnie"
             src="/coach1.jpg"
             alt="Trener Michał Kapusz"
             className="rounded-lg shadow-xl w-full max-w-lg mx-auto"
@@ -84,16 +85,20 @@ function Home() {
               początkujących, jak i zaawansowanych graczy, dostosowując program
               szkolenia do indywidualnych potrzeb każdego ucznia.
             </p>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-2">
               <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200">
                 <Trophy className="text-blue-600 h-10 w-10 mb-4" />
                 <h3 className="text-2xl font-bold mb-2">8+ lat</h3>
-                <p className="text-gray-600">Doświadczenia</p>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  Doświadczenia
+                </p>
               </div>
               <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200">
                 <Calendar className="text-blue-600 h-10 w-10 mb-4" />
                 <h3 className="text-2xl font-bold mb-2">5000+</h3>
-                <p className="text-gray-600">Przeprowadzonych treningów</p>
+                <p className="text-gray-600 text-sm sm:text-base">
+                  Przeprowadzonych treningów
+                </p>
               </div>
             </div>
           </div>
