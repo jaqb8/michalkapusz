@@ -3,7 +3,9 @@ import React from "react";
 function PriceList() {
   return (
     <div className="container mx-auto px-4 py-20">
-      <h1 className="text-6xl font-bold mb-16 tracking-tight">CENNIK</h1>
+      <h1 className="text-6xl font-bold mb-16 tracking-tight text-center">
+        CENNIK
+      </h1>
 
       <div className="mb-12 text-center text-gray-600">
         <p className="mb-2">Możliwość płatności gotówką lub kartą.</p>
