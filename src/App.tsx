@@ -34,11 +34,18 @@ function App() {
       {/* Overlay */}
       <div className="min-h-screen bg-gradient-to-br from-white/95 via-blue-50/95 to-white/95">
         {/* Navigation */}
-        <nav className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <nav className="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-200">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <Link to="/" className="text-2xl font-bold text-blue-600">
-                Michał Kapusz
+              <Link to="/" className="flex items-center gap-3">
+                <img
+                  src="/1.png"
+                  alt="Michał Kapusz Logo"
+                  className="h-12 mix-blend-darken"
+                />
+                <span className="text-2xl font-bold text-blue-600">
+                  Michał Kapusz
+                </span>
               </Link>
 
               {/* Desktop Navigation */}
@@ -121,7 +128,7 @@ function App() {
                 </p>
                 <div className="flex gap-4">
                   <a
-                    href="https://facebook.com"
+                    href="https://www.facebook.com/profile.php?id=61573437630935"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-colors"
