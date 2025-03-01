@@ -30,13 +30,14 @@ export default defineConfig({
     })
   ],
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    exclude: ['lucide-react', 'googletagmanager'],
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
+          analytics: ['googletagmanager']
         },
       },
     },
