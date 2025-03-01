@@ -374,7 +374,7 @@ function Home() {
                     Napisz na Instagram
                   </a>
                   <a
-                    href="https://m.me/michal.kapusz?text=Witam, chciałbym umówić się na trening."
+                    href="https://m.me/michal.kapusz"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors w-full"
