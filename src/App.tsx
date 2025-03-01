@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import {
-  Calendar,
   Mail,
   MapPin,
   Phone,
-  Trophy,
   Menu,
   X,
   Instagram,
   Facebook,
-  Star,
 } from "lucide-react";
 import Home from "./pages/Home";
 import PriceList from "./pages/PriceList";
@@ -79,11 +76,14 @@ function App() {
               <button
                 onClick={toggleMobileMenu}
                 className="md:hidden text-gray-600 hover:text-blue-600 transition-colors"
+                aria-label={isMobileMenuOpen ? "Zamknij menu" : "Otwórz menu"}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
               >
                 {isMobileMenuOpen ? (
-                  <X className="h-6 w-6" />
+                  <X className="h-6 w-6" aria-hidden="true" />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-6 w-6" aria-hidden="true" />
                 )}
               </button>
             </div>
@@ -91,8 +91,11 @@ function App() {
 
           {/* Mobile Navigation */}
           <div
+            id="mobile-menu"
             className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"
               } bg-white/80 backdrop-blur-sm border-t border-gray-200`}
+            role="navigation"
+            aria-label="Menu mobilne"
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
               <Link
@@ -142,16 +145,20 @@ function App() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-colors"
+                    aria-label="Odwiedź profil na Facebooku"
                   >
-                    <Facebook className="h-5 w-5" />
+                    <Facebook className="h-5 w-5" aria-hidden="true" />
+                    <span className="sr-only">Facebook - Michał Kapusz</span>
                   </a>
                   <a
                     href="https://instagram.com/michal_kapusz"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-colors"
+                    aria-label="Odwiedź profil na Instagramie"
                   >
-                    <Instagram className="h-5 w-5" />
+                    <Instagram className="h-5 w-5" aria-hidden="true" />
+                    <span className="sr-only">Instagram - Michał Kapusz</span>
                   </a>
                 </div>
               </div>
