@@ -9,6 +9,7 @@ import {
   Star,
   Users,
   Baby,
+  Facebook,
 } from "lucide-react";
 
 function Home() {
@@ -224,43 +225,49 @@ function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Testimonial 1 */}
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200">
-              <div className="flex gap-1 mb-4 text-blue-600">
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col h-full">
+              <div>
+                <div className="flex gap-1 mb-4 text-blue-600">
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                </div>
+                <p className="text-gray-600 mb-6">
+                  "Trening z Michałem to gwarancja ciągłego rozwoju. Jego profesjonalne podejście i szczegółowa analiza techniki sprawiają, że każde zajęcia są maksymalnie efektywne. Widać prawdziwą pasję do tenisa, którą skutecznie przekazuje swoim podopiecznym."
+                </p>
               </div>
-              <p className="text-gray-600 mb-6">
-                "Świetny trener z indywidualnym podejściem do ucznia. Treningi
-                są zawsze dobrze zaplanowane i dostosowane do mojego poziomu.
-                Polecam każdemu, kto chce zacząć przygodę z tenisem!"
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
+              <div className="flex items-center gap-4 mt-auto">
+                <img
+                  src="/client1.jpeg"
+                  alt="Kuba Aniszewski - zadowolony klient"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
                 <div>
-                  <p className="font-semibold">Anna Kowalska</p>
-                  <p className="text-sm text-gray-500">Trenuje od 6 miesięcy</p>
+                  <p className="font-semibold">Kuba Aniszewski</p>
+                  <p className="text-sm text-gray-500">Trenuje od 2 lat</p>
                 </div>
               </div>
             </div>
 
             {/* Testimonial 2 */}
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200">
-              <div className="flex gap-1 mb-4 text-blue-600">
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
-                <Star className="h-5 w-5 fill-current" />
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col h-full">
+              <div>
+                <div className="flex gap-1 mb-4 text-blue-600">
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                </div>
+                <p className="text-gray-600 mb-6">
+                  "Profesjonalne podejście i świetna atmosfera na treningach.
+                  Dzięki zajęciom z Michałem znacznie poprawiłem swoją technikę i
+                  pewność na korcie. Zdecydowanie polecam!"
+                </p>
               </div>
-              <p className="text-gray-600 mb-6">
-                "Profesjonalne podejście i świetna atmosfera na treningach.
-                Dzięki zajęciom z Michałem znacznie poprawiłem swoją technikę i
-                pewność na korcie. Zdecydowanie polecam!"
-              </p>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 mt-auto">
                 <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
                 <div>
                   <p className="font-semibold">Piotr Nowak</p>
@@ -365,6 +372,15 @@ function Home() {
                   >
                     <Instagram className="h-5 w-5" />
                     Napisz na Instagram
+                  </a>
+                  <a
+                    href="https://m.me/61573437630935?text=Witam, chciałbym umówić się na trening."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors w-full"
+                  >
+                    <Facebook className="h-5 w-5" />
+                    Napisz na Messenger
                   </a>
                   <a
                     href="tel:+48605242945"
