@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import {
   Calendar,
   Mail,
@@ -22,6 +22,16 @@ import "@fontsource/poppins/500.css";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -33,6 +43,7 @@ function App() {
     <div className="min-h-screen font-roboto bg-[url('/tennis-court.jpg')] bg-cover bg-center bg-no-repeat">
       {/* Overlay */}
       <div className="min-h-screen bg-gradient-to-br from-white/95 via-blue-50/95 to-white/95">
+        <ScrollToTop />
         {/* Navigation */}
         <nav className="bg-white/90 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-200">
           <div className="container mx-auto px-4 py-4">
@@ -127,7 +138,7 @@ function App() {
                 </p>
                 <div className="flex gap-4">
                   <a
-                    href="https://www.facebook.com/profile.php?id=61573437630935"
+                    href="https://www.facebook.com/michal.kapusz/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full transition-colors"
