@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://kapusz-tenis.pl/sitemap.xml
+
+# Optymalizacja crawlingu
+Crawl-delay: 10 

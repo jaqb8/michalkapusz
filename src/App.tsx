@@ -39,8 +39,8 @@ function App() {
             <div className="flex items-center justify-between">
               <Link to="/" className="flex items-center gap-3">
                 <img
-                  src="/1.png"
-                  alt="Michał Kapusz Logo"
+                  src="/logo.png"
+                  alt="Logo Michał Kapusz - Licencjonowany Trener Tenisa Wrocław i Bolesławiec"
                   className="h-12 mix-blend-darken"
                 />
                 <span className="text-2xl font-bold text-blue-600">
@@ -80,9 +80,8 @@ function App() {
 
           {/* Mobile Navigation */}
           <div
-            className={`md:hidden ${
-              isMobileMenuOpen ? "block" : "hidden"
-            } bg-white/80 backdrop-blur-sm border-t border-gray-200`}
+            className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"
+              } bg-white/80 backdrop-blur-sm border-t border-gray-200`}
           >
             <div className="container mx-auto px-4 py-4 space-y-4">
               <Link

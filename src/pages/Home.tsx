@@ -29,7 +29,7 @@ function Home() {
         <div className="absolute inset-0">
           <img
             src="coach2.jpg"
-            alt="Kort tenisowy"
+            alt="Licencjonowany kort tenisowy we Wrocławiu - miejsce treningów z Michałem Kapuszem"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
@@ -60,7 +60,7 @@ function Home() {
             <div className="hidden md:flex justify-end items-center h-full">
               <img
                 src="/coach2.jpg"
-                alt="Michał Kapusz"
+                alt="Trener tenisa Michał Kapusz podczas treningu we Wrocławiu"
                 className="rounded-lg shadow-xl max-h-[50vh] w-auto object-contain"
               />
             </div>
@@ -74,7 +74,7 @@ function Home() {
           <img
             id="omnie"
             src="/coach1.jpg"
-            alt="Trener Michał Kapusz"
+            alt="Trener Michał Kapusz - licencjonowany instruktor tenisa we Wrocławiu i Bolesławcu"
             className="rounded-lg shadow-xl w-full max-w-lg mx-auto"
           />
           <div>
