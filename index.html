@@ -7,19 +7,22 @@
     <meta name="google-site-verification" content="o4HZIEXA6QPcO8ZkBwRKw8fu00byyaIYqRa-j03hzWg" />
     <!-- Google Tag Manager -->
     <script>
-      window.addEventListener('load', function() {
-        var gtmScript = document.createElement('script');
-        gtmScript.async = true;
-        gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-WBXGDTVL09';
-        document.head.appendChild(gtmScript);
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          var gtmScript = document.createElement('script');
+          gtmScript.async = true;
+          gtmScript.defer = true;
+          gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-WBXGDTVL09';
+          document.head.appendChild(gtmScript);
 
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-WBXGDTVL09', {
-          'optimize_id': 'OPT-XXXXXX',
-          'transport_type': 'beacon'
-        });
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-WBXGDTVL09', {
+            'transport_type': 'beacon',
+            'page_load_time_ms': performance.now()
+          });
+        }, 2000); // Delay loading GTM by 2 seconds
       });
     </script>
     <!-- End Google Tag Manager -->
