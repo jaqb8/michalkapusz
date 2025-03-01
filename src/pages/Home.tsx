@@ -29,7 +29,7 @@ function Home() {
       <div className="relative h-[70vh] bg-blue-600 -mt-[73px]">
         <div className="absolute inset-0">
           <img
-            src="coach2.jpg"
+            src="coach2.webp"
             alt="Licencjonowany kort tenisowy we Wrocławiu - miejsce treningów z Michałem Kapuszem"
             className="w-full h-full object-cover opacity-20"
           />
@@ -60,7 +60,7 @@ function Home() {
             </div>
             <div className="hidden md:flex justify-end items-center h-full">
               <img
-                src="/coach2.jpg"
+                src="/coach2.webp"
                 alt="Trener tenisa Michał Kapusz podczas treningu we Wrocławiu"
                 className="rounded-lg shadow-xl max-h-[50vh] w-auto object-contain"
               />
@@ -74,12 +74,6 @@ function Home() {
         {/* Mobile Layout */}
         <div className="md:hidden max-w-6xl mx-auto space-y-8">
           <h2 className="text-4xl font-bold">O Mnie</h2>
-          <img
-            id="omnie"
-            src="/coach1.jpg"
-            alt="Trener Michał Kapusz - licencjonowany instruktor tenisa we Wrocławiu i Bolesławcu"
-            className="rounded-lg shadow-xl w-full max-w-lg mx-auto"
-          />
           <div>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               Jestem pasjonatem tenisa z wieloletnim doświadczeniem w nauczaniu
@@ -104,12 +98,18 @@ function Home() {
               </div>
             </div>
           </div>
+          <img
+            id="omnie"
+            src="/coach1.webp"
+            alt="Trener Michał Kapusz - licencjonowany instruktor tenisa we Wrocławiu i Bolesławcu"
+            className="rounded-lg shadow-xl w-full max-w-lg mx-auto"
+          />
         </div>
 
         {/* Desktop Layout */}
         <div className="hidden md:grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <img
-            src="/coach1.jpg"
+            src="/coach1.webp"
             alt="Trener Michał Kapusz - licencjonowany instruktor tenisa we Wrocławiu i Bolesławcu"
             className="rounded-lg shadow-xl w-full max-w-lg mx-auto"
           />
@@ -240,7 +240,7 @@ function Home() {
               </div>
               <div className="flex items-center gap-4 mt-auto">
                 <img
-                  src="/client1.jpeg"
+                  src="/client1.webp"
                   alt="Kuba Aniszewski - zadowolony klient"
                   className="w-12 h-12 rounded-full object-cover"
                 />

@@ -50,7 +50,7 @@ function App() {
             <div className="flex items-center justify-between">
               <Link to="/" className="flex items-center gap-3">
                 <img
-                  src="/logo.png"
+                  src="/logo.webp"
                   alt="Logo Michał Kapusz - Licencjonowany Trener Tenisa Wrocław i Bolesławiec"
                   className="h-12 mix-blend-darken"
                 />
