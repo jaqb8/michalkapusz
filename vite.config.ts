@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.png', 'robots.txt', 'sitemap.xml', '_redirects'],
+      includeAssets: ['logo.webp', 'robots.txt', 'sitemap.xml', '_redirects'],
       manifest: {
         name: 'Michał Kapusz - Trener Tenisa',
         short_name: 'Kapusz Tenis',
@@ -16,14 +16,14 @@ export default defineConfig({
         theme_color: '#ffffff',
         icons: [
           {
-            src: 'logo.png',
+            src: 'logo.webp',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/webp'
           },
           {
-            src: 'logo.png',
+            src: 'logo.webp',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/webp'
           }
         ]
       }
