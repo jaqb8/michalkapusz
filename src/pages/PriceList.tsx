@@ -1,4 +1,4 @@
-import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const shimmerAnimation = `
   @keyframes pulse {
@@ -27,6 +27,17 @@ function PriceList() {
 
   return (
     <>
+      <Helmet>
+        <title>Cennik - Lekcje Tenisa z Michałem Kapuszem | Wrocław</title>
+        <meta
+          name="description"
+          content="Sprawdź cennik lekcji tenisa we Wrocławiu. Oferujemy treningi indywidualne i grupowe w atrakcyjnych cenach. Rabaty dla posiadaczy karty Multisport."
+        />
+        <link rel="canonical" href="https://kapusz-tenis.pl/cennik" />
+        <meta property="og:title" content="Cennik - Lekcje Tenisa z Michałem Kapuszem | Wrocław" />
+        <meta property="og:description" content="Sprawdź cennik lekcji tenisa we Wrocławiu. Oferujemy treningi indywidualne i grupowe w atrakcyjnych cenach." />
+        <meta property="og:url" content="https://kapusz-tenis.pl/cennik" />
+      </Helmet>
       <style>{shimmerAnimation}</style>
       <div className="container mx-auto px-4 py-20">
         <h1 className="text-6xl font-bold mb-16 tracking-tight text-center">

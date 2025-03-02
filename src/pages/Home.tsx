@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import {
   Calendar,
   Mail,
@@ -25,6 +26,17 @@ function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>Michał Kapusz - Licencjonowany Trener Tenisa Wrocław | Lekcje Tenisa</title>
+        <meta
+          name="description"
+          content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Trener Michał Kapusz oferuje indywidualne i grupowe treningi tenisa dla dzieci i dorosłych. Wieloletnie doświadczenie i profesjonalne podejście."
+        />
+        <link rel="canonical" href="https://kapusz-tenis.pl" />
+        <meta property="og:title" content="Michał Kapusz - Licencjonowany Trener Tenisa Wrocław" />
+        <meta property="og:description" content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Indywidualne i grupowe treningi dla dzieci i dorosłych." />
+        <meta property="og:url" content="https://kapusz-tenis.pl" />
+      </Helmet>
       {/* Hero Section */}
       <div className="relative h-[70vh] bg-blue-600 -mt-[73px]">
         <div className="absolute inset-0">
