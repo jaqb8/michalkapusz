@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.webp', 'robots.txt', 'sitemap.xml', '_redirects'],
+      includeAssets: ['logo.webp', 'robots.txt', 'sitemap.xml'],
       manifest: {
         name: 'Michał Kapusz - Trener Tenisa',
         short_name: 'Kapusz Tenis',
