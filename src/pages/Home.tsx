@@ -70,7 +70,7 @@ function Home() {
       </div>
 
       {/* O Mnie Section */}
-      <section className="py-20 container mx-auto px-4">
+      <section id="omnie" className="py-20 container mx-auto px-4">
         {/* Mobile Layout */}
         <div className="md:hidden max-w-6xl mx-auto space-y-8">
           <h2 className="text-4xl font-bold">O Mnie</h2>
@@ -99,7 +99,6 @@ function Home() {
             </div>
           </div>
           <img
-            id="omnie"
             src="/coach1.webp"
             alt="Trener Michał Kapusz - licencjonowany instruktor tenisa we Wrocławiu i Bolesławcu"
             className="rounded-lg shadow-xl w-full max-w-lg mx-auto"
