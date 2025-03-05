@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import Home from "./pages/Home";
 import PriceList from "./pages/PriceList";
+import Blog from "./pages/Blog";
+import BlogPost from "./components/BlogPost";
+import { blogPosts } from "./content/blog/posts";
 
 // Import Poppins font
 import "@fontsource/poppins/300.css";
@@ -70,6 +73,12 @@ function App() {
                 >
                   Cennik
                 </Link>
+                <Link
+                  to="/blog"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Blog
+                </Link>
               </div>
 
               {/* Mobile Menu Button */}
@@ -112,6 +121,13 @@ function App() {
               >
                 Cennik
               </Link>
+              <Link
+                to="/blog"
+                onClick={toggleMobileMenu}
+                className="block text-lg text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Blog
+              </Link>
             </div>
           </div>
         </nav>
@@ -120,6 +136,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cennik" element={<PriceList />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route
+            path="/blog/:slug"
+            element={
+              <BlogPost
+                post={blogPosts.find((post) => post.slug === useLocation().pathname.split("/").pop())!}
+              />
+            }
+          />
         </Routes>
 
         {/* Footer */}
@@ -183,6 +208,14 @@ function App() {
                       className="text-gray-300 hover:text-blue-400 transition-colors"
                     >
                       Cennik
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/blog"
+                      className="text-gray-300 hover:text-blue-400 transition-colors"
+                    >
+                      Blog
                     </Link>
                   </li>
                   <li>
