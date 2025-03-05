@@ -11,6 +11,76 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "3",
+    title: "Profesjonalne lekcje tenisa we Wrocławiu - kompleksowy przewodnik",
+    description: "Poznaj najlepsze miejsca do gry w tenisa we Wrocławiu, dowiedz się o profesjonalnych treningach i znajdź idealnego trenera tenisa dla siebie.",
+    date: "2024-03-25",
+    image: "/post-wroclaw-tennis.webp",
+    content: `# Profesjonalne lekcje tenisa we Wrocławiu - kompleksowy przewodnik
+
+Wrocław to miasto z bogatą tradycją tenisową i doskonałą infrastrukturą do uprawiania tego sportu. Jako doświadczony trener tenisa we Wrocławiu, chciałbym podzielić się z Wami kompleksowym przewodnikiem po świecie tenisa w stolicy Dolnego Śląska.
+
+## Dlaczego warto grać w tenisa we Wrocławiu?
+
+Wrocław oferuje:
+- Liczne korty tenisowe w różnych lokalizacjach
+- Profesjonalną kadrę trenerską
+- Sprzyjające warunki klimatyczne
+- Bogatą ofertę zajęć dla wszystkich poziomów zaawansowania
+
+## Najlepsze miejsca do gry w tenisa we Wrocławiu
+
+### 1. Centra tenisowe
+- Centrum Tenisowe Wrocław
+- Tennis Club Wrocław
+- Akademia Tenisa Wrocław
+
+### 2. Korty miejskie
+- Park Południowy
+- Park Zachodni
+- Park Szczytnicki
+
+## Jak wybrać dobrego trenera tenisa we Wrocławiu?
+
+Przy wyborze trenera zwróć uwagę na:
+- Certyfikaty i uprawnienia
+- Doświadczenie w pracy z różnymi grupami wiekowymi
+- Indywidualne podejście do ucznia
+- Lokalizację i dostępność
+
+## Programy treningowe
+
+### Dla początkujących
+- Nauka podstawowych uderzeń
+- Praca nad postawą i poruszaniem się
+- Zrozumienie zasad gry
+
+### Dla zaawansowanych
+- Doskonalenie techniki
+- Taktyka gry
+- Przygotowanie kondycyjne
+
+## Korzyści z regularnych treningów
+
+1. Poprawa kondycji fizycznej
+2. Rozwój koordynacji ruchowej
+3. Redukcja stresu
+4. Budowa pewności siebie
+5. Integracja społeczna
+
+## Jak zacząć przygodę z tenisem we Wrocławiu?
+
+1. Wybierz odpowiednie miejsce do treningów
+2. Znajdź doświadczonego trenera
+3. Zaopatrz się w podstawowy sprzęt
+4. Ustal regularny harmonogram treningów
+5. Dołącz do lokalnej społeczności tenisowej
+
+Pamiętaj, że regularne treningi pod okiem profesjonalnego trenera to klucz do szybkiego rozwoju i czerpania przyjemności z gry w tenisa.`,
+    author: "Michał Kapusz",
+    slug: "profesjonalne-lekcje-tenisa-we-wroclawiu"
+  },
+  {
     id: "1",
     title: "Jak zacząć przygodę z tenisem?",
     description: "Praktyczny przewodnik dla początkujących graczy - od wyboru sprzętu po pierwsze kroki na korcie.",
