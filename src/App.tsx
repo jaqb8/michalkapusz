@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   Mail,
   MapPin,
@@ -9,11 +10,7 @@ import {
   Instagram,
   Facebook,
 } from "lucide-react";
-import Home from "./pages/Home";
-import PriceList from "./pages/PriceList";
-import Blog from "./pages/Blog";
-import BlogPost from "./components/BlogPost";
-import { blogPosts } from "./content/blog/posts";
+import { AppRouter, ScrollToTop } from "./router";
 
 // Import Poppins font
 import "@fontsource/poppins/300.css";
@@ -21,16 +18,6 @@ import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,6 +28,24 @@ function App() {
 
   return (
     <div className="min-h-screen font-roboto bg-[url('/tennis-court.jpg')] bg-cover bg-center bg-no-repeat">
+      <Helmet>
+        {/* Content Security Policy */}
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'"
+        />
+        {/* X-Frame-Options */}
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        {/* X-Content-Type-Options */}
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        {/* Referrer Policy */}
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        {/* Permissions Policy */}
+        <meta
+          httpEquiv="Permissions-Policy"
+          content="camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        />
+      </Helmet>
       {/* Overlay */}
       <div className="min-h-screen bg-gradient-to-br from-white/95 via-blue-50/95 to-white/95">
         <ScrollToTop />
@@ -133,19 +138,7 @@ function App() {
         </nav>
 
         {/* Routes */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cennik" element={<PriceList />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route
-            path="/blog/:slug"
-            element={
-              <BlogPost
-                post={blogPosts.find((post) => post.slug === useLocation().pathname.split("/").pop())!}
-              />
-            }
-          />
-        </Routes>
+        <AppRouter />
 
         {/* Footer */}
         <footer className="bg-gray-900 text-white py-16">
