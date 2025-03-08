@@ -29,20 +29,8 @@ function App() {
   return (
     <div className="min-h-screen font-roboto bg-[url('/tennis-court.jpg')] bg-cover bg-center bg-no-repeat">
       <Helmet>
-        {/* Content Security Policy */}
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.google-analytics.com"
-        />
-        {/* X-Content-Type-Options */}
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        {/* Referrer Policy */}
-        <meta name="referrer" content="strict-origin-when-cross-origin" />
-        {/* Permissions Policy */}
-        <meta
-          httpEquiv="Permissions-Policy"
-          content="camera=(), microphone=(), geolocation=(), interest-cohort=()"
-        />
+        <title>Michał Kapusz - Licencjonowany Trener Tenisa Wrocław | Lekcje Tenisa</title>
+        <meta name="description" content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Trener z licencją PZT. Zajęcia indywidualne i grupowe dla dzieci i dorosłych." />
       </Helmet>
       {/* Overlay */}
       <div className="min-h-screen bg-gradient-to-br from-white/95 via-blue-50/95 to-white/95">
