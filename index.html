@@ -209,6 +209,42 @@
         "priceRange": "$$"
       }
     </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Michał Kapusz - Trener Tenisa",
+        "url": "https://kapusz-tenis.pl/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://kapusz-tenis.pl/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "SiteNavigationElement",
+            "position": 1,
+            "name": "Cennik",
+            "description": "Cennik zajęć tenisowych dla dorosłych i dzieci",
+            "url": "https://kapusz-tenis.pl/cennik"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "position": 2,
+            "name": "Blog",
+            "description": "Blog o tenisie i treningach",
+            "url": "https://kapusz-tenis.pl/blog"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

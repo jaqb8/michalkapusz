@@ -11,6 +11,7 @@ import {
   Facebook,
 } from "lucide-react";
 import { AppRouter, ScrollToTop } from "./router";
+import { BreadcrumbNavigation } from "./components/BreadcrumbNavigation";
 
 // Import Poppins font
 import "@fontsource/poppins/300.css";
@@ -122,6 +123,9 @@ function App() {
             </div>
           </div>
         </nav>
+
+        {/* Breadcrumbs */}
+        <BreadcrumbNavigation />
 
         {/* Routes */}
         <AppRouter />
