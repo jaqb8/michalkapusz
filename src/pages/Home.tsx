@@ -27,14 +27,22 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Michał Kapusz - Licencjonowany Trener Tenisa Wrocław | Lekcje Tenisa</title>
+        <title>
+          Michał Kapusz - Licencjonowany Trener Tenisa Wrocław | Lekcje Tenisa
+        </title>
         <meta
           name="description"
           content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Trener Michał Kapusz oferuje indywidualne i grupowe treningi tenisa dla dzieci i dorosłych. Wieloletnie doświadczenie i profesjonalne podejście."
         />
         <link rel="canonical" href="https://kapusz-tenis.pl" />
-        <meta property="og:title" content="Michał Kapusz - Licencjonowany Trener Tenisa Wrocław" />
-        <meta property="og:description" content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Indywidualne i grupowe treningi dla dzieci i dorosłych." />
+        <meta
+          property="og:title"
+          content="Michał Kapusz - Licencjonowany Trener Tenisa Wrocław"
+        />
+        <meta
+          property="og:description"
+          content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Indywidualne i grupowe treningi dla dzieci i dorosłych."
+        />
         <meta property="og:url" content="https://kapusz-tenis.pl" />
       </Helmet>
       {/* Hero Section */}
@@ -227,14 +235,14 @@ function Home() {
 
       {/* Testimonials */}
       <section className="py-20">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Opinie moich klientów</h2>
             <p className="text-gray-600">
               Zobacz, co mówią osoby, które już trenują ze mną
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col h-full">
               <div>
@@ -246,7 +254,11 @@ function Home() {
                   <Star className="h-5 w-5 fill-current" />
                 </div>
                 <p className="text-gray-600 mb-6">
-                  "Trening z Michałem to gwarancja ciągłego rozwoju. Jego profesjonalne podejście i szczegółowa analiza techniki sprawiają, że każde zajęcia są maksymalnie efektywne. Widać prawdziwą pasję do tenisa, którą skutecznie przekazuje swoim podopiecznym."
+                  "Trening z Michałem to gwarancja ciągłego rozwoju. Jego
+                  profesjonalne podejście i szczegółowa analiza techniki
+                  sprawiają, że każde zajęcia są maksymalnie efektywne. Widać
+                  prawdziwą pasję do tenisa, którą skutecznie przekazuje swoim
+                  podopiecznym."
                 </p>
               </div>
               <div className="flex items-center gap-4 mt-auto">
@@ -273,16 +285,59 @@ function Home() {
                   <Star className="h-5 w-5 fill-current" />
                 </div>
                 <p className="text-gray-600 mb-6">
-                  "Profesjonalne podejście i świetna atmosfera na treningach.
-                  Dzięki zajęciom z Michałem znacznie poprawiłem swoją technikę i
-                  pewność na korcie. Zdecydowanie polecam!"
+                  "Michał to nie tylko ekspert w swoim fachu, ale także
+                  cierpliwy mentor i motywator. Potrafi dostosować treningi do
+                  wieku i umiejętności, łącząc naukę z zabawą. Jego pasja,
+                  zaangażowanie i umiejętność budowania pewności siebie
+                  sprawiają, że młodzi zawodnicy rozwijają się sportowo i
+                  czerpią radość z gry. To prawdziwa inspiracja dla dzieci!"
                 </p>
               </div>
               <div className="flex items-center gap-4 mt-auto">
-                <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
+                <img
+                  src="/client2.webp"
+                  alt="Justyna Wójczyńska - zadowolony klient"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
                 <div>
-                  <p className="font-semibold">Piotr Nowak</p>
-                  <p className="text-sm text-gray-500">Trenuje od roku</p>
+                  <p className="font-semibold">Justyna Wojczyńska</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col h-full">
+              <div>
+                <div className="flex gap-1 mb-4 text-blue-600">
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                  <Star className="h-5 w-5 fill-current" />
+                </div>
+                <p className="text-gray-600 mb-6">
+                  "Michał jest szczegółowy, stara się pokazać, nauczyć oraz
+                  wytrenować każdy element gry, czy to serwisu, poruszania się
+                  czy uderzenia. Nie daje forów, ale dzięki temu na koniec
+                  treningu jest w człowieku poczucie satysfakcji. Każdy trening
+                  wnosi progress, wzrost formy, ale również pozostawia miejsce
+                  na analizę błędów i sposobu ich eliminacji. Swoją przygodę z
+                  tenisem rozpocząłem pod okiem Michała i dzisiaj po ponad 2
+                  latach mogę śmiało powiedzieć że było warto, dlatego z całego
+                  serca polecam!"
+                </p>
+              </div>
+              <div className="flex items-center gap-4 mt-auto">
+                <img
+                  src="/client3.webp"
+                  alt="Justyna Wójczyńska - zadowolony klient"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <p className="font-semibold">Jakub Moniak</p>
+                  <p className="text-sm text-gray-500">
+                    Trenuje od ponad 2 lat
+                  </p>
                 </div>
               </div>
             </div>
