@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     id: "3",
     title: "Profesjonalne lekcje tenisa we Wrocławiu - kompleksowy przewodnik",
     description: "Poznaj najlepsze miejsca do gry w tenisa we Wrocławiu, dowiedz się o profesjonalnych treningach i znajdź idealnego trenera tenisa dla siebie.",
-    date: "2024-03-25",
+    date: "2025-03-19",
     image: "/post-wroclaw-tennis.webp",
     content: `# Profesjonalne lekcje tenisa we Wrocławiu - kompleksowy przewodnik
 
@@ -30,15 +30,10 @@ Wrocław oferuje:
 
 ## Najlepsze miejsca do gry w tenisa we Wrocławiu
 
-### 1. Centra tenisowe
-- Centrum Tenisowe Wrocław
-- Tennis Club Wrocław
-- Akademia Tenisa Wrocław
-
-### 2. Korty miejskie
-- Park Południowy
-- Park Zachodni
-- Park Szczytnicki
+- Centrum Tenisowe Redeco
+- Olimpijski Club
+- Winner's Tennis Club
+- Centrum Tenisowe SPISKA - WCT Spartan
 
 ## Jak wybrać dobrego trenera tenisa we Wrocławiu?
 
@@ -84,7 +79,7 @@ Pamiętaj, że regularne treningi pod okiem profesjonalnego trenera to klucz do 
     id: "1",
     title: "Jak zacząć przygodę z tenisem?",
     description: "Praktyczny przewodnik dla początkujących graczy - od wyboru sprzętu po pierwsze kroki na korcie.",
-    date: "2024-03-20",
+    date: "2025-02-20",
     image: "/post-tennis.webp",
     content: `# Jak zacząć przygodę z tenisem?
 
@@ -124,7 +119,7 @@ Pamiętaj, że każdy profesjonalny tenisista zaczynał od podstaw. Najważniejs
     id: "2",
     title: "Technika serwisu w tenisie",
     description: "Poznaj tajniki prawidłowego serwisu - od podstawowych elementów po zaawansowane warianty.",
-    date: "2024-03-15",
+    date: "2025-01-15",
     image: "/post-serve.webp",
     content: `# Technika serwisu w tenisie
 
