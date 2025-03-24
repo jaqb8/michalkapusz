@@ -30,8 +30,13 @@ function App() {
   return (
     <div className="min-h-screen font-roboto bg-[url('/tennis-court.jpg')] bg-cover bg-center bg-no-repeat">
       <Helmet>
-        <title>Michał Kapusz - Licencjonowany Trener Tenisa Wrocław | Lekcje Tenisa</title>
-        <meta name="description" content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Trener z licencją PZT. Zajęcia indywidualne i grupowe dla dzieci i dorosłych." />
+        <title>
+          Michał Kapusz - Licencjonowany Trener Tenisa Wrocław | Lekcje Tenisa
+        </title>
+        <meta
+          name="description"
+          content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Trener z licencją PZT. Zajęcia indywidualne i grupowe dla dzieci i dorosłych."
+        />
       </Helmet>
       {/* Overlay */}
       <div className="min-h-screen bg-gradient-to-br from-white/95 via-blue-50/95 to-white/95">
@@ -93,8 +98,9 @@ function App() {
           {/* Mobile Navigation */}
           <div
             id="mobile-menu"
-            className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"
-              } bg-white/80 backdrop-blur-sm border-t border-gray-200`}
+            className={`md:hidden ${
+              isMobileMenuOpen ? "block" : "hidden"
+            } bg-white/80 backdrop-blur-sm border-t border-gray-200`}
             role="navigation"
             aria-label="Menu mobilne"
           >
@@ -218,11 +224,11 @@ function App() {
                   </li>
                   <li>
                     <a
-                      href="mailto:michalkapusz5@gmail.com"
+                      href="mailto:kapusztenis@gmail.com"
                       className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
                     >
                       <Mail className="h-5 w-5 text-blue-400" />
-                      <span>michalkapusz5@gmail.com</span>
+                      <span>kapusztenis@gmail.com</span>
                     </a>
                   </li>
                 </ul>

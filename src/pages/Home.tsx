@@ -417,7 +417,7 @@ function Home() {
                     </div>
                     <div>
                       <h4 className="font-semibold">Email</h4>
-                      <p className="text-gray-600">michalkapusz5@gmail.com</p>
+                      <p className="text-gray-600">kapusztenis@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -457,7 +457,7 @@ function Home() {
                     Zadzwoń teraz
                   </a>
                   <a
-                    href="mailto:michalkapusz5@gmail.com"
+                    href="mailto:kapusztenis@gmail.com"
                     className="flex items-center justify-center gap-2 bg-gray-100 text-gray-700 px-6 py-4 rounded-lg font-semibold hover:bg-gray-200 transition-colors w-full"
                   >
                     <Mail className="h-5 w-5" />
