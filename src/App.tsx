@@ -137,7 +137,7 @@ function App() {
         <AppRouter />
 
         {/* Footer */}
-        <footer className="bg-gray-900 text-white py-16">
+        <footer className="bg-gray-900 text-white pt-12 pb-4">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
               {/* Left Column - About */}
@@ -233,6 +233,17 @@ function App() {
                   </li>
                 </ul>
               </div>
+            </div>
+            <div className="text-base mt-12 pt-4 border-t border-gray-800 text-center text-gray-500">
+              powered by{" "}
+              <a
+                href="https://aniszewski.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 font-bold hover:text-blue-500 transition-colors"
+              >
+                Jakub Aniszewski IT Solutions
+              </a>
             </div>
           </div>
         </footer>
