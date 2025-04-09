@@ -301,7 +301,7 @@ function Home() {
                 />
                 <div>
                   <p className="font-semibold">Justyna Wojczyńska</p>
-                  <p className="text-sm text-gray-500">Trenuje od roku</p>
+                  <p className="text-sm text-gray-500">Syn trenuje od roku</p>
                 </div>
               </div>
             </div>
