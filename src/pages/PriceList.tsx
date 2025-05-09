@@ -99,22 +99,6 @@ function PriceList() {
             </div>
           </div> */}
 
-          {/* Pakiet 5 sesji */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white transition-all border border-blue-200 hover:border-blue-200 hover:shadow-lg">
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-2">Pakiet 5 treningów</h3>
-              <p className="text-gray-600 mb-1">5 sesji treningowych</p>
-              <p className="text-gray-600">Czas trwania: 1 godzina</p>
-            </div>
-            <div className="flex flex-col items-center md:flex-row md:items-center gap-4 md:gap-8">
-              <div className="text-center md:text-right w-full md:w-auto">
-                <p className="text-3xl font-bold">450 zł</p>
-                <p className="text-sm text-gray-500">5 sesji</p>
-                <p className="text-sm text-gray-500">+ cena kortu</p>
-              </div>
-            </div>
-          </div>
-
           {/* Pakiet 10 sesji */}
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white transition-all border border-blue-200 hover:border-blue-200 hover:shadow-lg">
             <div className="flex-1 text-center md:text-left">
@@ -124,7 +108,7 @@ function PriceList() {
             </div>
             <div className="flex flex-col items-center md:flex-row md:items-center gap-4 md:gap-8">
               <div className="text-center md:text-right w-full md:w-auto">
-                <p className="text-3xl font-bold">800 zł</p>
+                <p className="text-3xl font-bold">900 zł</p>
                 <p className="text-sm text-gray-500">10 sesji</p>
                 <p className="text-sm text-gray-500">+ cena kortu</p>
               </div>
@@ -156,8 +140,9 @@ function PriceList() {
             </div>
             <div className="flex flex-col items-center md:flex-row md:items-center gap-4 md:gap-8">
               <div className="text-center md:text-right w-full md:w-auto">
-                <p className="text-3xl font-bold">300 zł</p>
-                <p className="text-sm text-gray-500">miesięcznie</p>
+                <p className="text-3xl font-bold">50 zł</p>
+                <p className="text-sm text-gray-500">za osobę</p>
+                <p className="text-sm text-gray-500">+ 1/4 ceny kortu</p>
               </div>
             </div>
           </div>
