@@ -582,7 +582,7 @@ function Home() {
                 </a>
                 <a
                   href="mailto:kapusztenis@gmail.com"
-                  className="btn-outline flex items-center justify-center gap-3 w-full"
+                  className="flex items-center justify-center gap-3 bg-white/10 text-white px-6 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all hover:scale-[1.02] w-full backdrop-blur-sm"
                 >
                   <Mail className="h-5 w-5" />
                   Wyślij email
