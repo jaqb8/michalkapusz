@@ -177,7 +177,7 @@ function PriceList() {
               href="tel:+48605242945"
               className="btn-primary inline-flex items-center gap-2"
             >
-              Zadzwoń teraz
+              <span>Zadzwoń teraz</span>
             </a>
           </div>
         </div>
