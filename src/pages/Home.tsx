@@ -138,18 +138,18 @@ function Home() {
               </div>
 
               {/* Quick Stats */}
-              <div className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/10">
-                <div>
-                  <p className="text-4xl font-display text-electric-500">8+</p>
-                  <p className="text-white/50 text-sm">Lat doświadczenia</p>
+              <div className="grid grid-cols-3 gap-4 md:gap-8 mt-6 pt-6 border-t border-white/10">
+                <div className="text-center md:text-left">
+                  <p className="text-2xl md:text-4xl font-display text-electric-500">8+</p>
+                  <p className="text-white/50 text-xs md:text-sm">Lat doświadczenia</p>
                 </div>
-                <div>
-                  <p className="text-4xl font-display text-electric-500">5000+</p>
-                  <p className="text-white/50 text-sm">Treningów</p>
+                <div className="text-center md:text-left">
+                  <p className="text-2xl md:text-4xl font-display text-electric-500">5000+</p>
+                  <p className="text-white/50 text-xs md:text-sm">Treningów</p>
                 </div>
-                <div>
-                  <p className="text-4xl font-display text-electric-500">100%</p>
-                  <p className="text-white/50 text-sm">Zadowolonych klientów</p>
+                <div className="text-center md:text-left">
+                  <p className="text-2xl md:text-4xl font-display text-electric-500">100%</p>
+                  <p className="text-white/50 text-xs md:text-sm">Zadowolonych</p>
                 </div>
               </div>
             </div>
@@ -185,11 +185,11 @@ function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-white/40 text-sm">Przewiń w dół</span>
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
           <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
             <div className="w-1.5 h-3 bg-electric-500 rounded-full animate-bounce" />
           </div>
+          <span className="text-white/40 text-sm">Przewiń w dół</span>
         </div>
       </section>
 
