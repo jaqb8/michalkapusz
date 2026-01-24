@@ -370,7 +370,7 @@ function App() {
             <p className="text-sm text-white/40">
               powered by{" "}
               <a
-                href="https://aniszewski.netlify.app"
+                href="https://aniszewski.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-electric-500 font-semibold hover:text-electric-400 transition-colors"
