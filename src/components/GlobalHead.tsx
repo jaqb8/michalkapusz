@@ -58,7 +58,7 @@ const personSchema = {
   },
   url: "https://kapusz-tenis.pl",
   telephone: "+48605242945",
-  email: "michalkapusz5@gmail.com",
+  email: "kapusztenis@gmail.com",
   image: "https://kapusz-tenis.pl/logo.webp",
   sameAs: [
     "https://www.facebook.com/michal.kapusz/",
@@ -162,6 +162,7 @@ const websiteSchema = {
   "@type": "WebSite",
   name: "Michał Kapusz - Trener Tenisa",
   url: "https://kapusz-tenis.pl/",
+  inLanguage: "pl-PL",
 };
 
 const navigationSchema = {

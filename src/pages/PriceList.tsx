@@ -42,6 +42,7 @@ function PriceList() {
           content="Sprawdź cennik lekcji tenisa we Wrocławiu. Oferujemy treningi indywidualne i grupowe w atrakcyjnych cenach."
         />
         <meta property="og:url" content="https://kapusz-tenis.pl/cennik" />
+        <meta property="og:type" content="website" />
         <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
       </Helmet>
 

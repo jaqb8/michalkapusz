@@ -56,6 +56,7 @@ function BlogPost({ post }: BlogPostProps) {
         />
         <meta property="og:description" content={post.description} />
         <meta property="og:url" content={postUrl} />
+        <meta property="og:type" content="article" />
         <meta property="og:image" content={imageUrl} />
         <script type="application/ld+json">
           {JSON.stringify(blogPostingSchema)}

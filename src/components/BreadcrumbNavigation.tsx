@@ -1,9 +1,15 @@
 import { useLocation } from 'react-router-dom';
+import { blogPosts } from '../content/blog/posts';
 
 interface BreadcrumbItem {
     name: string;
     url: string;
 }
+
+const getBlogPostTitle = (slug: string): string => {
+    const post = blogPosts.find(p => p.slug === slug);
+    return post?.title || slug;
+};
 
 export const BreadcrumbNavigation = () => {
     const location = useLocation();
@@ -14,11 +20,21 @@ export const BreadcrumbNavigation = () => {
     ];
 
     let currentPath = '';
-    pathSegments.forEach(segment => {
+    pathSegments.forEach((segment, index) => {
         currentPath += `/${segment}`;
-        const name = segment === 'cennik' ? 'Cennik' :
-            segment === 'blog' ? 'Blog' :
-                segment;
+        
+        let name: string;
+        if (segment === 'cennik') {
+            name = 'Cennik';
+        } else if (segment === 'blog') {
+            name = 'Blog';
+        } else if (pathSegments[index - 1] === 'blog') {
+            // This is a blog post slug - get the actual title
+            name = getBlogPostTitle(segment);
+        } else {
+            name = segment;
+        }
+        
         breadcrumbs.push({ name, url: currentPath });
     });
 
