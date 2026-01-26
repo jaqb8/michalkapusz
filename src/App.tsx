@@ -366,7 +366,7 @@ function App() {
           {/* Bottom bar */}
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/40 text-sm">
-              © {new Date().getFullYear()} Michał Kapusz. Wszystkie prawa
+              © 2026 Michał Kapusz. Wszystkie prawa
               zastrzeżone.
             </p>
             <p className="text-sm text-white/40">
