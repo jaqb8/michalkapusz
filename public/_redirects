@@ -1,4 +1,4 @@
 # Netlify redirects for pre-rendered SSG site
-# Static files are served automatically
-# Only fallback for non-prerendered routes (404)
-/*    /index.html   200
+# Static files are served first automatically
+# Fallback to index.html only for truly missing routes (shows 404 page)
+/*    /index.html   404
