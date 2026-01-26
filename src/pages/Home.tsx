@@ -28,7 +28,7 @@ function Home() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
 
     document.querySelectorAll(".reveal").forEach((el) => {
@@ -85,13 +85,16 @@ function Home() {
 
         {/* Decorative Elements */}
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-electric-500/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-electric-500/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
-        
+        <div
+          className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-electric-500/5 rounded-full blur-3xl animate-pulse-slow"
+          style={{ animationDelay: "1s" }}
+        />
+
         {/* Tennis ball decoration */}
         <div className="absolute top-32 right-20 hidden lg:block animate-bounce-soft">
-          <img 
-            src="/tennis-ball.svg" 
-            alt="" 
+          <img
+            src="/tennis-ball.svg"
+            alt=""
             className="w-14 h-14 drop-shadow-[0_0_15px_rgba(185,214,19,0.5)]"
             aria-hidden="true"
           />
@@ -100,9 +103,7 @@ function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
-            <div className="stagger-children">
-              
-
+            <div className="stagger-children mt-12 md:mt-0">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-6 leading-none">
                 MICHAŁ
                 <br />
@@ -110,9 +111,17 @@ function Home() {
               </h1>
 
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-electric-500 text-sm font-medium mb-6">
-                <img src="/pzt.png" alt="Polski Związek Tenisowy" className="h-8 w-auto" />
+                <img
+                  src="/pzt.png"
+                  alt="Polski Związek Tenisowy"
+                  className="h-8 w-auto"
+                />
                 <span className="text-white/40">|</span>
-                <img src="/itf.jpg" alt="ITF Coaching" className="h-8 w-auto rounded" />
+                <img
+                  src="/itf.jpg"
+                  alt="ITF Coaching"
+                  className="h-8 w-auto rounded"
+                />
                 <span>Licencjonowany Trener</span>
               </div>
 
@@ -138,18 +147,28 @@ function Home() {
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-4 md:gap-8 mt-6 pt-6 border-t border-white/10">
+              <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 md:mt-6 pt-6 border-t border-white/10">
                 <div className="text-center md:text-left">
-                  <p className="text-2xl md:text-4xl font-display text-electric-500">8+</p>
-                  <p className="text-white/50 text-xs md:text-sm">Lat doświadczenia</p>
+                  <p className="text-2xl md:text-4xl font-display text-electric-500">
+                    8+
+                  </p>
+                  <p className="text-white/50 text-xs md:text-sm">
+                    Lat doświadczenia
+                  </p>
                 </div>
                 <div className="text-center md:text-left">
-                  <p className="text-2xl md:text-4xl font-display text-electric-500">5000+</p>
+                  <p className="text-2xl md:text-4xl font-display text-electric-500">
+                    5000+
+                  </p>
                   <p className="text-white/50 text-xs md:text-sm">Treningów</p>
                 </div>
                 <div className="text-center md:text-left">
-                  <p className="text-2xl md:text-4xl font-display text-electric-500">100%</p>
-                  <p className="text-white/50 text-xs md:text-sm">Zadowolonych</p>
+                  <p className="text-2xl md:text-4xl font-display text-electric-500">
+                    100%
+                  </p>
+                  <p className="text-white/50 text-xs md:text-sm">
+                    Zadowolonych
+                  </p>
                 </div>
               </div>
             </div>
@@ -159,7 +178,7 @@ function Home() {
               <div className="relative">
                 {/* Glow effect behind image */}
                 <div className="absolute inset-0 bg-electric-500/20 blur-3xl rounded-full scale-75" />
-                
+
                 {/* Main image */}
                 <img
                   src="/coach2.webp"
@@ -185,7 +204,7 @@ function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+        <div className="hidden absolute bottom-4 left-1/2 -translate-x-1/2 md:flex flex-col items-center gap-1">
           <div className="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
             <div className="w-1.5 h-3 bg-electric-500 rounded-full animate-bounce" />
           </div>
@@ -207,7 +226,7 @@ function Home() {
                 {/* Decorative frame */}
                 <div className="absolute -inset-4 border-2 border-electric-500/20 rounded-2xl" />
                 <div className="absolute -inset-8 border border-electric-500/10 rounded-3xl" />
-                
+
                 <img
                   src="/coach1.webp"
                   alt="Trener Michał Kapusz podczas treningu"
@@ -224,27 +243,32 @@ function Home() {
               </div>
 
               <h2 className="text-5xl md:text-6xl font-display text-white mb-8">
-                PASJA DO TENISA<br />
+                PASJA DO TENISA
+                <br />
                 <span className="text-gradient">OD LAT</span>
               </h2>
 
               <p className="text-lg text-white/70 mb-8 leading-relaxed">
                 Jestem pasjonatem tenisa z wieloletnim doświadczeniem w
-                nauczaniu tej wspaniałej dyscypliny. Specjalizuję się w
-                treningu zarówno początkujących, jak i zaawansowanych graczy,
-                dostosowując program szkolenia do indywidualnych potrzeb
-                każdego ucznia.
+                nauczaniu tej wspaniałej dyscypliny. Specjalizuję się w treningu
+                zarówno początkujących, jak i zaawansowanych graczy,
+                dostosowując program szkolenia do indywidualnych potrzeb każdego
+                ucznia.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="glass rounded-xl p-6 card-hover">
                   <Trophy className="text-electric-500 h-10 w-10 mb-4" />
-                  <h3 className="text-3xl font-display text-white mb-1">8+ lat</h3>
+                  <h3 className="text-3xl font-display text-white mb-1">
+                    8+ lat
+                  </h3>
                   <p className="text-white/60">Doświadczenia</p>
                 </div>
                 <div className="glass rounded-xl p-6 card-hover">
                   <Calendar className="text-electric-500 h-10 w-10 mb-4" />
-                  <h3 className="text-3xl font-display text-white mb-1">5000+</h3>
+                  <h3 className="text-3xl font-display text-white mb-1">
+                    5000+
+                  </h3>
                   <p className="text-white/60">Treningów</p>
                 </div>
               </div>
@@ -279,12 +303,14 @@ function Home() {
             <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden">
               {/* Hover glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-xl bg-electric-500/10 flex items-center justify-center mb-6 group-hover:bg-electric-500/20 transition-colors">
                   <Trophy className="h-8 w-8 text-electric-500" />
                 </div>
-                <h3 className="text-2xl font-display text-white mb-4">TRENING INDYWIDUALNY</h3>
+                <h3 className="text-2xl font-display text-white mb-4">
+                  TRENING INDYWIDUALNY
+                </h3>
                 <ul className="space-y-3 text-white/60">
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-electric-500" />
@@ -308,15 +334,17 @@ function Home() {
               <div className="absolute top-0 right-0 bg-electric-500 text-navy-950 text-xs font-bold px-4 py-1 rounded-bl-xl">
                 POPULARNE
               </div>
-              
+
               {/* Hover glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-xl bg-electric-500/20 flex items-center justify-center mb-6 group-hover:bg-electric-500/30 transition-colors">
                   <Users className="h-8 w-8 text-electric-500" />
                 </div>
-                <h3 className="text-2xl font-display text-white mb-4">TRENING GRUPOWY</h3>
+                <h3 className="text-2xl font-display text-white mb-4">
+                  TRENING GRUPOWY
+                </h3>
                 <ul className="space-y-3 text-white/60">
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-electric-500" />
@@ -338,12 +366,14 @@ function Home() {
             <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden">
               {/* Hover glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
+
               <div className="relative z-10">
                 <div className="w-16 h-16 rounded-xl bg-electric-500/10 flex items-center justify-center mb-6 group-hover:bg-electric-500/20 transition-colors">
                   <Baby className="h-8 w-8 text-electric-500" />
                 </div>
-                <h3 className="text-2xl font-display text-white mb-4">DLA DZIECI</h3>
+                <h3 className="text-2xl font-display text-white mb-4">
+                  DLA DZIECI
+                </h3>
                 <ul className="space-y-3 text-white/60">
                   <li className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-electric-500" />
@@ -387,7 +417,10 @@ function Home() {
             <div className="reveal glass rounded-2xl p-8 card-hover">
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-electric-500 fill-current" />
+                  <Star
+                    key={i}
+                    className="h-5 w-5 text-electric-500 fill-current"
+                  />
                 ))}
               </div>
               <p className="text-white/70 mb-8 leading-relaxed">
@@ -412,13 +445,16 @@ function Home() {
             <div className="reveal glass rounded-2xl p-8 card-hover">
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-electric-500 fill-current" />
+                  <Star
+                    key={i}
+                    className="h-5 w-5 text-electric-500 fill-current"
+                  />
                 ))}
               </div>
               <p className="text-white/70 mb-8 leading-relaxed">
-                "Michał to nie tylko ekspert w swoim fachu, ale także
-                cierpliwy mentor i motywator. Potrafi dostosować treningi do
-                wieku i umiejętności, łącząc naukę z zabawą."
+                "Michał to nie tylko ekspert w swoim fachu, ale także cierpliwy
+                mentor i motywator. Potrafi dostosować treningi do wieku i
+                umiejętności, łącząc naukę z zabawą."
               </p>
               <div className="flex items-center gap-4">
                 <img
@@ -428,7 +464,9 @@ function Home() {
                 />
                 <div>
                   <p className="font-semibold text-white">Justyna Wojczyńska</p>
-                  <p className="text-sm text-electric-500">Syn trenuje od roku</p>
+                  <p className="text-sm text-electric-500">
+                    Syn trenuje od roku
+                  </p>
                 </div>
               </div>
             </div>
@@ -437,7 +475,10 @@ function Home() {
             <div className="reveal glass rounded-2xl p-8 card-hover">
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-electric-500 fill-current" />
+                  <Star
+                    key={i}
+                    className="h-5 w-5 text-electric-500 fill-current"
+                  />
                 ))}
               </div>
               <p className="text-white/70 mb-8 leading-relaxed">
@@ -453,7 +494,9 @@ function Home() {
                 />
                 <div>
                   <p className="font-semibold text-white">Jakub Moniak</p>
-                  <p className="text-sm text-electric-500">Trenuje od ponad 2 lat</p>
+                  <p className="text-sm text-electric-500">
+                    Trenuje od ponad 2 lat
+                  </p>
                 </div>
               </div>
             </div>
@@ -498,7 +541,9 @@ function Home() {
                   </div>
                   <div>
                     <p className="text-white/50 text-sm">Telefon</p>
-                    <p className="text-white font-semibold text-lg">+48 605 242 945</p>
+                    <p className="text-white font-semibold text-lg">
+                      +48 605 242 945
+                    </p>
                   </div>
                 </a>
 
@@ -513,7 +558,9 @@ function Home() {
                   </div>
                   <div>
                     <p className="text-white/50 text-sm">Instagram</p>
-                    <p className="text-white font-semibold text-lg">@michal_kapusz</p>
+                    <p className="text-white font-semibold text-lg">
+                      @michal_kapusz
+                    </p>
                   </div>
                 </a>
 
@@ -523,7 +570,9 @@ function Home() {
                   </div>
                   <div>
                     <p className="text-white/50 text-sm">Lokalizacja</p>
-                    <p className="text-white font-semibold">Lotnicza 72, 54-155 Wrocław</p>
+                    <p className="text-white font-semibold">
+                      Lotnicza 72, 54-155 Wrocław
+                    </p>
                     <p className="text-white/50 text-sm mt-1">
                       Możliwość treningów na innych kortach
                     </p>
@@ -539,7 +588,9 @@ function Home() {
                   </div>
                   <div>
                     <p className="text-white/50 text-sm">Email</p>
-                    <p className="text-white font-semibold text-lg">kapusztenis@gmail.com</p>
+                    <p className="text-white font-semibold text-lg">
+                      kapusztenis@gmail.com
+                    </p>
                   </div>
                 </a>
               </div>
