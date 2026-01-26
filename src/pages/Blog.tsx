@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "../lib/helmet";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../content/blog/posts";
 import { BookOpen, ArrowRight, Calendar, User } from "lucide-react";
@@ -44,6 +44,7 @@ function Blog() {
           content="Blog o tenisie - porady, wskazówki i ciekawostki dla graczy na każdym poziomie zaawansowania."
         />
         <meta property="og:url" content="https://kapusz-tenis.pl/blog" />
+        <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
       </Helmet>
 
       <section className="py-24 min-h-screen">

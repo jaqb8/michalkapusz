@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "./lib/helmet";
 import {
   Mail,
   MapPin,
@@ -12,6 +12,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { AppRouter, ScrollToTop } from "./router";
+import { GlobalHead } from "./components/GlobalHead.tsx";
 import { BreadcrumbNavigation } from "./components/BreadcrumbNavigation";
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
 
   return (
     <div className="min-h-screen font-body bg-animated-gradient noise-overlay">
+      <GlobalHead />
       <Helmet>
         <title>
           Michał Kapusz - Licencjonowany Trener Tenisa Wrocław | Lekcje Tenisa

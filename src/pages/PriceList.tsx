@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "../lib/helmet";
 import { Check, Zap, Users, User, CreditCard } from "lucide-react";
 
 function PriceList() {
@@ -42,6 +42,7 @@ function PriceList() {
           content="Sprawdź cennik lekcji tenisa we Wrocławiu. Oferujemy treningi indywidualne i grupowe w atrakcyjnych cenach."
         />
         <meta property="og:url" content="https://kapusz-tenis.pl/cennik" />
+        <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
       </Helmet>
 
       <section className="py-24 min-h-screen">

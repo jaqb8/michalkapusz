@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "../lib/helmet";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { BlogPost as BlogPostType } from "../content/blog/posts";
@@ -14,6 +14,30 @@ function BlogPost({ post }: BlogPostProps) {
     month: "long",
     day: "numeric",
   });
+  const imageUrl = post.image
+    ? post.image.startsWith("http")
+      ? post.image
+      : `https://kapusz-tenis.pl${post.image}`
+    : "https://kapusz-tenis.pl/logo.webp";
+  const postUrl = `https://kapusz-tenis.pl/blog/${post.slug}`;
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    image: [imageUrl],
+    mainEntityOfPage: postUrl,
+    publisher: {
+      "@type": "Person",
+      name: "Michał Kapusz",
+    },
+  };
 
   // Remove the first heading (title) from the content
   const contentWithoutTitle = post.content.replace(/^#\s+[^\n]+\n/, "");
@@ -25,19 +49,17 @@ function BlogPost({ post }: BlogPostProps) {
           {post.title} - Blog | Lekcje Tenisa z Michałem Kapuszem
         </title>
         <meta name="description" content={post.description} />
-        <link
-          rel="canonical"
-          href={`https://kapusz-tenis.pl/blog/${post.slug}`}
-        />
+        <link rel="canonical" href={postUrl} />
         <meta
           property="og:title"
           content={`${post.title} - Blog | Lekcje Tenisa z Michałem Kapuszem`}
         />
         <meta property="og:description" content={post.description} />
-        <meta
-          property="og:url"
-          content={`https://kapusz-tenis.pl/blog/${post.slug}`}
-        />
+        <meta property="og:url" content={postUrl} />
+        <meta property="og:image" content={imageUrl} />
+        <script type="application/ld+json">
+          {JSON.stringify(blogPostingSchema)}
+        </script>
       </Helmet>
 
       <section className="py-24 min-h-screen">

@@ -1,11 +1,17 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { ssr } from 'vite-plugin-ssr/plugin';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(() => ({
   plugins: [
     react(),
+    ssr({ 
+      prerender: {
+        parallel: 4
+      }
+    }),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['logo.webp', 'robots.txt', 'sitemap.xml'],
@@ -32,14 +38,10 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react']
   },
+  ssr: {
+    noExternal: ['react-helmet-async']
+  },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom']
-        },
-      },
-    },
     minify: 'terser',
     terserOptions: {
       compress: {
@@ -48,4 +50,4 @@ export default defineConfig({
       }
     }
   }
-});
+}));

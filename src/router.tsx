@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import PriceList from "./pages/PriceList";
 import Blog from "./pages/Blog";
 import BlogPost from "./components/BlogPost";
+import NotFound from "./pages/NotFound";
 import { blogPosts } from "./content/blog/posts";
 
 export function AppRouter() {
@@ -15,11 +16,14 @@ export function AppRouter() {
             <Route
                 path="/blog/:slug"
                 element={
-                    <BlogPost
-                        post={blogPosts.find((post) => post.slug === useLocation().pathname.split("/").pop())!}
-                    />
+                    (() => {
+                        const slug = useLocation().pathname.split("/").pop();
+                        const post = blogPosts.find((entry) => entry.slug === slug);
+                        return post ? <BlogPost post={post} /> : <NotFound />;
+                    })()
                 }
             />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 }

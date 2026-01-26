@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "../lib/helmet";
 import {
   Calendar,
   Mail,
@@ -68,6 +68,7 @@ function Home() {
           content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Indywidualne i grupowe treningi dla dzieci i dorosłych."
         />
         <meta property="og:url" content="https://kapusz-tenis.pl" />
+        <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
       </Helmet>
 
       {/* Hero Section */}
