@@ -71,7 +71,7 @@ function Home() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+      <section className="relative min-h-[100svh] md:min-h-screen flex items-center overflow-hidden pt-20">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img
@@ -103,14 +103,14 @@ function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
-            <div className="stagger-children mt-12 md:mt-0">
+            <div className="stagger-children mt-12 md:mt-0 flex flex-col min-h-[calc(100svh-5rem)] md:min-h-0">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-6 leading-none">
                 MICHAŁ
                 <br />
                 <span className="text-gradient">KAPUSZ</span>
               </h1>
 
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full glass text-electric-500 text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-3 px-4 py-2 w-fit rounded-full glass text-electric-500 text-sm font-medium mb-6 ">
                 <img
                   src="/pzt.png"
                   alt="Polski Związek Tenisowy"
@@ -147,7 +147,7 @@ function Home() {
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 md:mt-6 pt-6 border-t border-white/10">
+              <div className="grid grid-cols-3 gap-4 md:gap-8 mt-auto md:mt-6 pt-6 pb-14 border-t border-white/10">
                 <div className="text-center md:text-left">
                   <p className="text-2xl md:text-4xl font-display text-electric-500">
                     8+
