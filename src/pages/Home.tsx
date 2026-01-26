@@ -103,7 +103,7 @@ function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
-            <div className="stagger-children mt-12 md:mt-0 flex flex-col min-h-[calc(100svh-5rem)] md:min-h-0">
+            <div className="stagger-children mt-12 md:mt-0 flex flex-col gap-4 md:gap-0 min-h-[calc(100svh-5rem)] md:min-h-0">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-display text-white mb-6 leading-none">
                 MICHAŁ
                 <br />
