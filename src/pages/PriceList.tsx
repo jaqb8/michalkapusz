@@ -1,29 +1,28 @@
-import { Helmet } from "react-helmet-async";
-
-const shimmerAnimation = `
-  @keyframes pulse {
-    0% {
-      border-color: rgb(191, 219, 254);
-    }
-    50% {
-      border-color: rgb(59, 130, 246);
-    }
-    100% {
-      border-color: rgb(191, 219, 254);
-    }
-  }
-`;
+import { useEffect, useRef } from "react";
+import { Helmet } from "../lib/helmet";
+import { Check, Zap, Users, User, CreditCard } from "lucide-react";
 
 function PriceList() {
-  const getTwoWeeksFromNow = () => {
-    const date = new Date();
-    date.setDate(date.getDate() + 14);
-    return date.toLocaleDateString("pl-PL", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => {
+      observerRef.current?.observe(el);
     });
-  };
+
+    return () => observerRef.current?.disconnect();
+  }, []);
 
   return (
     <>
@@ -43,111 +42,148 @@ function PriceList() {
           content="Sprawdź cennik lekcji tenisa we Wrocławiu. Oferujemy treningi indywidualne i grupowe w atrakcyjnych cenach."
         />
         <meta property="og:url" content="https://kapusz-tenis.pl/cennik" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
       </Helmet>
-      <style>{shimmerAnimation}</style>
-      <div className="container mx-auto px-4 py-20">
-        <h1 className="text-6xl font-bold mb-16 tracking-tight text-center">
-          CENNIK
-        </h1>
 
-        <div className="mb-12 text-center text-gray-600">
-          <p className="mb-2">Możliwość płatności gotówką lub kartą.</p>
-          <p>
-            Z kartą <span className="font-semibold">Multisport</span> 15 zł
-            mniej od każdego treningu.
-          </p>
+      <section className="py-24 min-h-screen">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <div className="text-center mb-16 reveal">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-electric-500 text-sm font-medium mb-6">
+              <CreditCard className="h-4 w-4" />
+              <span>Cennik</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-display text-white mb-6">
+              CENNIK <span className="text-gradient">TRENINGÓW</span>
+            </h1>
+            <div className="flex flex-wrap justify-center gap-4 text-white/60">
+              <span className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-electric-500" />
+                Płatność gotówką lub kartą
+              </span>
+              <span className="flex items-center gap-2">
+                <Check className="h-4 w-4 text-electric-500" />
+                Multisport: 15 zł rabatu
+              </span>
+            </div>
+          </div>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Individual Training */}
+            <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-xl bg-electric-500/10 flex items-center justify-center mb-6 group-hover:bg-electric-500/20 transition-colors">
+                  <User className="h-7 w-7 text-electric-500" />
+                </div>
+                
+                <h3 className="text-2xl font-display text-white mb-2">
+                  TRENING INDYWIDUALNY
+                </h3>
+                <p className="text-white/50 mb-6">1 sesja treningowa • 1 godzina</p>
+                
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-5xl font-display text-electric-500">100</span>
+                  <span className="text-white/60">zł / sesja</span>
+                </div>
+                
+                <p className="text-white/40 text-sm">+ cena kortu</p>
+              </div>
+            </div>
+
+            {/* Package 10 */}
+            <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden border border-electric-500/30">
+              {/* Popular badge */}
+              <div className="absolute top-0 right-0 bg-electric-500 text-navy-950 text-xs font-bold px-4 py-1 rounded-bl-xl">
+                OSZCZĘDZASZ 100 zł
+              </div>
+              
+              <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-xl bg-electric-500/20 flex items-center justify-center mb-6 group-hover:bg-electric-500/30 transition-colors">
+                  <Zap className="h-7 w-7 text-electric-500" />
+                </div>
+                
+                <h3 className="text-2xl font-display text-white mb-2">
+                  PAKIET 10 TRENINGÓW
+                </h3>
+                <p className="text-white/50 mb-6">10 sesji treningowych • 1 godzina</p>
+                
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="text-5xl font-display text-electric-500">900</span>
+                  <span className="text-white/60">zł / pakiet</span>
+                </div>
+                <p className="text-electric-400 text-sm mb-4">90 zł za sesję</p>
+                
+                <p className="text-white/40 text-sm">+ cena kortu</p>
+              </div>
+            </div>
+
+            {/* Duo Training */}
+            <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-xl bg-electric-500/10 flex items-center justify-center mb-6 group-hover:bg-electric-500/20 transition-colors">
+                  <Users className="h-7 w-7 text-electric-500" />
+                </div>
+                
+                <h3 className="text-2xl font-display text-white mb-2">
+                  TRENING DWUOSOBOWY
+                </h3>
+                <p className="text-white/50 mb-6">Grupa 2-osobowa • 1 godzina</p>
+                
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-5xl font-display text-electric-500">60</span>
+                  <span className="text-white/60">zł / osoba</span>
+                </div>
+                
+                <p className="text-white/40 text-sm">+ 1/2 ceny kortu</p>
+              </div>
+            </div>
+
+            {/* Group Training */}
+            <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-xl bg-electric-500/10 flex items-center justify-center mb-6 group-hover:bg-electric-500/20 transition-colors">
+                  <Users className="h-7 w-7 text-electric-500" />
+                </div>
+                
+                <h3 className="text-2xl font-display text-white mb-2">
+                  TRENING GRUPOWY
+                </h3>
+                <p className="text-white/50 mb-6">Grupa 4-osobowa • 1 godzina</p>
+                
+                <div className="flex items-baseline gap-2 mb-6">
+                  <span className="text-5xl font-display text-electric-500">50</span>
+                  <span className="text-white/60">zł / osoba</span>
+                </div>
+                
+                <p className="text-white/40 text-sm">+ 1/4 ceny kortu</p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="reveal text-center mt-16">
+            <p className="text-white/60 mb-6">
+              Masz pytania? Skontaktuj się ze mną!
+            </p>
+            <a
+              href="tel:+48605242945"
+              className="btn-primary inline-flex items-center gap-2"
+            >
+              <span>Zadzwoń teraz</span>
+            </a>
+          </div>
         </div>
-
-        <div className="space-y-6 max-w-5xl mx-auto">
-          {/* Pojedyncza sesja */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white transition-all border border-blue-200 hover:border-blue-200 hover:shadow-lg">
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-2">Trening indywidualny</h3>
-              <p className="text-gray-600 mb-1">1 sesja treningowa</p>
-              <p className="text-gray-600">Czas trwania: 1 godzina</p>
-            </div>
-            <div className="flex flex-col items-center md:flex-row md:items-center gap-4 md:gap-8">
-              <div className="text-center md:text-right w-full md:w-auto">
-                <p className="text-3xl font-bold">100 zł</p>
-                <p className="text-sm text-gray-500">1 sesja</p>
-                <p className="text-sm text-gray-500">+ cena kortu</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Pakiet 5 sesji oferta specjalna */}
-          {/* <div className="bg-gradient-to-br from-blue-50 to-white backdrop-blur-sm rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white transition-all border-2 border-blue-200 hover:border-blue-200 hover:shadow-lg scale-105 shadow-md relative animate-[pulse_2s_ease-in-out_infinite]">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-base font-semibold whitespace-nowrap">
-              Oferta specjalna
-            </div>
-            <div className="flex-1 mt-6">
-              <h3 className="text-2xl font-bold mb-2">Pakiet 5 treningów</h3>
-              <p className="text-gray-600 mb-1">5 sesji treningowych</p>
-              <p className="text-gray-600">Czas trwania: 1 godzina</p>
-              <p className="text-blue-600 font-semibold mt-2">
-                Nie zwlekaj! Oferta ważna tylko do {getTwoWeeksFromNow()}
-              </p>
-            </div>
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-8">
-              <div className="text-center md:text-right">
-                <p className="text-lg text-gray-500 line-through mb-1">
-                  500 zł
-                </p>
-                <p className="text-4xl text-blue-600 font-bold">450 zł</p>
-                <p className="text-lg text-blue-600">5 sesji</p>
-              </div>
-            </div>
-          </div> */}
-
-          {/* Pakiet 10 sesji */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white transition-all border border-blue-200 hover:border-blue-200 hover:shadow-lg">
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-2">Pakiet 10 treningów</h3>
-              <p className="text-gray-600 mb-1">10 sesji treningowych</p>
-              <p className="text-gray-600">Czas trwania: 1 godzina</p>
-            </div>
-            <div className="flex flex-col items-center md:flex-row md:items-center gap-4 md:gap-8">
-              <div className="text-center md:text-right w-full md:w-auto">
-                <p className="text-3xl font-bold">900 zł</p>
-                <p className="text-sm text-gray-500">10 sesji</p>
-                <p className="text-sm text-gray-500">+ cena kortu</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Trening dwuosobowy   */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white transition-all border border-blue-200 hover:border-blue-200 hover:shadow-lg">
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-2">Trening dwuosobowy</h3>
-              <p className="text-gray-600 mb-1">Zajęcia w grupie 2-osobowej</p>
-              <p className="text-gray-600">Czas trwania: 1 godzina</p>
-            </div>
-            <div className="flex flex-col items-center md:flex-row md:items-center gap-4 md:gap-8">
-              <div className="text-center md:text-right w-full md:w-auto">
-                <p className="text-3xl font-bold">60 zł</p>
-                <p className="text-sm text-gray-500">za osobę</p>
-                <p className="text-sm text-gray-500">+ 1/2 ceny kortu</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Trening grupowy */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white transition-all border border-blue-200 hover:border-blue-200 hover:shadow-lg">
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-2">Trening grupowy</h3>
-              <p className="text-gray-600 mb-1">Zajęcia w grupie 4-osobowej</p>
-              <p className="text-gray-600">Czas trwania: 1 godzina</p>
-            </div>
-            <div className="flex flex-col items-center md:flex-row md:items-center gap-4 md:gap-8">
-              <div className="text-center md:text-right w-full md:w-auto">
-                <p className="text-3xl font-bold">50 zł</p>
-                <p className="text-sm text-gray-500">za osobę</p>
-                <p className="text-sm text-gray-500">+ 1/4 ceny kortu</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
     </>
   );
 }
