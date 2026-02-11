@@ -117,12 +117,6 @@ function Home() {
                   alt="Polski Związek Tenisowy"
                   className="h-8 w-auto"
                 />
-                <span className="text-white/40">|</span>
-                <img
-                  src="/itf.jpg"
-                  alt="ITF Coaching"
-                  className="h-8 w-auto rounded"
-                />
                 <span>Licencjonowany Trener</span>
               </div>
 
