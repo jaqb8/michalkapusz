@@ -14,6 +14,7 @@ const getBlogPostTitle = (slug: string): string => {
 export const BreadcrumbNavigation = () => {
     const location = useLocation();
     const pathSegments = location.pathname.split('/').filter(Boolean);
+    const withTrailingSlash = (path: string) => path === '/' ? '/' : `${path.replace(/\/$/, '')}/`;
 
     const breadcrumbs: BreadcrumbItem[] = [
         { name: 'Strona główna', url: '/' }
@@ -35,7 +36,7 @@ export const BreadcrumbNavigation = () => {
             name = segment;
         }
         
-        breadcrumbs.push({ name, url: currentPath });
+        breadcrumbs.push({ name, url: withTrailingSlash(currentPath) });
     });
 
     return (

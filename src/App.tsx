@@ -101,7 +101,7 @@ function App() {
                 Strona Główna
               </Link>
               <Link
-                to="/cennik"
+                to="/cennik/"
                 className={`relative font-medium transition-colors ${
                   isActive("/cennik")
                     ? "text-electric-500"
@@ -111,7 +111,7 @@ function App() {
                 Cennik
               </Link>
               <Link
-                to="/blog"
+                to="/blog/"
                 className={`relative font-medium transition-colors ${
                   isActive("/blog")
                     ? "text-electric-500"
@@ -192,7 +192,7 @@ function App() {
             Strona Główna
           </Link>
           <Link
-            to="/cennik"
+            to="/cennik/"
             onClick={closeMobileMenu}
             className={`block px-4 py-3 rounded-lg transition-all duration-200 text-lg font-medium ${
               isActive("/cennik")
@@ -203,7 +203,7 @@ function App() {
             Cennik
           </Link>
           <Link
-            to="/blog"
+            to="/blog/"
             onClick={closeMobileMenu}
             className={`block px-4 py-3 rounded-lg transition-all duration-200 text-lg font-medium ${
               isActive("/blog")
@@ -312,7 +312,7 @@ function App() {
                 </li>
                 <li>
                   <Link
-                    to="/cennik"
+                    to="/cennik/"
                     className="text-white/60 hover:text-electric-500 transition-colors"
                   >
                     Cennik
@@ -320,7 +320,7 @@ function App() {
                 </li>
                 <li>
                   <Link
-                    to="/blog"
+                    to="/blog/"
                     className="text-white/60 hover:text-electric-500 transition-colors"
                   >
                     Blog
