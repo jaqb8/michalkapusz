@@ -19,7 +19,7 @@ function BlogPost({ post }: BlogPostProps) {
       ? post.image
       : `https://kapusz-tenis.pl${post.image}`
     : "https://kapusz-tenis.pl/logo.webp";
-  const postUrl = `https://kapusz-tenis.pl/blog/${post.slug}`;
+  const postUrl = `https://kapusz-tenis.pl/blog/${post.slug}/`;
   const blogPostingSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -68,7 +68,7 @@ function BlogPost({ post }: BlogPostProps) {
           <article className="max-w-4xl mx-auto">
             {/* Back link */}
             <Link
-              to="/blog"
+              to="/blog/"
               className="inline-flex items-center gap-2 text-electric-500 hover:text-electric-400 transition-colors mb-8 group"
             >
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -112,7 +112,7 @@ function BlogPost({ post }: BlogPostProps) {
             {/* Back link bottom */}
             <div className="mt-12 pt-8 border-t border-white/10">
               <Link
-                to="/blog"
+                to="/blog/"
                 className="inline-flex items-center gap-2 text-electric-500 hover:text-electric-400 transition-colors group"
               >
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />

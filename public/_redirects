@@ -1,4 +1,13 @@
 # Netlify redirects for pre-rendered SSG site
 # Static files are served first automatically
-# Fallback to index.html only for truly missing routes (shows 404 page)
-/*    /index.html   404
+# Retire legacy/discovered error URLs instead of letting them remain in Coverage.
+/404   /   301
+/404/  /   301
+
+# Explicitly mark stray crawl URLs as gone; redirecting them to home would risk soft 404s.
+/search         /404.html   410
+/search/        /404.html   410
+/src/pages/app  /404.html   410
+
+# Serve a real noindex 404 document for truly missing routes.
+/*    /404.html   404

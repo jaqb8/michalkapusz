@@ -19,7 +19,6 @@ function NotFound() {
           property="og:description"
           content="Ta strona nie istnieje. Wróć na stronę główną i znajdź potrzebne informacje."
         />
-        <meta property="og:url" content="https://kapusz-tenis.pl/404" />
         <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
       </Helmet>
 
@@ -39,7 +38,7 @@ function NotFound() {
             <Link to="/" className="btn-primary">
               Strona główna
             </Link>
-            <Link to="/blog" className="btn-outline">
+            <Link to="/blog/" className="btn-outline">
               Blog
             </Link>
           </div>
