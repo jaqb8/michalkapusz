@@ -177,6 +177,11 @@
             border-radius: 0 8px 8px 0;
         }
 
+        .info-bar.secondary {
+            margin-top: 12px;
+            border-left-color: #38bdf8;
+        }
+
         /* LISTA CENNIKA */
         .pricing-list {
             flex: 1;
@@ -299,6 +304,19 @@
             color: #fff;
         }
 
+        .cta-block {
+            text-align: right;
+        }
+
+        .phone-number {
+            margin-top: 8px;
+            color: #0ea5e9;
+            font-family: 'Oswald', sans-serif;
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
         /* SVG Styles */
         svg {
             width: 100%;
@@ -348,6 +366,15 @@
                         </svg>
                     </div>
                     <span>Z kartą <strong>Multisport</strong> 15 zł mniej od każdego treningu</span>
+                </div>
+
+                <div class="info-bar secondary">
+                    <div style="width: 28px; height: 28px; color: #38bdf8; flex-shrink: 0;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <span>Czas trwania treningu: <strong>1 godzina</strong></span>
                 </div>
             </div>
 
@@ -476,7 +503,10 @@
                     </div>
                     <span>Płatność gotówką lub kartą</span>
                 </div>
-                <div class="cta-text">Zapisz się już dziś</div>
+                <div class="cta-block">
+                    <div class="cta-text">Zapisz się już dziś</div>
+                    <div class="phone-number">+48 605 242 945</div>
+                </div>
             </div>
 
         </div>
