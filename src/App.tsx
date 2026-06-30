@@ -87,9 +87,9 @@ function App() {
                   />
                 </picture>
               </div>
-              <span className="text-2xl font-display tracking-wide text-white group-hover:text-electric-500 transition-colors">
+              {/* <span className="text-2xl font-display tracking-wide text-white group-hover:text-electric-500 transition-colors">
                 MICHAŁ KAPUSZ
-              </span>
+              </span> */}
             </Link>
 
             {/* Desktop Navigation */}
