@@ -14,7 +14,14 @@ export default defineConfig(() => ({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['logo.webp', 'robots.txt', 'sitemap.xml'],
+      includeAssets: [
+        'favicon-32x32.png',
+        'apple-touch-icon.png',
+        'site-icon-192.png',
+        'site-icon-512.png',
+        'robots.txt',
+        'sitemap.xml'
+      ],
       manifest: {
         name: 'Michał Kapusz - Trener Tenisa',
         short_name: 'Kapusz Tenis',
@@ -22,14 +29,14 @@ export default defineConfig(() => ({
         theme_color: '#ffffff',
         icons: [
           {
-            src: 'logo.webp',
+            src: 'site-icon-192.png',
             sizes: '192x192',
-            type: 'image/webp'
+            type: 'image/png'
           },
           {
-            src: 'logo.webp',
+            src: 'site-icon-512.png',
             sizes: '512x512',
-            type: 'image/webp'
+            type: 'image/png'
           }
         ]
       }

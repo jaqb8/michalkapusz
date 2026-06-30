@@ -68,24 +68,28 @@ function App() {
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "glass shadow-lg shadow-navy-950/50"
-            : "bg-transparent"
+          isScrolled ? "glass shadow-lg shadow-navy-950/50" : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3 group">
               <div className="relative">
-                <img
-                  src="/logo.webp"
-                  alt="Logo Michał Kapusz - Licencjonowany Trener Tenisa Wrocław"
-                  className="h-12 transition-transform duration-300 group-hover:scale-110"
-                />
+                <picture>
+                  <source srcSet="/logo_v2_circle.webp" type="image/webp" />
+                  <img
+                    src="/logo_v2_circle.jpg"
+                    alt="Logo Michał Kapusz - Licencjonowany Trener Tenisa Wrocław"
+                    width={56}
+                    height={56}
+                    decoding="async"
+                    className="h-14 w-14 p-1 rounded-full bg-white object-cover shadow-md shadow-navy-950/30 ring-1 ring-white/20 transition-transform duration-300 group-hover:scale-110"
+                  />
+                </picture>
               </div>
-              <span className="text-2xl font-display tracking-wide text-white group-hover:text-electric-500 transition-colors">
+              {/* <span className="text-2xl font-display tracking-wide text-white group-hover:text-electric-500 transition-colors">
                 MICHAŁ KAPUSZ
-              </span>
+              </span> */}
             </Link>
 
             {/* Desktop Navigation */}
@@ -145,7 +149,6 @@ function App() {
             </button>
           </div>
         </div>
-
       </nav>
 
       {/* Mobile Sidebar Overlay */}
@@ -168,7 +171,9 @@ function App() {
       >
         {/* Sidebar Header */}
         <div className="flex items-center justify-between p-6 border-b border-electric-500/20">
-          <span className="text-xl font-display text-electric-500 tracking-wide">MENU</span>
+          <span className="text-xl font-display text-electric-500 tracking-wide">
+            MENU
+          </span>
           <button
             onClick={closeMobileMenu}
             className="text-white/60 hover:text-electric-500 transition-colors p-1"
@@ -366,8 +371,7 @@ function App() {
           {/* Bottom bar */}
           <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/40 text-sm">
-              © 2026 Michał Kapusz. Wszystkie prawa
-              zastrzeżone.
+              © 2026 Michał Kapusz. Wszystkie prawa zastrzeżone.
             </p>
             <p className="text-sm text-white/40">
               powered by{" "}

@@ -43,7 +43,10 @@ function PriceList() {
         />
         <meta property="og:url" content="https://kapusz-tenis.pl/cennik/" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
+        <meta
+          property="og:image"
+          content="https://kapusz-tenis.pl/og-logo-v2.jpg"
+        />
       </Helmet>
 
       <section className="py-24 min-h-screen">

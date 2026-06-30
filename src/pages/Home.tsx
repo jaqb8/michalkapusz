@@ -68,7 +68,10 @@ function Home() {
           content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Indywidualne i grupowe treningi dla dzieci i dorosłych."
         />
         <meta property="og:url" content="https://kapusz-tenis.pl/" />
-        <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
+        <meta
+          property="og:image"
+          content="https://kapusz-tenis.pl/og-logo-v2.jpg"
+        />
       </Helmet>
 
       {/* Hero Section */}

@@ -18,7 +18,7 @@ function BlogPost({ post }: BlogPostProps) {
     ? post.image.startsWith("http")
       ? post.image
       : `https://kapusz-tenis.pl${post.image}`
-    : "https://kapusz-tenis.pl/logo.webp";
+    : "https://kapusz-tenis.pl/og-logo-v2.jpg";
   const postUrl = `https://kapusz-tenis.pl/blog/${post.slug}/`;
   const blogPostingSchema = {
     "@context": "https://schema.org",
