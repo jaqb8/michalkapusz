@@ -1,5 +1,7 @@
 import { Helmet } from "../lib/helmet";
 
+const SITE_PREVIEW_IMAGE = "https://kapusz-tenis.pl/og-logo-v2.jpg";
+
 const gtmScript = `window.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     var gtmScript = document.createElement("script");
@@ -59,7 +61,7 @@ const personSchema = {
   url: "https://kapusz-tenis.pl/",
   telephone: "+48605242945",
   email: "kapusztenis@gmail.com",
-  image: "https://kapusz-tenis.pl/logo.webp",
+  image: SITE_PREVIEW_IMAGE,
   sameAs: [
     "https://www.facebook.com/michal.kapusz/",
     "https://instagram.com/michal_kapusz",
@@ -198,9 +200,22 @@ export function GlobalHead() {
       <meta name="author" content="Michał Kapusz" />
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
-      <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
-      <link rel="icon" type="image/webp" href="/logo.webp" />
-      <link rel="apple-touch-icon" href="/logo.webp" />
+      <meta property="og:image" content={SITE_PREVIEW_IMAGE} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={SITE_PREVIEW_IMAGE} />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
       <link rel="preload" as="image" href="/coach2.webp" fetchPriority="high" />
       <script dangerouslySetInnerHTML={{ __html: gtmScript }} />
       <script type="application/ld+json">

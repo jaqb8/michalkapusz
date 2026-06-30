@@ -19,7 +19,10 @@ function NotFound() {
           property="og:description"
           content="Ta strona nie istnieje. Wróć na stronę główną i znajdź potrzebne informacje."
         />
-        <meta property="og:image" content="https://kapusz-tenis.pl/logo.webp" />
+        <meta
+          property="og:image"
+          content="https://kapusz-tenis.pl/og-logo-v2.jpg"
+        />
       </Helmet>
 
       <section className="min-h-screen flex items-center justify-center px-4">
