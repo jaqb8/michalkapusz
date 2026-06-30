@@ -76,20 +76,23 @@ function App() {
             <Link to="/" className="flex items-center gap-3 group">
               <div className="relative">
                 <picture>
-                  <source srcSet="/logo_v2_circle.webp" type="image/webp" />
+                  <source
+                    srcSet="/logo_v2_clean_header.webp"
+                    type="image/webp"
+                  />
                   <img
-                    src="/logo_v2_circle.jpg"
+                    src="/logo_v2_clean.jpg"
                     alt="Logo Michał Kapusz - Licencjonowany Trener Tenisa Wrocław"
                     width={56}
                     height={56}
                     decoding="async"
-                    className="h-14 w-14 p-1 rounded-full bg-white object-cover shadow-md shadow-navy-950/30 ring-1 ring-white/20 transition-transform duration-300 group-hover:scale-110"
+                    className="h-14 w-14 rounded-full bg-white object-contain p-2 shadow-md shadow-navy-950/30 ring-1 ring-white/20 transition-transform duration-300 group-hover:scale-110"
                   />
                 </picture>
               </div>
-              {/* <span className="text-2xl font-display tracking-wide text-white group-hover:text-electric-500 transition-colors">
+              <span className="text-2xl font-display tracking-wide text-white group-hover:text-electric-500 transition-colors">
                 MICHAŁ KAPUSZ
-              </span> */}
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
