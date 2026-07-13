@@ -178,6 +178,29 @@ function PriceList() {
                </div>
              </div>
 
+             {/* Triple Training */}
+             <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden">
+               <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+               
+               <div className="relative z-10">
+                 <div className="w-14 h-14 rounded-xl bg-electric-500/10 flex items-center justify-center mb-6 group-hover:bg-electric-500/20 transition-colors">
+                   <Users className="h-7 w-7 text-electric-500" />
+                 </div>
+                 
+                 <h3 className="text-2xl font-display text-white mb-2">
+                   TRENING 3-OSOBOWY
+                 </h3>
+                 <p className="text-white/50 mb-6">Grupa 3-osobowa • 1 godzina</p>
+                 
+                 <div className="flex items-baseline gap-2 mb-6">
+                   <span className="text-5xl font-display text-electric-500">65</span>
+                   <span className="text-white/60">zł / osoba</span>
+                 </div>
+                 
+                 <p className="text-white/40 text-sm">+ 1/3 ceny kortu</p>
+               </div>
+             </div>
+
              {/* Group Training */}
              <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden">
                <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
