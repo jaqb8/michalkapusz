@@ -5,11 +5,137 @@ export interface BlogPost {
   date: string;
   content: string;
   image?: string;
+  gallery?: {
+    src: string;
+    alt: string;
+  }[];
+  sponsors?: {
+    src: string;
+    alt: string;
+  }[];
   author: string;
   slug: string;
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: "4",
+    title: "Pierwsza edycja Kapusz Tennis Cup za nami! Podsumowanie turnieju we Wrocławiu",
+    description: "Podsumowanie pierwszej edycji Kapusz Tennis Cup we Wrocławiu: sportowe emocje, świetna atmosfera oraz podziękowania dla uczestników, partnerów i sponsorów.",
+    date: "2026-07-13",
+    image: "/kapusz-cup/kapusz-cup-hero.jpeg",
+    gallery: [
+      {
+        src: "/kapusz-cup/kapusz-cup-hero.jpeg",
+        alt: "Główne zdjęcie z pierwszej edycji Kapusz Tennis Cup"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-01.jpeg",
+        alt: "Uczestnicy Kapusz Tennis Cup na korcie we Wrocławiu"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-02.jpeg",
+        alt: "Pamiątkowe zdjęcie z pierwszej edycji Kapusz Tennis Cup"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-03.jpeg",
+        alt: "Zawodnicy podczas turnieju Kapusz Tennis Cup"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-04.jpeg",
+        alt: "Sportowa atmosfera na kortach podczas Kapusz Tennis Cup"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-05.jpeg",
+        alt: "Uczestnicy turnieju Kapusz Tennis Cup podczas wydarzenia"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-06.jpeg",
+        alt: "Zdjęcie z kortów w trakcie Kapusz Tennis Cup"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-07.jpeg",
+        alt: "Wspólne zdjęcie zawodników Kapusz Tennis Cup"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-08.jpeg",
+        alt: "Moment z pierwszej edycji turnieju Kapusz Tennis Cup"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-09.jpeg",
+        alt: "Korty tenisowe podczas turnieju Kapusz Tennis Cup"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-10.jpeg",
+        alt: "Podsumowanie turnieju Kapusz Tennis Cup we Wrocławiu"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-11.jpeg",
+        alt: "Uczestnicy Kapusz Tennis Cup podczas wspólnego spotkania"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-12.jpeg",
+        alt: "Zdjęcie z wydarzenia Kapusz Tennis Cup we Wrocławiu"
+      },
+      {
+        src: "/kapusz-cup/kapusz-cup-13.jpeg",
+        alt: "Pamiątkowy kadr z turnieju Kapusz Tennis Cup"
+      }
+    ],
+    sponsors: [
+      {
+        src: "/kapusz-cup/sponsors/sponsor-vorwerk.png",
+        alt: "Logo sponsora Vorwerk"
+      },
+      {
+        src: "/kapusz-cup/sponsors/sponsor-kampol.png",
+        alt: "Logo sponsora Kampol"
+      },
+      {
+        src: "/kapusz-cup/sponsors/sponsor-wesling.png",
+        alt: "Logo sponsora Wesling Kruszywa"
+      },
+      {
+        src: "/kapusz-cup/sponsors/sponsor-suszarnia.png",
+        alt: "Logo sponsora Suszarnia Sushi Bar"
+      },
+      {
+        src: "/kapusz-cup/sponsors/sponsor-fizjoterapia-lukasz-szepanski.png",
+        alt: "Logo sponsora Fizjoterapia Łukasz Szefner"
+      },
+      {
+        src: "/kapusz-cup/sponsors/sponsor-cimone.png",
+        alt: "Logo sponsora Cimone"
+      }
+    ],
+    content: `# Pierwsza edycja Kapusz Tennis Cup za nami! Podsumowanie turnieju we Wrocławiu
+
+Czerwiec przywitał Wrocław piękną pogodą, ale prawdziwe sportowe emocje zapłonęły na kortach! Za nami pierwsza, historyczna edycja turnieju Kapusz Tennis Cup - wydarzenie, które na długo zapadnie w pamięć.
+
+Od samego początku głównym założeniem było stworzenie turnieju, który połączy sportową pasję z luźną, przyjacielską atmosferą. Patrząc na to, co działo się na miejscu, cel został osiągnięty w stu procentach. Organizacja takiego wydarzenia była dużym wyzwaniem, ale satysfakcja z efektu końcowego jest ogromna.
+
+## Emocje, rywalizacja i świetna zabawa
+
+Na kortach nie brakowało niczego. Można było podziwiać zacięte wymiany ciosów, chwile napięcia i spektakularne zagrania. Choć duch zdrowej rywalizacji unosił się w powietrzu, to najważniejsza była świetna zabawa i genialna energia, jaką przynieśli ze sobą uczestnicy.
+
+Uśmiechy nie schodziły z twarzy - zarówno w trakcie gry, jak i podczas wspólnych rozmów oraz odpoczynku między meczami. Wielkie brawa należą się wszystkim zawodnikom za walkę do ostatniej piłki i za stworzenie fantastycznej atmosfery!
+
+## Podziękowania dla Partnerów i Sponsorów
+
+Ten turniej nie miałby takiego formatu i klimatu, gdyby nie wsparcie wspaniałych ludzi i firm, które zaangażowały się w ten projekt, oferując swoje zaufanie i pomoc.
+
+Ogromne podziękowania kierowane są do partnerów i sponsorów. Dziękuję, że zagraliście ze mną w jednej drużynie i pomogliście zorganizować pierwszą edycję Kapusz Tennis Cup!
+
+**[TUTAJ WSTAW LOGOTYPY SPONSORÓW I PARTNERÓW]**
+
+## Kapusz Tennis Cup w obiektywie!
+
+**[MIEJSCE NA GALERIĘ]**
+
+See you on court!`,
+    author: "Michał Kapusz",
+    slug: "pierwsza-edycja-kapusz-tennis-cup-podsumowanie-turnieju-we-wroclawiu"
+  },
   {
     id: "3",
     title: "Profesjonalne lekcje tenisa we Wrocławiu - kompleksowy przewodnik",
