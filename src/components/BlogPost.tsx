@@ -2,6 +2,8 @@ import { Helmet } from "../lib/helmet";
 import ReactMarkdown from "react-markdown";
 import { Link } from "react-router-dom";
 import { BlogPost as BlogPostType } from "../content/blog/posts";
+import BlogGallery from "./BlogGallery";
+import BlogSponsors from "./BlogSponsors";
 import { ArrowLeft, Calendar, User } from "lucide-react";
 
 interface BlogPostProps {
@@ -20,6 +22,14 @@ function BlogPost({ post }: BlogPostProps) {
       : `https://kapusz-tenis.pl${post.image}`
     : "https://kapusz-tenis.pl/og-logo-v2.jpg";
   const postUrl = `https://kapusz-tenis.pl/blog/${post.slug}/`;
+  const schemaImages = [
+    imageUrl,
+    ...(post.gallery?.map((image) =>
+      image.src.startsWith("http")
+        ? image.src
+        : `https://kapusz-tenis.pl${image.src}`,
+    ) ?? []),
+  ];
   const blogPostingSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -31,7 +41,7 @@ function BlogPost({ post }: BlogPostProps) {
       "@type": "Person",
       name: post.author,
     },
-    image: [imageUrl],
+    image: schemaImages,
     mainEntityOfPage: postUrl,
     publisher: {
       "@type": "Person",
@@ -40,7 +50,18 @@ function BlogPost({ post }: BlogPostProps) {
   };
 
   // Remove the first heading (title) from the content
+  const sponsorsPlaceholder =
+    "**[TUTAJ WSTAW LOGOTYPY SPONSORÓW I PARTNERÓW]**";
+  const galleryPlaceholder = "**[MIEJSCE NA GALERIĘ]**";
   const contentWithoutTitle = post.content.replace(/^#\s+[^\n]+\n/, "");
+  const [contentBeforeSponsors, contentAfterSponsors] =
+    post.sponsors && contentWithoutTitle.includes(sponsorsPlaceholder)
+      ? contentWithoutTitle.split(sponsorsPlaceholder)
+      : [contentWithoutTitle, ""];
+  const [contentBeforeGallery, contentAfterGallery] =
+    post.gallery && contentAfterSponsors.includes(galleryPlaceholder)
+      ? contentAfterSponsors.split(galleryPlaceholder)
+      : [contentAfterSponsors, ""];
 
   return (
     <>
@@ -106,7 +127,15 @@ function BlogPost({ post }: BlogPostProps) {
 
             {/* Content */}
             <div className="prose prose-lg prose-invert max-w-none prose-headings:font-display prose-headings:text-white prose-p:text-white/70 prose-a:text-electric-500 prose-a:no-underline hover:prose-a:text-electric-400 prose-strong:text-white prose-ul:text-white/70 prose-ol:text-white/70 prose-li:marker:text-electric-500">
-              <ReactMarkdown>{contentWithoutTitle}</ReactMarkdown>
+              <ReactMarkdown>{contentBeforeSponsors}</ReactMarkdown>
+              {post.sponsors && <BlogSponsors sponsors={post.sponsors} />}
+              {contentBeforeGallery && (
+                <ReactMarkdown>{contentBeforeGallery}</ReactMarkdown>
+              )}
+              {post.gallery && <BlogGallery images={post.gallery} />}
+              {contentAfterGallery && (
+                <ReactMarkdown>{contentAfterGallery}</ReactMarkdown>
+              )}
             </div>
 
             {/* Back link bottom */}
