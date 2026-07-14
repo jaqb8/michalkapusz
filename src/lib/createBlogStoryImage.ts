@@ -218,14 +218,14 @@ export async function createBlogStoryBlob(post: BlogPost) {
   ctx.fillText("TRENER TENISA", 228, 212);
 
   ctx.fillStyle = "rgba(0, 200, 255, 0.16)";
-  drawRoundedRect(ctx, 78, 396, 118, 54, 12);
+  drawRoundedRect(ctx, 78, 388, 148, 68, 14);
   ctx.fill();
   ctx.strokeStyle = "rgba(0, 200, 255, 0.62)";
   ctx.lineWidth = 2;
   ctx.stroke();
   ctx.fillStyle = "#6ee2ff";
-  ctx.font = "700 29px 'Saira Condensed', sans-serif";
-  ctx.fillText("BLOG", 108, 432);
+  ctx.font = "700 38px 'Saira Condensed', sans-serif";
+  ctx.fillText("BLOG", 112, 433);
 
   const titleMaxWidth = 900;
   let titleSize = 86;
