@@ -247,9 +247,9 @@ export async function createBlogStoryBlob(post: BlogPost) {
   const nextY = drawWrappedText(ctx, titleLines, 78, 610, titleSize * 0.98);
 
   ctx.fillStyle = "rgba(255, 255, 255, 0.76)";
-  ctx.font = "500 34px 'DM Sans', sans-serif";
+  ctx.font = "500 40px 'DM Sans', sans-serif";
   const descriptionLines = getWrappedLines(ctx, post.description, 850, 4);
-  drawWrappedText(ctx, descriptionLines, 82, nextY + 78, 50);
+  drawWrappedText(ctx, descriptionLines, 82, nextY + 78, 58);
 
   return canvasToBlob(canvas);
 }

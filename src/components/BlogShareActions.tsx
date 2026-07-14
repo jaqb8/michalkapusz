@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import {
   Check,
   Copy,
-  Download,
   Instagram,
   Link2,
   Loader2,
@@ -87,7 +86,7 @@ function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
       return undefined;
     }
 
-    const handlePointerDown = (event: PointerEvent) => {
+    const handleOutsideInteraction = (event: MouseEvent | TouchEvent) => {
       if (
         menuRef.current &&
         event.target instanceof Node &&
@@ -103,11 +102,13 @@ function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
       }
     };
 
-    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("mousedown", handleOutsideInteraction, true);
+    document.addEventListener("touchstart", handleOutsideInteraction, true);
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("mousedown", handleOutsideInteraction, true);
+      document.removeEventListener("touchstart", handleOutsideInteraction, true);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
@@ -276,7 +277,6 @@ function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
           >
             <Instagram className="h-5 w-5 text-electric-500" />
             <span className="font-semibold text-white">Instagram</span>
-            <Download className="ml-auto h-4 w-4 text-white/30" />
           </button>
         </div>
       )}
