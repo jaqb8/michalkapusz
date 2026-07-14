@@ -2,11 +2,15 @@ import { useEffect, useRef, useState } from "react";
 import {
   Check,
   Copy,
+  Download,
+  Instagram,
   Link2,
+  Loader2,
   Share2,
   XCircle,
 } from "lucide-react";
 import { BlogPost } from "../content/blog/posts";
+import { createBlogStoryBlob } from "../lib/createBlogStoryImage";
 
 interface BlogShareActionsProps {
   post: BlogPost;
@@ -14,7 +18,7 @@ interface BlogShareActionsProps {
 }
 
 type ShareStatus = {
-  type: "success" | "error";
+  type: "success" | "error" | "loading";
   message: string;
 };
 
@@ -26,6 +30,14 @@ function getShareUrl(slug: string) {
 
 function isAbortError(error: unknown) {
   return error instanceof DOMException && error.name === "AbortError";
+}
+
+function sanitizeFilename(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
 }
 
 async function copyText(text: string) {
@@ -50,6 +62,17 @@ async function copyText(text: string) {
   } finally {
     document.body.removeChild(textarea);
   }
+}
+
+function downloadBlob(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 }
 
 function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
@@ -104,9 +127,11 @@ function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
       window.clearTimeout(statusTimeoutRef.current);
     }
 
-    statusTimeoutRef.current = window.setTimeout(() => {
-      setStatus(null);
-    }, 3200);
+    if (nextStatus.type !== "loading") {
+      statusTimeoutRef.current = window.setTimeout(() => {
+        setStatus(null);
+      }, 3200);
+    }
   };
 
   const handleCopyLink = async () => {
@@ -146,6 +171,41 @@ function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
     }
   };
 
+  const handleShareStory = async () => {
+    showStatus({ type: "loading", message: "Tworzę grafikę do Story..." });
+
+    try {
+      const blob = await createBlogStoryBlob(post);
+      const filename = `kapusz-tenis-story-${sanitizeFilename(post.slug) || "blog"}.png`;
+      const file = new File([blob], filename, { type: "image/png" });
+      const shareData: ShareData = {
+        title: post.title,
+        text: "Grafika do Instagram Story",
+        files: [file],
+      };
+
+      if (navigator.canShare?.({ files: [file] }) && navigator.share) {
+        await navigator.share(shareData);
+        setIsOpen(false);
+        showStatus({ type: "success", message: "Grafika gotowa" });
+        return;
+      }
+
+      downloadBlob(blob, filename);
+      setIsOpen(false);
+      showStatus({ type: "success", message: "Pobieranie grafiki" });
+    } catch (error) {
+      if (isAbortError(error)) {
+        setStatus(null);
+        return;
+      }
+
+      showStatus({ type: "error", message: "Nie udało się stworzyć grafiki" });
+    }
+  };
+
+  const isLoading = status?.type === "loading";
+
   return (
     <div className="relative" ref={menuRef}>
       <div className="flex flex-wrap items-center gap-3">
@@ -169,6 +229,7 @@ function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
             }`}
             aria-live="polite"
           >
+            {status.type === "loading" && <Loader2 className="h-4 w-4 animate-spin" />}
             {status.type === "success" && <Check className="h-4 w-4 text-court-400" />}
             {status.type === "error" && <XCircle className="h-4 w-4" />}
             {status.message}
@@ -187,7 +248,8 @@ function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
           <button
             type="button"
             onClick={handleSharePost}
-            className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-white/5 md:hidden"
+            disabled={isLoading}
+            className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-white/5 disabled:cursor-wait disabled:opacity-60 md:hidden"
             role="menuitem"
           >
             <Link2 className="h-5 w-5 text-electric-500" />
@@ -197,11 +259,24 @@ function BlogShareActions({ post, compact = false }: BlogShareActionsProps) {
           <button
             type="button"
             onClick={handleCopyLink}
-            className="flex w-full items-center gap-3 border-t border-white/10 px-4 py-3 text-left transition-colors hover:bg-white/5 md:border-t-0"
+            disabled={isLoading}
+            className="flex w-full items-center gap-3 border-t border-white/10 px-4 py-3 text-left transition-colors hover:bg-white/5 disabled:cursor-wait disabled:opacity-60 md:border-t-0"
             role="menuitem"
           >
             <Copy className="h-5 w-5 text-electric-500" />
             <span className="font-semibold text-white">Kopiuj link</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleShareStory}
+            disabled={isLoading}
+            className="flex w-full items-center gap-3 border-t border-white/10 px-4 py-3 text-left transition-colors hover:bg-white/5 disabled:cursor-wait disabled:opacity-60 md:hidden"
+            role="menuitem"
+          >
+            <Instagram className="h-5 w-5 text-electric-500" />
+            <span className="font-semibold text-white">Story na Instagram</span>
+            <Download className="ml-auto h-4 w-4 text-white/30" />
           </button>
         </div>
       )}

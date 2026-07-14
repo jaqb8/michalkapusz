@@ -13,10 +13,6 @@ function getAssetUrl(path?: string) {
   return path.startsWith("http") ? path : path;
 }
 
-function getDisplayUrl(slug: string) {
-  return `kapusz-tenis.pl/blog/${slug}/`;
-}
-
 function loadImage(src: string) {
   return new Promise<HTMLImageElement>((resolve, reject) => {
     const image = new Image();
@@ -222,14 +218,14 @@ export async function createBlogStoryBlob(post: BlogPost) {
   ctx.fillText("TRENER TENISA", 228, 212);
 
   ctx.fillStyle = "rgba(0, 200, 255, 0.16)";
-  drawRoundedRect(ctx, 78, 396, 258, 54, 12);
+  drawRoundedRect(ctx, 78, 396, 118, 54, 12);
   ctx.fill();
   ctx.strokeStyle = "rgba(0, 200, 255, 0.62)";
   ctx.lineWidth = 2;
   ctx.stroke();
   ctx.fillStyle = "#6ee2ff";
   ctx.font = "700 29px 'Saira Condensed', sans-serif";
-  ctx.fillText("BLOG TENISOWY", 108, 432);
+  ctx.fillText("BLOG", 108, 432);
 
   const titleMaxWidth = 900;
   let titleSize = 86;
@@ -254,27 +250,6 @@ export async function createBlogStoryBlob(post: BlogPost) {
   ctx.font = "500 34px 'DM Sans', sans-serif";
   const descriptionLines = getWrappedLines(ctx, post.description, 850, 4);
   drawWrappedText(ctx, descriptionLines, 82, nextY + 78, 50);
-
-  ctx.fillStyle = "rgba(16, 29, 50, 0.78)";
-  drawRoundedRect(ctx, 78, 1516, 924, 232, 28);
-  ctx.fill();
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.13)";
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  ctx.fillStyle = "#00c8ff";
-  ctx.font = "800 48px 'Saira Condensed', sans-serif";
-  ctx.fillText("PRZECZYTAJ CAŁOŚĆ", 122, 1596);
-
-  ctx.fillStyle = "rgba(255, 255, 255, 0.84)";
-  ctx.font = "500 28px 'DM Sans', sans-serif";
-  const urlLines = getWrappedLines(ctx, getDisplayUrl(post.slug), 790, 2);
-  drawWrappedText(ctx, urlLines, 122, 1654, 42);
-
-  ctx.fillStyle = "#22c55e";
-  ctx.beginPath();
-  ctx.arc(930, 1610, 18, 0, Math.PI * 2);
-  ctx.fill();
 
   return canvasToBlob(canvas);
 }
