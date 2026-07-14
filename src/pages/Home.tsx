@@ -56,7 +56,7 @@ function Home() {
         </title>
         <meta
           name="description"
-          content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Trener Michał Kapusz oferuje indywidualne i grupowe treningi tenisa dla dzieci i dorosłych. Wieloletnie doświadczenie i profesjonalne podejście."
+          content="Profesjonalne lekcje tenisa we Wrocławiu. Trener Michał Kapusz oferuje indywidualne i grupowe treningi tenisa dla dzieci i dorosłych. Wieloletnie doświadczenie i profesjonalne podejście."
         />
         <link rel="canonical" href="https://kapusz-tenis.pl/" />
         <meta
@@ -65,7 +65,7 @@ function Home() {
         />
         <meta
           property="og:description"
-          content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Indywidualne i grupowe treningi dla dzieci i dorosłych."
+          content="Profesjonalne lekcje tenisa we Wrocławiu. Indywidualne i grupowe treningi dla dzieci i dorosłych."
         />
         <meta property="og:url" content="https://kapusz-tenis.pl/" />
         <meta
