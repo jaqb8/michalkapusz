@@ -25,7 +25,7 @@ export default defineConfig(() => ({
       manifest: {
         name: 'Michał Kapusz - Trener Tenisa',
         short_name: 'Kapusz Tenis',
-        description: 'Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu',
+        description: 'Profesjonalne lekcje tenisa we Wrocławiu',
         theme_color: '#ffffff',
         icons: [
           {

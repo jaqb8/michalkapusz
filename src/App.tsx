@@ -56,7 +56,7 @@ function App() {
         </title>
         <meta
           name="description"
-          content="Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu. Trener z licencją PZT. Zajęcia indywidualne i grupowe dla dzieci i dorosłych."
+          content="Profesjonalne lekcje tenisa we Wrocławiu. Trener z licencją PZT. Zajęcia indywidualne i grupowe dla dzieci i dorosłych."
         />
       </Helmet>
 

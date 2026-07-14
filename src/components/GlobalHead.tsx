@@ -26,7 +26,7 @@ const trainerSchema = {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
   name: "Michał Kapusz - Trener Tenisa",
-  description: "Profesjonalne lekcje tenisa we Wrocławiu i Bolesławcu",
+  description: "Profesjonalne lekcje tenisa we Wrocławiu",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Wrocław",
@@ -77,7 +77,7 @@ const serviceSchema = {
     name: "Michał Kapusz",
   },
   serviceType: "Trening sportowy",
-  areaServed: ["Wrocław", "Bolesławiec"],
+  areaServed: ["Wrocław"],
   offers: [
     {
       "@type": "Offer",
