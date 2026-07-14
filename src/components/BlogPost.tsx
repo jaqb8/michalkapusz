@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { BlogPost as BlogPostType } from "../content/blog/posts";
 import BlogGallery from "./BlogGallery";
 import BlogSponsors from "./BlogSponsors";
+import BlogShareActions from "./BlogShareActions";
 import { ArrowLeft, Calendar, User } from "lucide-react";
 
 interface BlogPostProps {
@@ -111,6 +112,9 @@ function BlogPost({ post }: BlogPostProps) {
                   {post.author}
                 </span>
               </div>
+              <div className="mt-6">
+                <BlogShareActions post={post} />
+              </div>
             </header>
 
             {/* Featured Image */}
@@ -139,7 +143,7 @@ function BlogPost({ post }: BlogPostProps) {
             </div>
 
             {/* Back link bottom */}
-            <div className="mt-12 pt-8 border-t border-white/10">
+            <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
               <Link
                 to="/blog/"
                 className="inline-flex items-center gap-2 text-electric-500 hover:text-electric-400 transition-colors group"
@@ -147,6 +151,7 @@ function BlogPost({ post }: BlogPostProps) {
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 <span>Powrót do bloga</span>
               </Link>
+              <BlogShareActions post={post} compact />
             </div>
           </article>
         </div>
