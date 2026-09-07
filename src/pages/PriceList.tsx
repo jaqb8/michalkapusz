@@ -153,7 +153,7 @@ function PriceList() {
              <div className="reveal glass rounded-2xl p-8 card-hover group relative overflow-hidden border border-electric-500/30">
                {/* Popular badge */}
                <div className="absolute top-0 right-0 bg-electric-500 text-navy-950 text-xs font-bold px-4 py-1 rounded-bl-xl">
-                 OSZCZĘDZASZ 100 zł
+                 OSZCZĘDZASZ 50 zł
                </div>
                
                <div className="absolute inset-0 bg-gradient-to-br from-electric-500/0 to-electric-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
