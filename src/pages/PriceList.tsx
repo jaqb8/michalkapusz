@@ -169,10 +169,10 @@ function PriceList() {
                  <p className="text-white/50 mb-6">10 sesji • 2 osoby • 1 godzina</p>
                  
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-5xl font-display text-electric-500">650</span>
+                    <span className="text-5xl font-display text-electric-500">700</span>
                     <span className="text-white/60">zł / osoba</span>
                   </div>
-                  <p className="text-electric-400 text-sm mb-4">65 zł za sesję</p>
+                  <p className="text-electric-400 text-sm mb-4">70 zł za sesję</p>
                   
                   <p className="text-white/40 text-sm">+ 1/2 ceny kortu</p>
                </div>
@@ -193,10 +193,10 @@ function PriceList() {
                  <p className="text-white/50 mb-6">Grupa 3-osobowa • 1 godzina</p>
                  
                  <div className="flex items-baseline gap-2 mb-6">
-                   <span className="text-5xl font-display text-electric-500">65</span>
+                   <span className="text-5xl font-display text-electric-500">60</span>
                    <span className="text-white/60">zł / osoba</span>
                  </div>
-                 
+
                  <p className="text-white/40 text-sm">+ 1/3 ceny kortu</p>
                </div>
              </div>
