@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     description: "Podsumowanie pierwszej męskiej edycji Kapusz Tennis Tour: 16 zawodników, sportowe emocje, zwycięzcy turnieju i podziękowania dla partnera ACETENIS.PL.",
     date: "2026-09-23",
     image: "/kapusz-tennis-tour/kapusz-tennis-tour-4516.webp",
-    featuredImagePosition: "center 28%",
+    featuredImagePosition: "center 8%",
     imagePosition: "center 28%",
     gallery: [
       {
