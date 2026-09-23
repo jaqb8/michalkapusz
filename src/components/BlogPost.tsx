@@ -164,9 +164,8 @@ function BlogPost({ post }: BlogPostProps) {
             {post.image && (
               <div className="relative rounded-2xl overflow-hidden mb-12">
                 <img
-                  src={post.image}
+                  src={post.featuredImage ?? post.image}
                   alt={post.title}
-                  style={{ objectPosition: post.featuredImagePosition }}
                   className="w-full h-64 md:h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />

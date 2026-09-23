@@ -5,7 +5,7 @@ export interface BlogPost {
   date: string;
   content: string;
   image?: string;
-  featuredImagePosition?: string;
+  featuredImage?: string;
   imagePosition?: string;
   gallery?: {
     src: string;
@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     description: "Podsumowanie pierwszej męskiej edycji Kapusz Tennis Tour: 16 zawodników, sportowe emocje, zwycięzcy turnieju i podziękowania dla partnera ACETENIS.PL.",
     date: "2026-09-23",
     image: "/kapusz-tennis-tour/kapusz-tennis-tour-4516.webp",
-    featuredImagePosition: "center 8%",
+    featuredImage: "/kapusz-tennis-tour/kapusz-tennis-tour-hero.webp",
     imagePosition: "center 28%",
     gallery: [
       {
