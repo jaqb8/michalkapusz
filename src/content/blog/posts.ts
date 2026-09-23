@@ -108,7 +108,7 @@ Gratulacje dla wszystkich zawodników, którzy stanęli na korcie i stworzyli te
 
 ## 🎾 Dziękujemy naszemu partnerowi
 
-Wielkie podziękowania kierujemy do **ACETENIS.PL**, naszego partnera turnieju, za ufundowanie nagród dla zawodników. Dziękujemy za wsparcie i dołączenie do pierwszej męskiej edycji Kapusz Tennis Tour!
+Wielkie podziękowania kierujemy do **[ACETENIS.PL](https://acetenis.pl/)**, naszego partnera turnieju, za ufundowanie nagród dla zawodników. Dziękujemy za wsparcie i dołączenie do pierwszej męskiej edycji Kapusz Tennis Tour!
 
 **[TUTAJ WSTAW LOGOTYPY SPONSORÓW I PARTNERÓW]**
 
