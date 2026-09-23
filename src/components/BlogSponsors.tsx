@@ -20,7 +20,7 @@ function BlogSponsors({ sponsors }: BlogSponsorsProps) {
       <div
         className={`grid gap-3 ${
           hasSingleSponsor
-            ? "mx-auto max-w-xl grid-cols-1"
+            ? "grid-cols-1"
             : "grid-cols-2 md:grid-cols-3"
         }`}
       >
