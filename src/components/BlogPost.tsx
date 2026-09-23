@@ -6,23 +6,52 @@ import { BlogPost as BlogPostType } from "../content/blog/posts";
 import BlogGallery from "./BlogGallery";
 import BlogSponsors from "./BlogSponsors";
 import BlogShareActions from "./BlogShareActions";
-import { ArrowLeft, Calendar, User } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Calendar, User } from "lucide-react";
 
 interface BlogPostProps {
   post: BlogPostType;
 }
 
 const articleMarkdownComponents = {
-  a: ({ children, href, title }: ComponentPropsWithoutRef<"a">) => (
-    <a
-      href={href}
-      title={title}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children}
-    </a>
-  ),
+  a: ({ children, href, title }: ComponentPropsWithoutRef<"a">) => {
+    const isAdvantageResults = href?.startsWith("https://advantage-app.pl/");
+
+    if (isAdvantageResults) {
+      return (
+        <a
+          href={href}
+          title={title}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="not-prose my-6 flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-white shadow-lg shadow-navy-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:border-electric-500/50 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-electric-400"
+        >
+          <img
+            src="/advantage-favicon.svg"
+            alt=""
+            className="h-9 w-9 shrink-0 rounded-lg"
+          />
+          <span className="min-w-0 flex-1 truncate text-sm font-semibold sm:text-base">
+            {children}
+          </span>
+          <span className="hidden text-sm text-white/45 sm:inline">
+            Advantage
+          </span>
+          <ArrowUpRight className="h-4 w-4 shrink-0 text-electric-400" />
+        </a>
+      );
+    }
+
+    return (
+      <a
+        href={href}
+        title={title}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  },
 };
 
 function BlogPost({ post }: BlogPostProps) {

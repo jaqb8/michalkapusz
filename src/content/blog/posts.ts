@@ -104,7 +104,7 @@ Po kilku godzinach intensywnej rywalizacji poznaliśmy najlepszych zawodników t
 - 🥈 **II miejsce – Jakub Aniszewski**
 - 🥉 **III miejsce – Bartosz Klag**
 
-[Zobacz pełne wyniki i rezultaty wszystkich meczów w aplikacji Advantage](https://advantage-app.pl/t/kapusz-tennis-tour-2/results).
+[Pełne wyniki turnieju](https://advantage-app.pl/t/kapusz-tennis-tour-2/results)
 
 Gratulacje dla wszystkich zawodników, którzy stanęli na korcie i stworzyli ten turniej razem z nami!
 
