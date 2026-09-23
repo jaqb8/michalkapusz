@@ -1,5 +1,6 @@
 import { Helmet } from "../lib/helmet";
 import ReactMarkdown from "react-markdown";
+import type { ComponentPropsWithoutRef } from "react";
 import { Link } from "react-router-dom";
 import { BlogPost as BlogPostType } from "../content/blog/posts";
 import BlogGallery from "./BlogGallery";
@@ -10,6 +11,19 @@ import { ArrowLeft, Calendar, User } from "lucide-react";
 interface BlogPostProps {
   post: BlogPostType;
 }
+
+const articleMarkdownComponents = {
+  a: ({ children, href, title }: ComponentPropsWithoutRef<"a">) => (
+    <a
+      href={href}
+      title={title}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+    </a>
+  ),
+};
 
 function BlogPost({ post }: BlogPostProps) {
   const formattedDate = new Date(post.date).toLocaleDateString("pl-PL", {
@@ -131,14 +145,20 @@ function BlogPost({ post }: BlogPostProps) {
 
             {/* Content */}
             <div className="prose prose-lg prose-invert max-w-none prose-headings:font-display prose-headings:text-white prose-p:text-white/70 prose-a:text-electric-500 prose-a:no-underline hover:prose-a:text-electric-400 prose-strong:text-white prose-ul:text-white/70 prose-ol:text-white/70 prose-li:marker:text-electric-500">
-              <ReactMarkdown>{contentBeforeSponsors}</ReactMarkdown>
+              <ReactMarkdown components={articleMarkdownComponents}>
+                {contentBeforeSponsors}
+              </ReactMarkdown>
               {post.sponsors && <BlogSponsors sponsors={post.sponsors} />}
               {contentBeforeGallery && (
-                <ReactMarkdown>{contentBeforeGallery}</ReactMarkdown>
+                <ReactMarkdown components={articleMarkdownComponents}>
+                  {contentBeforeGallery}
+                </ReactMarkdown>
               )}
               {post.gallery && <BlogGallery images={post.gallery} />}
               {contentAfterGallery && (
-                <ReactMarkdown>{contentAfterGallery}</ReactMarkdown>
+                <ReactMarkdown components={articleMarkdownComponents}>
+                  {contentAfterGallery}
+                </ReactMarkdown>
               )}
             </div>
 
