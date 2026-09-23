@@ -5,6 +5,8 @@ export interface BlogPost {
   date: string;
   content: string;
   image?: string;
+  featuredImage?: string;
+  imagePosition?: string;
   gallery?: {
     src: string;
     alt: string;
@@ -18,6 +20,112 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: "5",
+    title: "Kapusz Tennis Tour wystartował! Męska edycja na pożegnanie lata",
+    description: "Podsumowanie pierwszej męskiej edycji Kapusz Tennis Tour: 16 zawodników, sportowe emocje, zwycięzcy turnieju i podziękowania dla partnera ACETENIS.PL.",
+    date: "2026-09-23",
+    image: "/kapusz-tennis-tour/kapusz-tennis-tour-4516.webp",
+    featuredImage: "/kapusz-tennis-tour/kapusz-tennis-tour-hero.webp",
+    imagePosition: "center 28%",
+    gallery: [
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4516.webp",
+        alt: "Trzej najlepsi zawodnicy męskiej edycji Kapusz Tennis Tour z dyplomami i pucharami"
+      },
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4389.webp",
+        alt: "Puchary i vouchery ACETENIS.PL przygotowane dla zwycięzców turnieju"
+      },
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4395.webp",
+        alt: "Puchar za pierwsze miejsce w męskiej edycji Kapusz Tennis Tour"
+      },
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4477.webp",
+        alt: "Wręczenie dyplomu podczas Kapusz Tennis Tour"
+      },
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4488.webp",
+        alt: "Bartosz Klag z nagrodami za trzecie miejsce w Kapusz Tennis Tour"
+      },
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4492.webp",
+        alt: "Bartosz Klag podczas wręczenia nagród po turnieju"
+      },
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4499.webp",
+        alt: "Dominik Rumczyk z dyplomem i pucharem za pierwsze miejsce"
+      },
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4505.webp",
+        alt: "Jakub Aniszewski podczas wręczenia nagród za drugie miejsce"
+      },
+      {
+        src: "/kapusz-tennis-tour/kapusz-tennis-tour-4507.webp",
+        alt: "Organizator turnieju z trzema najlepszymi zawodnikami Kapusz Tennis Tour"
+      },
+      {
+        src: "/kapusz-tennis-tour/turniej0.webp",
+        alt: "Zawodnik obserwujący rywalizację podczas Kapusz Tennis Tour"
+      },
+      {
+        src: "/kapusz-tennis-tour/turniej1.webp",
+        alt: "Uczestnicy męskiej edycji Kapusz Tennis Tour na kortach"
+      },
+      {
+        src: "/kapusz-tennis-tour/turniej2.webp",
+        alt: "Uczestnicy turnieju tenisowego podczas przerwy między meczami"
+      },
+      {
+        src: "/kapusz-tennis-tour/turniej3.webp",
+        alt: "Zawodnik przygotowujący się do gry w Kapusz Tennis Tour"
+      },
+      {
+        src: "/kapusz-tennis-tour/turniej4.webp",
+        alt: "Mecz męskiej edycji Kapusz Tennis Tour na korcie ziemnym"
+      }
+    ],
+    sponsors: [
+      {
+        src: "/kapusz-tennis-tour/partner-acetenis.webp",
+        alt: "Logo partnera turnieju ACETENIS.PL"
+      }
+    ],
+    content: `# Kapusz Tennis Tour wystartował! Męska edycja na pożegnanie lata
+
+Po pierwszej edycji Kapusz Tennis Cup przyszedł czas na kolejny krok - startujemy z serią turniejów Kapusz Tennis Tour! Na początek na kort wyszli panowie, a wrześniowa męska edycja była świetnym sposobem na sportowe pożegnanie lata.
+
+W turnieju udział wzięło 16 zawodników, którzy najpierw zmierzyli się w fazie grupowej, a następnie najlepsi z nich walczyli o zwycięstwo w fazie pucharowej. Nie zabrakło emocjonujących spotkań, długich wymian i walki o każdą piłkę.
+
+Po kilku godzinach intensywnej rywalizacji poznaliśmy najlepszych zawodników turnieju. A wszystko to w świetnej, sportowej atmosferze - z dużą dawką tenisa, emocji i dobrej zabawy poza kortem.
+
+## 🏆 Kapusz Tennis Tour – męska edycja
+
+- 🥇 **I miejsce – Dominik Rumczyk**
+- 🥈 **II miejsce – Jakub Aniszewski**
+- 🥉 **III miejsce – Bartosz Klag**
+
+[Pełne wyniki turnieju](https://advantage-app.pl/t/kapusz-tennis-tour-2/results)
+
+Gratulacje dla wszystkich zawodników, którzy stanęli na korcie i stworzyli ten turniej razem z nami!
+
+## 🎾 Dziękujemy naszemu partnerowi
+
+Wielkie podziękowania kierujemy do **[ACETENIS.PL](https://acetenis.pl/)**, naszego partnera turnieju, za ufundowanie nagród dla zawodników. Dziękujemy za wsparcie i dołączenie do pierwszej męskiej edycji Kapusz Tennis Tour!
+
+**[TUTAJ WSTAW LOGOTYPY SPONSORÓW I PARTNERÓW]**
+
+## 📸 Kapusz Tennis Tour w obiektywie
+
+Turniej to nie tylko wyniki i rywalizacja. Zostały z nami również emocje uchwycone na zdjęciach – od pierwszych piłek na korcie, przez najbardziej zacięte spotkania, aż po wręczenie nagród.
+
+**[MIEJSCE NA GALERIĘ]**
+
+To dopiero początek Kapusz Tennis Tour. Do zobaczenia na kolejnych turniejach! 🎾`,
+    author: "Michał Kapusz",
+    slug: "kapusz-tennis-tour-meska-edycja-na-pozegnanie-lata"
+  },
   {
     id: "4",
     title: "Pierwsza edycja Kapusz Tennis Cup za nami! Podsumowanie turnieju we Wrocławiu",

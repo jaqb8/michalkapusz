@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Advantage</title>
+  <rect width="64" height="64" rx="12" fill="#171717"/>
+  <path fill="#fafafa" fill-rule="evenodd" d="M4 51 25 11h15l9 40H36l-1.5-8H19l-4 8H4Zm20-18h9l-2-11h-1l-6 11Z"/>
+  <circle cx="55" cy="47" r="5" fill="#7cce00"/>
+</svg>

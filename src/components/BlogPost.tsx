@@ -1,15 +1,58 @@
 import { Helmet } from "../lib/helmet";
 import ReactMarkdown from "react-markdown";
+import type { ComponentPropsWithoutRef } from "react";
 import { Link } from "react-router-dom";
 import { BlogPost as BlogPostType } from "../content/blog/posts";
 import BlogGallery from "./BlogGallery";
 import BlogSponsors from "./BlogSponsors";
 import BlogShareActions from "./BlogShareActions";
-import { ArrowLeft, Calendar, User } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Calendar, User } from "lucide-react";
 
 interface BlogPostProps {
   post: BlogPostType;
 }
+
+const articleMarkdownComponents = {
+  a: ({ children, href, title }: ComponentPropsWithoutRef<"a">) => {
+    const isAdvantageResults = href?.startsWith("https://advantage-app.pl/");
+
+    if (isAdvantageResults) {
+      return (
+        <a
+          href={href}
+          title={title}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="not-prose my-6 flex w-full items-center gap-3 rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-white shadow-lg shadow-navy-950/20 transition-all duration-300 hover:-translate-y-0.5 hover:border-electric-500/50 hover:bg-white/[0.08] focus:outline-none focus:ring-2 focus:ring-electric-400"
+        >
+          <img
+            src="/advantage-favicon.svg"
+            alt=""
+            className="h-9 w-9 shrink-0 rounded-lg"
+          />
+          <span className="min-w-0 flex-1 truncate text-sm font-semibold sm:text-base">
+            {children}
+          </span>
+          <span className="hidden text-sm text-white/45 sm:inline">
+            Advantage
+          </span>
+          <ArrowUpRight className="h-4 w-4 shrink-0 text-electric-400" />
+        </a>
+      );
+    }
+
+    return (
+      <a
+        href={href}
+        title={title}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    );
+  },
+};
 
 function BlogPost({ post }: BlogPostProps) {
   const formattedDate = new Date(post.date).toLocaleDateString("pl-PL", {
@@ -121,7 +164,7 @@ function BlogPost({ post }: BlogPostProps) {
             {post.image && (
               <div className="relative rounded-2xl overflow-hidden mb-12">
                 <img
-                  src={post.image}
+                  src={post.featuredImage ?? post.image}
                   alt={post.title}
                   className="w-full h-64 md:h-96 object-cover"
                 />
@@ -131,14 +174,20 @@ function BlogPost({ post }: BlogPostProps) {
 
             {/* Content */}
             <div className="prose prose-lg prose-invert max-w-none prose-headings:font-display prose-headings:text-white prose-p:text-white/70 prose-a:text-electric-500 prose-a:no-underline hover:prose-a:text-electric-400 prose-strong:text-white prose-ul:text-white/70 prose-ol:text-white/70 prose-li:marker:text-electric-500">
-              <ReactMarkdown>{contentBeforeSponsors}</ReactMarkdown>
+              <ReactMarkdown components={articleMarkdownComponents}>
+                {contentBeforeSponsors}
+              </ReactMarkdown>
               {post.sponsors && <BlogSponsors sponsors={post.sponsors} />}
               {contentBeforeGallery && (
-                <ReactMarkdown>{contentBeforeGallery}</ReactMarkdown>
+                <ReactMarkdown components={articleMarkdownComponents}>
+                  {contentBeforeGallery}
+                </ReactMarkdown>
               )}
               {post.gallery && <BlogGallery images={post.gallery} />}
               {contentAfterGallery && (
-                <ReactMarkdown>{contentAfterGallery}</ReactMarkdown>
+                <ReactMarkdown components={articleMarkdownComponents}>
+                  {contentAfterGallery}
+                </ReactMarkdown>
               )}
             </div>
 

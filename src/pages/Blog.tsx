@@ -83,6 +83,7 @@ function Blog() {
                     <img
                       src={post.image}
                       alt={post.title}
+                      style={{ objectPosition: post.imagePosition }}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-950 to-transparent" />
