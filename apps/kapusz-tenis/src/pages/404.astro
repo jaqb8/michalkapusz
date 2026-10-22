@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="404 - Strona nie znaleziona | Michał Kapusz"
+  description="Ta strona nie istnieje. Wróć na stronę główną i znajdź potrzebne informacje."
+  noindex
+>
+  <section class="k-dark nf">
+    <p class="k-eyebrow k-eyebrow--accent">404</p>
+    <h1 class="k-h2">Ta piłka wyszła na aut.</h1>
+    <p class="k-lead">Wygląda na to, że ten adres nie istnieje. Wróć na stronę główną lub przejdź do bloga.</p>
+    <div class="k-actions nf-actions">
+      <a class="k-pill" href="/">Strona główna</a>
+      <a class="k-link" href="/blog/">Blog <span class="k-chev">›</span></a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf {
+    min-height: calc(100svh - var(--k-nav-h));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px var(--k-gutter);
+    text-align: center;
+  }
+
+  .nf .k-lead {
+    margin-inline: auto;
+  }
+
+  .nf-actions {
+    margin-top: 32px;
+    justify-content: center;
+  }
+</style>

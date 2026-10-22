@@ -1,0 +1,68 @@
+/*
+ * Kapusz — tokeny marki (kierunek D: "athletic premium").
+ * Jedyne źródło kolorów, typografii i promieni dla obu stron.
+ * Skrypty po stronie klienta czytają je przez getComputedStyle, więc nie duplikuj wartości w JS.
+ */
+:root {
+  /* Powierzchnie */
+  --k-black: #000000;
+  --k-night: #0b0b0c;
+  --k-ink: #1d1d1f;
+  --k-snow: #f5f5f7;
+  --k-white: #ffffff;
+
+  /* Tekst drugorzędny i linie */
+  --k-gray-600: #6e6e73; /* tekst drugorzędny na jasnym tle */
+  --k-gray-500: #86868b; /* etykiety, metadane */
+  --k-gray-400: #a1a1a6; /* tekst drugorzędny na ciemnym tle */
+  --k-gray-300: #d2d2d7; /* linie na jasnym tle */
+  --k-gray-200: #e8e8ed;
+  --k-gray-100: #f0f0f3;
+  --k-line-dark: rgba(255, 255, 255, 0.14);
+
+  /* Akcent: kolor znaku z logo */
+  --k-accent: #a79383;
+  --k-accent-ink: #000000; /* tekst na tle akcentu */
+
+  /* Cztery filary metody */
+  --k-pillar-ruch: #c9a8ff;
+  --k-pillar-taktyka: #8fd3ff;
+  --k-pillar-technika: #ffb48a;
+  --k-pillar-glowa: #f5f5f7;
+  --k-pillar-plan: #a79484;
+
+  /* Kort (podgląd w konfiguratorze) */
+  --k-clay-top: #6b2d17;
+  --k-clay-bottom: #45190c;
+
+  /* Typografia */
+  --k-font-sans: "Geist Variable", "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --k-font-mono: "Geist Mono Variable", "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+  --k-font-display: "Sofia Sans Extra Condensed", "Geist Variable", sans-serif;
+
+  --k-text-hero: clamp(46px, 6.2vw, 90px);
+  --k-text-h2: clamp(44px, 5.6vw, 80px);
+  --k-text-h2-xl: clamp(56px, 8vw, 120px);
+  --k-text-statement: clamp(30px, 4.1vw, 56px);
+  --k-text-lead: 19px;
+  --k-text-body: 17px;
+  --k-text-small: 15px;
+  --k-text-eyebrow: 12px;
+
+  --k-tracking-tight: -0.042em;
+  --k-tracking-eyebrow: 0.08em;
+
+  /* Układ */
+  --k-container: 1180px;
+  --k-gutter: 22px;
+  --k-nav-h: 52px;
+
+  --k-radius-sm: 16px;
+  --k-radius-md: 24px;
+  --k-radius-lg: 32px;
+  --k-radius-pill: 999px;
+
+  /* Ruch */
+  --k-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --k-ease-inout: cubic-bezier(0.7, 0, 0.2, 1);
+}

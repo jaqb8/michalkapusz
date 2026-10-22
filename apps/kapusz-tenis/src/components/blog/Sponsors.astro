@@ -1,0 +1,65 @@
+---
+interface Props {
+  items?: { src: string; alt: string }[];
+}
+
+const { items = [] } = Astro.props;
+const single = items.length === 1;
+---
+
+{
+  items.length > 0 && (
+    <section class:list={["sp", { "sp--single": single }]} aria-label="Logotypy sponsorów i partnerów">
+      {items.map((sponsor) => (
+        <div class="sp-item">
+          <img src={sponsor.src} alt={sponsor.alt} loading="lazy" decoding="async" />
+        </div>
+      ))}
+    </section>
+  )
+}
+
+<style>
+  .sp {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .sp {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .sp--single {
+    grid-template-columns: 1fr;
+  }
+
+  .sp-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 112px;
+    padding: 16px;
+    border-radius: var(--k-radius-sm);
+    border: 1px solid var(--k-gray-200);
+    background: var(--k-white);
+  }
+
+  .sp--single .sp-item {
+    min-height: 180px;
+    padding: 28px;
+  }
+
+  .sp-item img {
+    max-height: 80px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .sp--single .sp-item img {
+    max-height: 120px;
+  }
+</style>

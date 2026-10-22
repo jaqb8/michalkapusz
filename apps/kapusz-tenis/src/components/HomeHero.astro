@@ -1,0 +1,231 @@
+---
+import { Image } from "astro:assets";
+import pzt from "@kapusz/brand/assets/pzt.png";
+import itf from "@kapusz/brand/assets/itf.jpg";
+import stadium from "../assets/stadium.jpg";
+import portrait from "../assets/michal-kapusz.jpg";
+---
+
+<section class="hh">
+  <div class="hh-bg" aria-hidden="true">
+    <Image src={stadium} alt="" widths={[1440, 2560]} sizes="100vw" loading="eager" class="hh-plate" />
+    <div class="hh-vig"></div>
+    <div class="k-grain-wrap"><div class="k-grain k-grain--lg"></div></div>
+  </div>
+
+  <div class="hh-in">
+    <div class="hh-copy">
+      <p class="k-eyebrow k-eyebrow--accent hh-rise" style="animation-delay: .2s">Licencjonowany trener tenisa · Wrocław</p>
+      <h1 class="k-h1 hh-h1">
+        <span class="hh-mask"><span style="animation-delay: .3s">Michał Kapusz.</span></span>
+        <span class="hh-mask"><span class="k-muted" style="animation-delay: .42s">Trener tenisa.</span></span>
+      </h1>
+      <p class="k-lead hh-rise" style="animation-delay: .6s">
+        Rozwiń swój potencjał tenisowy z profesjonalnym trenerem. Indywidualne podejście, sprawdzone metody, widoczne
+        rezultaty.
+      </p>
+      <div class="k-actions hh-rise hh-actions" style="animation-delay: .72s">
+        <a class="k-pill" href="#kontakt">Umów trening</a>
+        <a class="k-link" href="/cennik/">Cennik <span class="k-chev">›</span></a>
+      </div>
+      <div class="hh-lic hh-rise" style="animation-delay: .86s">
+        <span class="hh-badge"><img src={pzt.src} width={pzt.width} height={pzt.height} alt="Polski Związek Tenisowy" /></span>
+        <span class="hh-badge"><img src={itf.src} width={itf.width} height={itf.height} alt="ITF Coaching" /></span>
+        <span class="k-eyebrow">Licencje PZT i ITF</span>
+      </div>
+    </div>
+
+    <div class="hh-photo-wrap hh-rise" style="animation-delay: .35s">
+      <div class="hh-photo">
+        <Image
+          src={portrait}
+          alt="Trener tenisa Michał Kapusz"
+          widths={[400, 540]}
+          sizes="(min-width: 960px) 420px, 80vw"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <span class="hh-tag">Head coach · Kapusz Tennis Academy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hh {
+    position: relative;
+    margin-top: calc(var(--k-nav-h) * -1);
+    min-height: min(100svh, 940px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--k-black);
+  }
+
+  .hh-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hh-plate {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    filter: blur(2px) saturate(0.6);
+    animation: hh-plate 2.4s ease-out both;
+  }
+
+  .hh-vig {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(60% 70% at 72% 45%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.6) 45%, rgba(0, 0, 0, 0.2) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 70%, #000 100%);
+  }
+
+  .hh-in {
+    position: relative;
+    width: 100%;
+    max-width: var(--k-container);
+    margin: 0 auto;
+    padding: calc(var(--k-nav-h) + 72px) var(--k-gutter) 88px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .hh-h1 {
+    margin-top: 18px;
+  }
+
+  .hh-mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+
+  .hh-mask > span {
+    display: block;
+    animation: hh-line 1.1s var(--k-ease-out) both;
+  }
+
+  .hh-actions {
+    margin-top: 32px;
+  }
+
+  .hh-lic {
+    margin-top: 44px;
+    padding-top: 24px;
+    border-top: 1px solid var(--k-line-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hh-lic .k-eyebrow {
+    margin-left: 6px;
+  }
+
+  .hh-badge {
+    display: inline-flex;
+    padding: 4px;
+    border-radius: 10px;
+    background: var(--k-snow);
+  }
+
+  .hh-badge img {
+    height: 30px;
+    width: auto;
+  }
+
+  .hh-photo-wrap {
+    justify-self: end;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .hh-photo {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--k-radius-md);
+    overflow: hidden;
+    box-shadow: 0 60px 120px -40px color-mix(in srgb, var(--k-accent) 45%, transparent);
+  }
+
+  .hh-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hh-tag {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0 12px;
+    border-radius: var(--k-radius-pill);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .hh-rise {
+    animation: hh-rise 1s var(--k-ease-out) both;
+  }
+
+  @media (max-width: 900px) {
+    .hh-in {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-top: calc(var(--k-nav-h) + 48px);
+    }
+
+    .hh-photo-wrap {
+      justify-self: start;
+      max-width: 420px;
+    }
+  }
+
+  @keyframes hh-rise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes hh-line {
+    from {
+      transform: translateY(108%);
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  @keyframes hh-plate {
+    from {
+      opacity: 0;
+      transform: scale(1.06);
+    }
+    to {
+      opacity: 0.4;
+      transform: none;
+    }
+  }
+</style>

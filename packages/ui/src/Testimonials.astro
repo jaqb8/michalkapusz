@@ -1,0 +1,404 @@
+---
+import { testimonials, type Testimonial } from "./testimonials";
+
+interface Props {
+  title?: string;
+  items?: Testimonial[];
+}
+
+const { title = "Mówią o nas.", items = testimonials } = Astro.props;
+
+const words = (text: string) => {
+  const parts = text.split(" ");
+  return parts.map((t, i) => (i === 0 ? "„" : "") + t + (i === parts.length - 1 ? "”" : ""));
+};
+---
+
+<section class="k-light" data-testimonials>
+  <div class="k-container k-section">
+    <div class="q-head rv">
+      <div>
+        <p class="k-eyebrow fade">Opinie</p>
+        <h2 class="k-h2"><span class="ln"><span>{title}</span></span></h2>
+      </div>
+      <div class="q-nav fade">
+        <button type="button" class="q-navbtn" data-q-prev aria-label="Poprzednia opinia">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg>
+        </button>
+        <button type="button" class="q-navbtn" data-q-next aria-label="Następna opinia">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="q-panel rv up" data-q-panel aria-live="polite">
+      <div class="q-mark" aria-hidden="true">”</div>
+      {
+        items.map((q, i) => (
+          <figure class="q-fig" data-q-fig hidden={i !== 0}>
+            <div class="q-stars" role="img" aria-label="Ocena 5 na 5">
+              {[0, 1, 2, 3, 4].map(() => (
+                <svg class="q-star" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="q-text">
+              {words(q.text).map((t, j) => (
+                <>
+                  <span class="q-w" style={`--i: ${j}`}>{t}</span>{" "}
+                </>
+              ))}
+            </blockquote>
+            <figcaption class="q-cap">
+              <span class="q-ini" aria-hidden="true">{q.initials}</span>
+              <span>
+                <span class="q-name">{q.name}</span>
+                <span class="q-meta">{q.meta}</span>
+              </span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="q-people rv kids">
+      {
+        items.map((q, i) => (
+          <button type="button" class="q-person" data-q-person aria-pressed={i === 0 ? "true" : "false"}>
+            <span class="q-av" aria-hidden="true">{q.initials}</span>
+            <span class="q-who">
+              <span class="q-pname">{q.name}</span>
+              <span class="q-pmeta">{q.meta}</span>
+            </span>
+            <span class="q-track" aria-hidden="true" />
+            <span class="q-bar" data-q-bar aria-hidden="true" />
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .q-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .q-nav {
+    display: flex;
+    gap: 12px;
+  }
+
+  .q-navbtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid var(--k-gray-300);
+    background: var(--k-white);
+    color: var(--k-ink);
+    cursor: pointer;
+    transition:
+      background-color 0.2s,
+      border-color 0.2s;
+  }
+
+  .q-navbtn:hover {
+    background: var(--k-snow);
+    border-color: var(--k-gray-500);
+  }
+
+  @keyframes q-light {
+    from {
+      background-position: 0% 0;
+    }
+    to {
+      background-position: 100% 0;
+    }
+  }
+
+  .q-panel {
+    position: relative;
+    margin-top: 48px;
+    min-height: 420px;
+    padding: clamp(32px, 5vw, 64px);
+    border-radius: var(--k-radius-lg);
+    overflow: hidden;
+    background:
+      radial-gradient(55% 120% at 50% 0%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 62%) 0 0 / 220% 100% no-repeat,
+      var(--k-snow);
+    animation: q-light 14s ease-in-out infinite alternate;
+  }
+
+  @keyframes q-float {
+    from {
+      transform: translateY(0) rotate(0deg);
+    }
+    to {
+      transform: translateY(-14px) rotate(-5deg);
+    }
+  }
+
+  .q-mark {
+    position: absolute;
+    right: clamp(20px, 5vw, 64px);
+    top: -10px;
+    font-size: clamp(180px, 22vw, 300px);
+    line-height: 1;
+    font-weight: 700;
+    color: #e3e3e8;
+    animation: q-float 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes q-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes q-word {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(5px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+    }
+  }
+
+  @keyframes q-star-in {
+    from {
+      opacity: 0;
+      transform: scale(0.3) rotate(-40deg);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .q-fig {
+    position: relative;
+    margin: 0;
+    max-width: 920px;
+    animation: q-in 0.8s var(--k-ease-out) both;
+  }
+
+  .q-stars {
+    display: flex;
+    gap: 4px;
+    color: var(--k-ink);
+  }
+
+  .q-star {
+    animation: q-star-in 0.55s cubic-bezier(0.2, 0.9, 0.2, 1.2) both;
+  }
+
+  .q-star:nth-child(2) {
+    animation-delay: 0.07s;
+  }
+  .q-star:nth-child(3) {
+    animation-delay: 0.14s;
+  }
+  .q-star:nth-child(4) {
+    animation-delay: 0.21s;
+  }
+  .q-star:nth-child(5) {
+    animation-delay: 0.28s;
+  }
+
+  .q-text {
+    margin: 28px 0 0;
+    font-size: clamp(26px, 3.2vw, 44px);
+    font-weight: 600;
+    line-height: 1.22;
+    letter-spacing: -0.028em;
+  }
+
+  .q-w {
+    display: inline-block;
+    animation: q-word 0.75s var(--k-ease-out) both;
+    animation-delay: calc(var(--i) * 26ms + 0.12s);
+  }
+
+  .q-cap {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .q-ini {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--k-ink);
+    color: var(--k-white);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .q-name {
+    display: block;
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .q-meta {
+    display: block;
+    font-size: 14px;
+    color: var(--k-gray-600);
+  }
+
+  .q-people {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+
+  .q-person {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 72px;
+    padding: 14px 18px;
+    border-radius: 18px;
+    border: 1px solid var(--k-gray-200);
+    background: var(--k-white);
+    color: var(--k-ink);
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .q-person:hover {
+    border-color: var(--k-gray-500);
+  }
+
+  .q-person[aria-pressed="true"] {
+    border-color: var(--k-ink);
+  }
+
+  .q-av {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--k-gray-100);
+    color: var(--k-ink);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .q-person[aria-pressed="true"] .q-av {
+    background: var(--k-ink);
+    color: var(--k-white);
+  }
+
+  .q-who {
+    min-width: 0;
+  }
+
+  .q-pname,
+  .q-pmeta {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .q-pname {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .q-pmeta {
+    font-size: 13px;
+    color: var(--k-gray-600);
+  }
+
+  .q-track,
+  .q-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+  }
+
+  .q-track {
+    background: var(--k-gray-100);
+  }
+
+  @keyframes q-bar {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .q-bar {
+    display: none;
+    background: var(--k-ink);
+    transform-origin: left;
+  }
+
+  .q-person[aria-pressed="true"] .q-bar {
+    display: block;
+    animation: q-bar 7s linear both;
+  }
+
+  [data-testimonials].hold .q-bar {
+    animation-play-state: paused;
+  }
+</style>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>("[data-testimonials]")) {
+    const figures = [...root.querySelectorAll<HTMLElement>("[data-q-fig]")];
+    const people = [...root.querySelectorAll<HTMLButtonElement>("[data-q-person]")];
+    const panel = root.querySelector<HTMLElement>("[data-q-panel]");
+    let current = 0;
+
+    // Pokazanie ukrytego elementu restartuje jego animacje CSS (słowa, gwiazdki, pasek postępu).
+    const show = (index: number) => {
+      current = (index + figures.length) % figures.length;
+      figures.forEach((fig, i) => (fig.hidden = i !== current));
+      people.forEach((btn, i) => btn.setAttribute("aria-pressed", String(i === current)));
+    };
+
+    people.forEach((btn, i) => {
+      btn.addEventListener("click", () => show(i));
+      btn.querySelector("[data-q-bar]")?.addEventListener("animationend", () => show(current + 1));
+    });
+    root.querySelector("[data-q-prev]")?.addEventListener("click", () => show(current - 1));
+    root.querySelector("[data-q-next]")?.addEventListener("click", () => show(current + 1));
+    panel?.addEventListener("mouseenter", () => root.classList.add("hold"));
+    panel?.addEventListener("mouseleave", () => root.classList.remove("hold"));
+  }
+</script>

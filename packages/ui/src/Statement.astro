@@ -1,0 +1,56 @@
+---
+/** Duże zdanie rozjaśniające się słowo po słowie. Słowa z `highlight` dostają kolor akcentu. */
+interface Props {
+  text: string;
+  highlight?: string[];
+}
+
+const { text, highlight = [] } = Astro.props;
+const words = text.split(/\s+/);
+const clean = (word: string) => word.replace(/[.,—:;!?]/g, "").toLowerCase();
+const accent = new Set(highlight.map((w) => w.toLowerCase()));
+---
+
+<section class="k-dark">
+  <div class="stmt rv">
+    <p class="stmt-text">
+      {
+        words.map((word, i) => (
+          <>
+            <span class:list={["w", { "stmt-accent": accent.has(clean(word)) }]} style={`--i: ${i}`}>
+              {word}
+            </span>{" "}
+          </>
+        ))
+      }
+    </p>
+  </div>
+</section>
+
+<style>
+  .stmt {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 170px var(--k-gutter) 130px;
+  }
+
+  .stmt-text {
+    margin: 0;
+    font-size: var(--k-text-statement);
+    font-weight: 600;
+    line-height: 1.14;
+    letter-spacing: -0.032em;
+    color: var(--k-snow);
+    text-wrap: pretty;
+  }
+
+  .stmt-accent {
+    color: var(--k-accent);
+  }
+
+  @media (max-width: 720px) {
+    .stmt {
+      padding-block: 120px 90px;
+    }
+  }
+</style>

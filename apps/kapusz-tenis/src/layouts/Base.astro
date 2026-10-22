@@ -1,0 +1,72 @@
+---
+import "@kapusz/brand/tokens.css";
+import "@kapusz/brand/fonts.css";
+import "@kapusz/brand/base.css";
+import Reveal from "@kapusz/ui/Reveal.astro";
+import Chrome from "../components/Chrome.astro";
+import { DEFAULT_OG_IMAGE, SITE, breadcrumbSchema, siteSchemas, type Crumb } from "../lib/schema";
+
+interface Props {
+  title: string;
+  description: string;
+  /** Okruszki poza stroną główną, np. [{ name: "Cennik", path: "/cennik/" }]. */
+  crumbs?: Crumb[];
+  image?: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+}
+
+const { title, description, crumbs = [], image = DEFAULT_OG_IMAGE, type = "website", noindex = false } = Astro.props;
+const path = Astro.url.pathname === "/" ? "/" : `${Astro.url.pathname.replace(/\/$/, "")}/`;
+const canonical = `${SITE}${path}`;
+
+// Google Analytics ładowany z opóźnieniem, jak w poprzedniej wersji strony.
+const analytics = `window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id=G-WBXGDTVL09";document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","G-WBXGDTVL09",{transport_type:"beacon",page_load_time_ms:performance.now()})},2000)});`;
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {!noindex && <link rel="canonical" href={canonical} />}
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta name="googlebot" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta name="google-site-verification" content="o4HZIEXA6QPcO8ZkBwRKw8fu00byyaIYqRa-j03hzWg" />
+    <meta name="author" content="Michał Kapusz" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    {
+      image === DEFAULT_OG_IMAGE && (
+        <>
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+        </>
+      )
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={image} />
+
+    <script is:inline set:html={analytics} />
+    {siteSchemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+    {crumbs.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(crumbs))} />}
+    <slot name="head" />
+  </head>
+  <body>
+    <Chrome>
+      <slot />
+    </Chrome>
+    <Reveal />
+  </body>
+</html>

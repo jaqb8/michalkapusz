@@ -1,0 +1,20 @@
+# Netlify (monorepo): Base directory = "/" (root repo), Package directory = apps/kapusz-tenis.
+# Polecenia uruchamiają się w katalogu głównym repo, ścieżki są względem niego.
+[build]
+  command = "npm run build -w @kapusz/kapusz-tenis"
+  publish = "apps/kapusz-tenis/dist"
+  # Pomija deploy, gdy commit nie dotyka tej strony ani wspólnych pakietów.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- apps/kapusz-tenis packages package-lock.json"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"

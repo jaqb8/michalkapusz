@@ -1,0 +1,170 @@
+---
+import { Image } from "astro:assets";
+import wide from "../assets/tournaments/kapusz-cup-wide.jpg";
+import tourTrophy from "../assets/tournaments/tour-trophy.jpg";
+import tourMatch from "../assets/tournaments/tour-match.jpg";
+import cupTrophies from "../assets/tournaments/cup-trophies.jpg";
+import cimone from "../assets/partners/sponsor-cimone.png";
+import fizjo from "../assets/partners/sponsor-fizjoterapia-lukasz-szepanski.png";
+import kampol from "../assets/partners/sponsor-kampol.png";
+import suszarnia from "../assets/partners/sponsor-suszarnia.png";
+import vorwerk from "../assets/partners/sponsor-vorwerk.png";
+import wesling from "../assets/partners/sponsor-wesling.png";
+
+const photos = [
+  { src: tourTrophy, alt: "Puchar za pierwsze miejsce w Kapusz Tennis Tour", caption: "Kapusz Tennis Tour — puchar" },
+  { src: tourMatch, alt: "Zawodnik przed serwisem podczas Kapusz Tennis Tour", caption: "Kapusz Tennis Tour — mecz" },
+  { src: cupTrophies, alt: "Statuetki za zwycięstwo w Kapusz Cup", caption: "Kapusz Cup — trofea" },
+];
+
+const partners = [
+  { src: cimone, alt: "Cimone" },
+  { src: fizjo, alt: "Fizjoterapia Łukasz Szefner" },
+  { src: kampol, alt: "Kampol" },
+  { src: suszarnia, alt: "Suszarnia Sushi Bar" },
+  { src: vorwerk, alt: "Vorwerk" },
+  { src: wesling, alt: "Wesling Kruszywa" },
+];
+---
+
+<section id="turnieje" class="k-dark">
+  <div class="tr-head rv">
+    <p class="k-eyebrow k-eyebrow--accent fade">Turnieje akademii</p>
+    <h2 class="k-h2 k-h2--xl"><span class="ln"><span>Sprawdzian.</span></span></h2>
+    <p class="k-lead fade tr-lead">Kapusz Cup i Kapusz Tennis Tour — tu trening zamienia się w wynik.</p>
+  </div>
+  <div class="tr-wide-wrap rv">
+    <div class="wide tr-wide">
+      <Image src={wide} alt="Uczestnicy turnieju Kapusz Cup we Wrocławiu" widths={[800, 1400]} sizes="(min-width: 1440px) 1396px, 100vw" />
+      <div class="tr-wide-cap"><span>Kapusz Cup</span><span>Wrocław</span></div>
+    </div>
+  </div>
+  <div class="tr-row rv kids">
+    {
+      photos.map((photo) => (
+        <figure>
+          <div class="zoom clip tr-photo">
+            <Image src={photo.src} alt={photo.alt} widths={[400, 800]} sizes="(min-width: 1000px) 380px, 90vw" />
+          </div>
+          <figcaption class="k-eyebrow tr-cap">{photo.caption}</figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</section>
+
+<section class="k-snow">
+  <div class="tr-partners rv kids">
+    <p class="k-eyebrow tr-partners-h">Partnerzy turniejów</p>
+    {partners.map((p) => <Image src={p.src} alt={p.alt} height={46} class="tr-logo" />)}
+  </div>
+</section>
+
+<style>
+  .tr-head {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 170px var(--k-gutter) 64px;
+    text-align: center;
+  }
+
+  .tr-lead {
+    max-width: 680px;
+    margin-inline: auto;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .tr-wide-wrap {
+    padding: 0 var(--k-gutter);
+  }
+
+  .tr-wide {
+    position: relative;
+    height: clamp(380px, 47vw, 680px);
+    border-radius: var(--k-radius-lg);
+    overflow: hidden;
+    background: #111;
+  }
+
+  .tr-wide img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .tr-wide-cap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 120px 32px 28px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--k-font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--k-gray-300);
+  }
+
+  .tr-row {
+    max-width: var(--k-container);
+    margin: 0 auto;
+    padding: 22px var(--k-gutter) 170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+
+  .tr-row figure {
+    margin: 0;
+  }
+
+  .tr-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--k-radius-md);
+    overflow: hidden;
+    background: #111;
+  }
+
+  .tr-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tr-cap {
+    margin-top: 14px;
+    letter-spacing: 0.06em;
+  }
+
+  .tr-partners {
+    max-width: var(--k-container);
+    margin: 0 auto;
+    padding: 64px var(--k-gutter);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 28px 56px;
+  }
+
+  .tr-partners-h {
+    width: 100%;
+    text-align: center;
+  }
+
+  .tr-logo {
+    height: 40px;
+    width: auto;
+    filter: grayscale(1);
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+  }
+</style>

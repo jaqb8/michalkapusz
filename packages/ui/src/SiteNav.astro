@@ -1,0 +1,216 @@
+---
+import logoMark from "@kapusz/brand/assets/logo-mark.webp";
+
+export interface NavLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  brand: string;
+  homeHref: string;
+  links: NavLink[];
+  cta: NavLink;
+  /** Ścieżka bieżącej strony, żeby oznaczyć aktywny link. */
+  currentPath?: string;
+}
+
+const { brand, homeHref, links, cta, currentPath } = Astro.props;
+const normalize = (path: string) => path.replace(/\/$/, "") || "/";
+const isCurrent = (href: string) =>
+  currentPath !== undefined && !href.includes("#") && normalize(href) === normalize(currentPath);
+---
+
+<header class="nav" data-nav>
+  <div class="nav-in">
+    <a href={homeHref} class="nav-brand">
+      <img src={logoMark.src} width={logoMark.width} height={logoMark.height} alt="" class="nav-mark" />
+      <span class="nav-brandtxt">{brand}</span>
+    </a>
+    <nav class="nav-links" aria-label="Główna">
+      {
+        links.map((link) => (
+          <a href={link.href} aria-current={isCurrent(link.href) ? "page" : undefined}>
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="nav-right">
+      <a class="k-pill k-pill--sm" href={cta.href}>{cta.label}</a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-menu" aria-label="Otwórz menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path class="nav-l1" d="M4 8h16"></path>
+          <path class="nav-l2" d="M4 16h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <nav id="nav-menu" class="nav-menu" aria-label="Menu mobilne" hidden>
+    {
+      links.map((link) => (
+        <a href={link.href} aria-current={isCurrent(link.href) ? "page" : undefined}>
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: rgba(16, 16, 18, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--k-snow);
+  }
+
+  .nav-in {
+    max-width: var(--k-container);
+    height: var(--k-nav-h);
+    margin: 0 auto;
+    padding: 0 var(--k-gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    min-height: 44px;
+  }
+
+  .nav-mark {
+    height: 24px;
+    width: auto;
+  }
+
+  .nav-brandtxt {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+    color: var(--k-gray-300);
+  }
+
+  .nav-links a,
+  .nav-menu a {
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a[aria-current="page"] {
+    color: var(--k-white);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: none;
+    color: var(--k-snow);
+    cursor: pointer;
+  }
+
+  .nav-toggle path {
+    transition: transform 0.3s var(--k-ease-out);
+    transform-origin: center;
+  }
+
+  .nav[data-open] .nav-l1 {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .nav[data-open] .nav-l2 {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 8px var(--k-gutter) 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-menu[hidden] {
+    display: none;
+  }
+
+  .nav-menu a {
+    padding: 14px 0;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-menu a[aria-current="page"] {
+    color: var(--k-accent);
+  }
+
+  @media (max-width: 820px) {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: inline-flex;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .nav-brandtxt {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  for (const nav of document.querySelectorAll<HTMLElement>("[data-nav]")) {
+    const toggle = nav.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+    const menu = nav.querySelector<HTMLElement>(".nav-menu");
+    if (!toggle || !menu) continue;
+
+    const setOpen = (open: boolean) => {
+      menu.hidden = !open;
+      nav.toggleAttribute("data-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
+    };
+
+    toggle.addEventListener("click", () => setOpen(menu.hidden));
+    menu.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).closest("a")) setOpen(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !menu.hidden) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>

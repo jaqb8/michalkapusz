@@ -1,0 +1,11 @@
+---
+import BlogGallery from "./BlogGallery";
+
+interface Props {
+  images?: { src: string; alt: string }[];
+}
+
+const { images = [] } = Astro.props;
+---
+
+{images.length > 0 && <BlogGallery client:visible images={images} />}

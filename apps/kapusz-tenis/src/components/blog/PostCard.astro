@@ -1,0 +1,112 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatDate } from "../../lib/format";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  headingLevel?: "h2" | "h3";
+}
+
+const { post, headingLevel = "h2" } = Astro.props;
+const Heading = headingLevel;
+---
+
+<a href={`/blog/${post.id}/`} class="pc">
+  {
+    post.data.image && (
+      <div class="pc-img zoom">
+        <img
+          src={post.data.image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          style={post.data.imagePosition ? `object-position: ${post.data.imagePosition}` : undefined}
+        />
+      </div>
+    )
+  }
+  <div class="pc-body">
+    <p class="k-eyebrow pc-meta">
+      <time datetime={post.data.date.toISOString().slice(0, 10)}>{formatDate(post.data.date, "short")}</time>
+    </p>
+    <Heading class="pc-title">{post.data.title}</Heading>
+    <p class="pc-desc">{post.data.description}</p>
+    <span class="pc-more">Czytaj <span class="k-chev">›</span></span>
+  </div>
+</a>
+
+<style>
+  .pc {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: var(--k-radius-md);
+    background: var(--k-white);
+    color: var(--k-ink);
+    text-decoration: none;
+    overflow: hidden;
+    border: 1px solid var(--k-gray-200);
+    transition:
+      border-color 0.3s,
+      transform 0.3s var(--k-ease-out);
+  }
+
+  .pc:hover {
+    border-color: var(--k-gray-500);
+    transform: translateY(-2px);
+  }
+
+  .pc-img {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--k-snow);
+  }
+
+  .pc-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pc-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 24px;
+  }
+
+  .pc-title {
+    margin: 10px 0 0;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  .pc-desc {
+    margin: 10px 0 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--k-gray-600);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .pc-more {
+    margin-top: auto;
+    padding-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .pc:hover .k-chev {
+    transform: translateX(3px);
+  }
+
+  .k-chev {
+    display: inline-block;
+    transition: transform 0.25s;
+  }
+</style>

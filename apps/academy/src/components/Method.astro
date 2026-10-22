@@ -1,0 +1,563 @@
+---
+import logoMark from "@kapusz/brand/assets/logo-mark.webp";
+import poster from "../assets/method-poster.webp";
+import { PILLARS, STEPS, STROKE_PATH } from "../data/method";
+
+const feet: [number, number][] = [
+  [485, 1005],
+  [616, 1003],
+  [560, 995],
+  [794, 984],
+  [369, 913],
+  [530, 934],
+  [772, 909],
+];
+const rays = ["M256 480 L659 -164", "M256 480 L784 -66", "M256 480 L878 44", "M256 480 L961 195", "M256 480 L1008 374"];
+---
+
+<section id="metoda" class="k-dark" data-method>
+  <div class="st-sec">
+    <div class="st-left">
+      <div class="st-head rv">
+        <p class="k-eyebrow k-eyebrow--accent fade">Metoda Kapusz</p>
+        <h2 class="k-h2 st-h2">
+          <span class="ln"><span>Jedno uderzenie.</span></span><span class="ln"><span class="k-muted">Cztery filary.</span></span>
+        </h2>
+        <p class="k-lead fade st-lead">Każdy trening w akademii buduje te same cztery obszary. Jedno uderzenie pokazuje je wszystkie.</p>
+      </div>
+      <ol class="st-steps rv kids">
+        {
+          PILLARS.map((pillar, i) => (
+            <li class="on" data-st-step>
+              <button type="button" aria-pressed="false" data-st-go={i}>
+                <span class="st-dot" style={`background: ${pillar.color}`} />
+                {pillar.name}
+              </button>
+              <div class="st-sbody">
+                <div>
+                  <p>{pillar.text}</p>
+                </div>
+              </div>
+              <span class="st-sbar" aria-hidden="true">
+                <span data-st={`bar${i}`} style={`background: ${pillar.color}`} />
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <div class="st-stage rv up">
+      <div class="st-frame" data-st="frame">
+        <div
+          class="st-live"
+          data-st="live"
+          role="img"
+          aria-label="Animacja: jedno uderzenie forhendem rozłożone na cztery filary metody: ruch, taktykę, technikę i głowę. Na końcu piłka wraca do znaku akademii."
+          hidden
+        >
+          <video class="st-vid" data-st="video" muted playsinline preload="none" aria-hidden="true"></video>
+          <svg class="st-ov" viewBox="0 0 1280 1040" aria-hidden="true">
+            <defs>
+              <path id="stPathM" d={STROKE_PATH}></path>
+              <radialGradient id="stBallM">
+                <stop offset="0" stop-color="#ffffff"></stop>
+                <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.5"></stop>
+                <stop offset="1" stop-color="#ffffff" stop-opacity="0"></stop>
+              </radialGradient>
+              <radialGradient id="stCometM">
+                <stop offset="0" stop-color="#ffe2cf"></stop>
+                <stop offset="0.4" stop-color="#ffb48a" stop-opacity="0.5"></stop>
+                <stop offset="1" stop-color="#ffb48a" stop-opacity="0"></stop>
+              </radialGradient>
+              <radialGradient id="stFlashM">
+                <stop offset="0" stop-color="#fff1e6" stop-opacity="0.9"></stop>
+                <stop offset="0.4" stop-color="#ffb48a" stop-opacity="0.35"></stop>
+                <stop offset="1" stop-color="#ffb48a" stop-opacity="0"></stop>
+              </radialGradient>
+              <radialGradient id="stHaloM">
+                <stop offset="0" stop-color="#f5f5f7" stop-opacity="0.22"></stop>
+                <stop offset="0.6" stop-color="#f5f5f7" stop-opacity="0.06"></stop>
+                <stop offset="1" stop-color="#f5f5f7" stop-opacity="0"></stop>
+              </radialGradient>
+              <mask id="stHoleM" maskUnits="userSpaceOnUse" x="0" y="-200" width="1280" height="1440">
+                <rect x="0" y="-200" width="1280" height="1440" fill="#ffffff"></rect>
+                <circle data-st="hole" cx="719" cy="364" r="42" fill="#000000"></circle>
+              </mask>
+            </defs>
+            <g data-st="gRuch" style="opacity: 0">
+              <g data-st="rip">
+                {
+                  feet.map(([cx, cy]) => (
+                    <g>
+                      <ellipse class="st-rip" cx={cx} cy={cy} rx="12" ry="3" />
+                      <ellipse class="st-rip" cx={cx} cy={cy} rx="12" ry="3" />
+                      <ellipse class="st-pt" cx={cx} cy={cy} rx="9" ry="2.6" />
+                    </g>
+                  ))
+                }
+              </g>
+            </g>
+            <g data-st="gTak" style="opacity: 0">
+              <g data-st="rays">
+                {rays.map((d) => <path class="st-ray" d={d} style="stroke-dasharray: 780 780; stroke-dashoffset: 780" />)}
+              </g>
+              <circle data-st="goal" class="st-goal" cx="878" cy="44" r="5"></circle>
+            </g>
+            <g data-st="gTech" style="opacity: 0">
+              <use data-st="gh1" href="#stPathM" class="st-trail ghost" transform="translate(-14 9)" style="stroke-dasharray: 1994 1994; stroke-dashoffset: 1994"></use>
+              <use data-st="gh2" href="#stPathM" class="st-trail ghost" transform="translate(13 -8)" style="stroke-dasharray: 1994 1994; stroke-dashoffset: 1994"></use>
+              <use data-st="trg" href="#stPathM" class="st-trail glow" style="stroke-dasharray: 1994 1994; stroke-dashoffset: 1994"></use>
+              <use data-st="trc" href="#stPathM" class="st-trail core" style="stroke-dasharray: 1994 1994; stroke-dashoffset: 1994"></use>
+              <circle data-st="flash" cx="256" cy="480" r="26" fill="url(#stFlashM)" style="opacity: 0"></circle>
+              <g data-st="comet" style="opacity: 0; transform: translate(314px, 115px)">
+                <circle r="16" fill="url(#stCometM)"></circle>
+                <circle r="3.6" fill="#fff4ec"></circle>
+              </g>
+            </g>
+            <g data-st="gGlo" style="opacity: 0">
+              <circle cx="574" cy="322" r="120" fill="url(#stHaloM)"></circle>
+              <circle data-st="br1" class="st-ring" cx="574" cy="322" r="60"></circle>
+              <circle data-st="br2" class="st-ring" cx="574" cy="322" r="60"></circle>
+            </g>
+            <g data-st="ball" style="opacity: 0; transform: translate(1152px, 702px)">
+              <circle r="20" fill="url(#stBallM)" opacity="0.55"></circle>
+              <circle r="6.5" fill="#ffffff"></circle>
+            </g>
+            <g data-st="fin" class="st-fin" style="opacity: 0">
+              <image href={logoMark.src} x="470" y="230" width="300" height="272" mask="url(#stHoleM)"></image>
+              <circle data-st="fb" cx="1100" cy="-70" r="6.5" fill="#ffffff"></circle>
+            </g>
+          </svg>
+          <div class="st-vig" data-st="vig"></div>
+          <span class="st-tag" data-st="tRuch" style="left: 66%; top: 89%; color: var(--k-pillar-ruch); opacity: 0">RUCH</span>
+          <span class="st-tag" data-st="tTak" style="left: 70.5%; top: 4%; color: var(--k-pillar-taktyka); opacity: 0">TAKTYKA</span>
+          <span class="st-tag" data-st="tTech" style="left: 27%; top: 11%; color: var(--k-pillar-technika); opacity: 0">TECHNIKA</span>
+          <span class="st-tag" data-st="tGlo" style="left: 55%; top: 26%; color: var(--k-pillar-glowa); opacity: 0">GŁOWA</span>
+          <span class="st-cap" data-st="cap">CZTERY FILARY · JEDEN PLAN</span>
+        </div>
+
+        <div class="st-still" data-st="still">
+          <img
+            class="st-poster"
+            src={poster.src}
+            width={poster.width}
+            height={poster.height}
+            loading="lazy"
+            alt="Sylwetka zawodnika w chwili uderzenia, otoczona czterema świetlnymi motywami: falami rytmu u stóp, wachlarzem kierunków, smugą zamachu i spokojną aureolą wokół głowy"
+          />
+          <svg class="st-ov" viewBox="0 0 1280 1040" aria-hidden="true">
+            <defs>
+              <path id="stPathS" d={STROKE_PATH}></path>
+              <radialGradient id="stBallS">
+                <stop offset="0" stop-color="#ffffff"></stop>
+                <stop offset="0.35" stop-color="#ffffff" stop-opacity="0.5"></stop>
+                <stop offset="1" stop-color="#ffffff" stop-opacity="0"></stop>
+              </radialGradient>
+              <radialGradient id="stFlashS">
+                <stop offset="0" stop-color="#fff1e6" stop-opacity="0.9"></stop>
+                <stop offset="0.4" stop-color="#ffb48a" stop-opacity="0.35"></stop>
+                <stop offset="1" stop-color="#ffb48a" stop-opacity="0"></stop>
+              </radialGradient>
+              <radialGradient id="stHaloS">
+                <stop offset="0" stop-color="#f5f5f7" stop-opacity="0.22"></stop>
+                <stop offset="0.6" stop-color="#f5f5f7" stop-opacity="0.06"></stop>
+                <stop offset="1" stop-color="#f5f5f7" stop-opacity="0"></stop>
+              </radialGradient>
+            </defs>
+            <g>
+              <ellipse class="st-rip" cx="435" cy="911" rx="46" ry="10" style="opacity: 0.6"></ellipse>
+              <ellipse class="st-rip" cx="435" cy="911" rx="88" ry="19" style="opacity: 0.25"></ellipse>
+              <ellipse class="st-rip" cx="772" cy="909" rx="46" ry="10" style="opacity: 0.6"></ellipse>
+              <ellipse class="st-rip" cx="772" cy="909" rx="88" ry="19" style="opacity: 0.25"></ellipse>
+              <ellipse class="st-rip" cx="530" cy="934" rx="30" ry="6.6" style="opacity: 0.35"></ellipse>
+              {feet.map(([cx, cy], i) => <ellipse class="st-pt" cx={cx} cy={cy} rx="9" ry="2.6" style={`opacity: ${i === feet.length - 1 ? 0.7 : 0.55}`} />)}
+            </g>
+            <g>
+              {rays.map((d, i) => <path class="st-ray" d={d} style={i === 2 ? "stroke-width: 2.6" : "opacity: 0.18"} />)}
+              <circle class="st-goal" cx="878" cy="44" r="5"></circle>
+            </g>
+            <g>
+              <use href="#stPathS" class="st-trail ghost" transform="translate(-14 9)"></use>
+              <use href="#stPathS" class="st-trail ghost" transform="translate(13 -8)"></use>
+              <use href="#stPathS" class="st-trail glow"></use>
+              <use href="#stPathS" class="st-trail core"></use>
+              <circle cx="256" cy="480" r="48" fill="url(#stFlashS)" style="opacity: 0.7"></circle>
+            </g>
+            <g>
+              <circle cx="574" cy="322" r="120" fill="url(#stHaloS)"></circle>
+              <circle class="st-ring" cx="574" cy="322" r="78" style="opacity: 0.4"></circle>
+              <circle class="st-ring" cx="574" cy="322" r="122" style="opacity: 0.16"></circle>
+            </g>
+            <g transform="translate(256 480)">
+              <circle r="20" fill="url(#stBallS)" opacity="0.55"></circle>
+              <circle r="6.5" fill="#ffffff"></circle>
+            </g>
+          </svg>
+          <span class="st-tag" style="left: 66%; top: 93%; color: var(--k-pillar-ruch)">RUCH</span>
+          <span class="st-tag" style="left: 70.5%; top: 4%; color: var(--k-pillar-taktyka)">TAKTYKA</span>
+          <span class="st-tag" style="left: 27%; top: 11%; color: var(--k-pillar-technika)">TECHNIKA</span>
+          <span class="st-tag" style="left: 55%; top: 26%; color: var(--k-pillar-glowa)">GŁOWA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="k-container st-after">
+    <div class="st-plan rv kids">
+      {
+        STEPS.map((step, i) => (
+          <div class="st-planitem">
+            <span class="hair st-hair" aria-hidden="true" />
+            <p class="k-eyebrow k-eyebrow--accent">{String(i + 1).padStart(2, "0")}</p>
+            <h3>{step.title}</h3>
+            <p class="st-plantext">{step.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .st-sec {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 150px 0 30px 96px;
+    display: grid;
+    grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .st-left {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .st-h2 {
+    font-size: clamp(40px, 4.2vw, 60px);
+  }
+
+  .st-lead {
+    max-width: 440px;
+    font-size: 18px;
+  }
+
+  .st-steps {
+    margin: 36px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--k-line-dark);
+  }
+
+  .st-steps li {
+    position: relative;
+    border-bottom: 1px solid var(--k-line-dark);
+  }
+
+  .st-steps button {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    min-height: 44px;
+    padding: 16px 0;
+    border: 0;
+    background: none;
+    color: var(--k-snow);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-align: left;
+    cursor: pointer;
+    opacity: 0.42;
+    transition: opacity 0.4s;
+  }
+
+  .st-steps li.on button {
+    opacity: 1;
+  }
+
+  .st-steps li.done button {
+    opacity: 0.72;
+  }
+
+  .st-sbody {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s var(--k-ease-out);
+  }
+
+  .st-steps li.on .st-sbody {
+    grid-template-rows: 1fr;
+  }
+
+  .st-sbody > div {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .st-sbody p {
+    margin: 0;
+    padding: 0 0 18px 24px;
+    max-width: 400px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--k-gray-400);
+    opacity: 0;
+    transition: opacity 0.45s 0.12s;
+  }
+
+  .st-steps li.on .st-sbody p {
+    opacity: 1;
+  }
+
+  .st-sbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .st-sbar span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .st-dot {
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .st-stage {
+    min-width: 0;
+  }
+
+  .st-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1280 / 1040;
+    background: var(--k-black);
+  }
+
+  .st-live,
+  .st-still {
+    position: absolute;
+    inset: 0;
+  }
+
+  .st-live {
+    opacity: 0;
+  }
+
+  .st-live[hidden],
+  .st-still[hidden] {
+    display: none;
+  }
+
+  .st-vid,
+  .st-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    -webkit-mask-image:
+      linear-gradient(90deg, transparent, #000 7%, #000 91%, transparent), linear-gradient(180deg, #000 80%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(90deg, transparent, #000 7%, #000 91%, transparent), linear-gradient(180deg, #000 80%, transparent);
+    mask-composite: intersect;
+  }
+
+  .st-ov {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .st-ov :global(.st-rip) {
+    fill: none;
+    stroke: var(--k-pillar-ruch);
+    stroke-width: 1.6;
+  }
+
+  .st-ov :global(.st-pt) {
+    fill: var(--k-pillar-ruch);
+  }
+
+  .st-ov :global(.st-ray) {
+    fill: none;
+    stroke: var(--k-pillar-taktyka);
+    stroke-width: 1.4;
+    stroke-linecap: round;
+  }
+
+  .st-goal {
+    fill: var(--k-pillar-taktyka);
+  }
+
+  .st-trail {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .st-trail.glow {
+    stroke: rgba(255, 180, 138, 0.26);
+    stroke-width: 10;
+  }
+
+  .st-trail.core {
+    stroke: var(--k-pillar-technika);
+    stroke-width: 2.4;
+  }
+
+  .st-trail.ghost {
+    stroke: rgba(255, 180, 138, 0.3);
+    stroke-width: 1.4;
+  }
+
+  .st-ring {
+    fill: none;
+    stroke: var(--k-snow);
+    stroke-width: 1.2;
+  }
+
+  .st-fin {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .st-tag {
+    position: absolute;
+    translate: 0 -50%;
+    padding: 4px 9px;
+    border-radius: var(--k-radius-pill);
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--k-font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .st-cap {
+    position: absolute;
+    left: 48.4%;
+    top: 51%;
+    translate: -50% 0;
+    font-family: var(--k-font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--k-gray-400);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .st-vig {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(58% 52% at 45% 32%, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.75) 100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .st-after {
+    padding-bottom: 150px;
+  }
+
+  .st-plan {
+    margin-top: 120px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 40px;
+  }
+
+  .st-planitem {
+    position: relative;
+    padding-top: 22px;
+  }
+
+  .st-hair {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .st-planitem h3 {
+    margin: 12px 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .st-plantext {
+    margin: 8px 0 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--k-gray-400);
+  }
+
+  @media (max-width: 960px) {
+    .st-sec {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 120px var(--k-gutter) 20px;
+    }
+
+    .st-left {
+      display: contents;
+    }
+
+    .st-head {
+      order: 1;
+    }
+
+    .st-stage {
+      order: 2;
+      margin-top: 36px;
+    }
+
+    .st-steps {
+      order: 3;
+    }
+
+    .st-plan {
+      margin-top: 80px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .st-tag,
+    .st-cap {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import { mountMethodScene } from "../scripts/method-scene";
+
+  const root = document.querySelector<HTMLElement>("[data-method]");
+  if (root && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    mountMethodScene(root, "/media/forehand.mp4");
+  }
+</script>

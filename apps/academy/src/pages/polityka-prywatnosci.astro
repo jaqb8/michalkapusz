@@ -1,0 +1,95 @@
+---
+import Base from "../layouts/Base.astro";
+import Chrome from "../components/Chrome.astro";
+import { addressLine, contact } from "@kapusz/brand/contact";
+
+// TODO: przed publikacją uzupełnić dane działalności i dać tekst do weryfikacji prawnej.
+const businessName = "[Nazwa działalności, NIP]";
+---
+
+<Base
+  title="Polityka prywatności | Kapusz Tennis Academy"
+  description="Jak Kapusz Tennis Academy przetwarza dane osobowe przesłane przez formularz zgłoszenia na trening."
+>
+  <Chrome>
+    <article class="k-light pp">
+      <div class="pp-in">
+        <p class="k-eyebrow">Dokument</p>
+        <h1 class="k-h2">Polityka prywatności</h1>
+        <p class="k-lead">Krótko i konkretnie: jakie dane zbieramy przez formularz zgłoszenia i co z nimi robimy.</p>
+
+        <h2>Administrator danych</h2>
+        <p>
+          Administratorem danych jest {contact.person}, {businessName}, {addressLine}. Kontakt w sprawach danych:
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>.
+        </p>
+
+        <h2>Jakie dane i po co</h2>
+        <p>
+          Przez formularz zgłoszenia zbieramy imię i nazwisko, adres e-mail, numer telefonu, wybrany rodzaj treningu,
+          preferowane terminy oraz treść wiadomości. Używamy ich wyłącznie po to, żeby odpowiedzieć na zgłoszenie,
+          umówić trening próbny i dobrać trenera.
+        </p>
+        <p>
+          Podstawą przetwarzania są działania podejmowane na Twoje żądanie przed zawarciem umowy (art. 6 ust. 1 lit. b
+          RODO) oraz Twoja zgoda wyrażona w formularzu (art. 6 ust. 1 lit. a RODO).
+        </p>
+
+        <h2>Komu przekazujemy dane</h2>
+        <p>
+          Wiadomości z formularza są wysyłane przez dostawcę usług poczty elektronicznej Resend (Resend, Inc.), a strona
+          jest hostowana przez Netlify, Inc. Dostawcy ci mogą przetwarzać dane poza Europejskim Obszarem Gospodarczym na
+          podstawie standardowych klauzul umownych Komisji Europejskiej. Nie sprzedajemy danych i nie używamy ich do
+          marketingu.
+        </p>
+
+        <h2>Jak długo</h2>
+        <p>
+          Dane przechowujemy do czasu zakończenia korespondencji w sprawie zgłoszenia, nie dłużej niż 12 miesięcy. Jeśli
+          zaczniesz treningi, dane potrzebne do ich prowadzenia przechowujemy przez czas współpracy i okres wymagany
+          przepisami.
+        </p>
+
+        <h2>Twoje prawa</h2>
+        <p>
+          Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przeniesienia oraz
+          wniesienia sprzeciwu. Zgodę możesz wycofać w każdej chwili, pisząc na
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>. Przysługuje Ci też skarga do Prezesa Urzędu Ochrony
+          Danych Osobowych.
+        </p>
+
+        <h2>Pliki cookies</h2>
+        <p>Strona akademii nie używa plików cookies analitycznych ani reklamowych.</p>
+      </div>
+    </article>
+  </Chrome>
+</Base>
+
+<style>
+  .pp {
+    padding: 140px var(--k-gutter) 160px;
+  }
+
+  .pp-in {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .pp h2 {
+    margin: 48px 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .pp p:not(.k-eyebrow):not(.k-lead) {
+    margin: 12px 0 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #424245;
+  }
+
+  .pp a {
+    color: var(--k-ink);
+  }
+</style>

@@ -1,0 +1,246 @@
+---
+import { render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Sponsors from "../../components/blog/Sponsors.astro";
+import Gallery from "../../components/blog/Gallery.astro";
+import ArticleLink from "../../components/blog/ArticleLink.astro";
+import BlogShareActions from "../../components/blog/BlogShareActions";
+import { getPosts } from "../../lib/posts";
+import { formatDate } from "../../lib/format";
+import { DEFAULT_OG_IMAGE, SITE, absoluteUrl } from "../../lib/schema";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const data = post.data;
+const isoDate = data.date.toISOString().slice(0, 10);
+const postUrl = `${SITE}/blog/${post.id}/`;
+const imageUrl = data.image ? absoluteUrl(data.image) : DEFAULT_OG_IMAGE;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: data.title,
+  description: data.description,
+  datePublished: isoDate,
+  dateModified: isoDate,
+  author: { "@type": "Person", name: data.author },
+  image: [imageUrl, ...(data.gallery?.map((image) => absoluteUrl(image.src)) ?? [])],
+  mainEntityOfPage: postUrl,
+  publisher: { "@type": "Person", name: "Michał Kapusz" },
+};
+
+const share = { slug: post.id, title: data.title, description: data.description, image: data.image };
+---
+
+<Base
+  title={`${data.title} - Blog | Lekcje Tenisa z Michałem Kapuszem`}
+  description={data.description}
+  image={imageUrl}
+  type="article"
+  crumbs={[
+    { name: "Blog", path: "/blog/" },
+    { name: data.title, path: `/blog/${post.id}/` },
+  ]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <article>
+    <header class="k-dark po-head">
+      <div class="po-head-in">
+        <a href="/blog/" class="k-link po-back"><span class="po-back-chev">‹</span> Blog</a>
+        <h1 class="po-title">{data.title}</h1>
+        <p class="k-eyebrow po-meta">
+          <time datetime={isoDate}>{formatDate(data.date)}</time> · {data.author}
+        </p>
+        <div class="po-share">
+          <BlogShareActions client:idle post={share} />
+        </div>
+      </div>
+      {
+        data.image && (
+          <div class="po-hero">
+            <img
+              src={data.featuredImage ?? data.image}
+              alt={data.title}
+              fetchpriority="high"
+              style={data.imagePosition && !data.featuredImage ? `object-position: ${data.imagePosition}` : undefined}
+            />
+          </div>
+        )
+      }
+    </header>
+
+    <div class="k-light po-body">
+      <div class="prose">
+        <Content components={{ a: ArticleLink, Sponsors, Gallery }} />
+      </div>
+      <footer class="po-foot">
+        <a href="/blog/" class="k-link"><span class="po-back-chev">‹</span> Wszystkie wpisy</a>
+        <BlogShareActions client:visible post={share} compact />
+      </footer>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .po-head {
+    padding-top: 140px;
+  }
+
+  .po-head-in {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 var(--k-gutter);
+  }
+
+  .po-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    color: var(--k-gray-400);
+  }
+
+  .po-back-chev {
+    display: inline-block;
+    transition: transform 0.25s;
+  }
+
+  .po-back:hover .po-back-chev,
+  .po-foot .k-link:hover .po-back-chev {
+    transform: translateX(-3px);
+  }
+
+  .po-title {
+    margin: 20px 0 0;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .po-meta {
+    margin-top: 24px;
+  }
+
+  .po-share {
+    margin-top: 28px;
+  }
+
+  .po-hero {
+    max-width: 1180px;
+    margin: 56px auto 0;
+    padding: 0 var(--k-gutter);
+  }
+
+  .po-hero img {
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+    border-radius: var(--k-radius-lg) var(--k-radius-lg) 0 0;
+  }
+
+  @media (max-width: 720px) {
+    .po-head {
+      padding-top: 110px;
+    }
+
+    .po-hero {
+      padding: 0;
+    }
+
+    .po-hero img {
+      aspect-ratio: 4 / 3;
+      border-radius: 0;
+    }
+  }
+
+  .po-body {
+    padding: 72px var(--k-gutter) 140px;
+  }
+
+  .po-foot {
+    max-width: 720px;
+    margin: 64px auto 0;
+    padding-top: 28px;
+    border-top: 1px solid var(--k-gray-300);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .po-foot .k-link {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  /* ---------- Treść wpisu ---------- */
+  .prose {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #424245;
+  }
+
+  .prose :global(h2) {
+    margin: 56px 0 0;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--k-ink);
+  }
+
+  .prose :global(h3) {
+    margin: 36px 0 0;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--k-ink);
+  }
+
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 20px 0 0;
+  }
+
+  .prose :global(> :first-child) {
+    margin-top: 0;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.3em;
+  }
+
+  .prose :global(li + li) {
+    margin-top: 8px;
+  }
+
+  .prose :global(li::marker) {
+    color: var(--k-accent);
+  }
+
+  .prose :global(strong) {
+    color: var(--k-ink);
+    font-weight: 600;
+  }
+
+  .prose :global(a:not(.adv)) {
+    color: var(--k-ink);
+    text-decoration-color: var(--k-accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+</style>

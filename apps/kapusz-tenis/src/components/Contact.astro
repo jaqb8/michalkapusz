@@ -1,0 +1,147 @@
+---
+import logoMark from "@kapusz/brand/assets/logo-mark.webp";
+import { addressLine, contact, social } from "@kapusz/brand/contact";
+
+const channels = [
+  { href: `tel:${contact.phone}`, label: "Telefon", value: contact.phoneDisplay },
+  { href: social.instagramDm, label: "Instagram", value: social.instagramHandle, external: true },
+  { href: social.messenger, label: "Messenger", value: "michal.kapusz", external: true },
+  { href: `mailto:${contact.email}`, label: "E-mail", value: contact.email },
+];
+---
+
+<section id="kontakt" class="k-dark ct">
+  <div class="ct-glow" aria-hidden="true"></div>
+  <div class="k-grain-wrap" aria-hidden="true"><div class="k-grain"></div></div>
+  <div class="ct-in">
+    <div class="ct-head rv kids">
+      <img src={logoMark.src} width={logoMark.width} height={logoMark.height} alt="" class="ct-mark" />
+      <h2 class="k-h2 k-h2--xl ct-h">Pierwszy trening.<br /><span class="k-muted">Zaczyna się tutaj.</span></h2>
+      <p class="k-lead ct-lead">Wybierz preferowany sposób kontaktu i umów się na pierwszy trening.</p>
+    </div>
+    <ul class="ct-list rv kids">
+      {
+        channels.map((ch) => (
+          <li>
+            <a href={ch.href} class="ct-item" {...(ch.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+              <span class="k-eyebrow">{ch.label}</span>
+              <span class="ct-value">{ch.value}</span>
+              <span class="ct-arrow" aria-hidden="true">
+                ›
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="k-eyebrow ct-addr">{addressLine} · możliwość treningów na innych kortach</p>
+  </div>
+</section>
+
+<style>
+  .ct {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ct-glow {
+    position: absolute;
+    left: 50%;
+    bottom: -380px;
+    width: 1200px;
+    height: 760px;
+    translate: -50% 0;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--k-accent) 30%, transparent), transparent);
+  }
+
+  .ct-in {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 170px var(--k-gutter) 180px;
+  }
+
+  .ct-head {
+    text-align: center;
+  }
+
+  .ct-mark {
+    height: 56px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .ct-h {
+    margin-top: 32px;
+    font-size: clamp(48px, 7.2vw, 104px);
+    line-height: 1.02;
+  }
+
+  .ct-lead {
+    max-width: 620px;
+    margin: 24px auto 0;
+  }
+
+  .ct-list {
+    margin: 64px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .ct-list {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ct-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 96px;
+    justify-content: center;
+    padding: 20px 56px 20px 24px;
+    border-radius: var(--k-radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.03);
+    text-decoration: none;
+    transition:
+      border-color 0.3s,
+      background-color 0.3s;
+  }
+
+  .ct-item:hover {
+    border-color: var(--k-accent);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .ct-value {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    overflow-wrap: anywhere;
+  }
+
+  .ct-arrow {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 24px;
+    color: var(--k-accent);
+    transition: right 0.25s;
+  }
+
+  .ct-item:hover .ct-arrow {
+    right: 20px;
+  }
+
+  .ct-addr {
+    margin-top: 40px;
+    text-align: center;
+  }
+</style>

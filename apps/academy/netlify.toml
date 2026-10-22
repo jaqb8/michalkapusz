@@ -1,0 +1,11 @@
+# Netlify (monorepo): Base directory = "/" (root repo), Package directory = apps/academy.
+# Polecenia uruchamiają się w katalogu głównym repo, ścieżki są względem niego.
+# Funkcję dla /api/booking generuje adapter @astrojs/netlify (apps/academy/.netlify).
+[build]
+  command = "npm run build -w @kapusz/academy"
+  publish = "apps/academy/dist"
+  # Pomija deploy, gdy commit nie dotyka akademii ani wspólnych pakietów.
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- apps/academy packages package-lock.json"
+
+[build.environment]
+  NODE_VERSION = "22"

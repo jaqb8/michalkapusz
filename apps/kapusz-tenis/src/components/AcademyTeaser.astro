@@ -1,0 +1,87 @@
+---
+import logoAcademy from "@kapusz/brand/assets/logo-academy.webp";
+import { sites } from "@kapusz/brand/contact";
+---
+
+<section class="k-snow">
+  <div class="k-container at-wrap">
+    <div class="at rv up">
+      <div class="k-grain-wrap" aria-hidden="true"><div class="k-grain"></div></div>
+      <div class="at-glow" aria-hidden="true"></div>
+      <img src={logoAcademy.src} width={logoAcademy.width} height={logoAcademy.height} alt="Kapusz Tennis Academy" class="at-logo" loading="lazy" />
+      <div class="at-copy">
+        <p class="k-eyebrow k-eyebrow--accent">Kapusz Tennis Academy</p>
+        <h2 class="k-h2 at-h">Jeden zespół.<br /><span class="k-muted">Jedna metoda.</span></h2>
+        <p class="k-lead">
+          Zespół licencjonowanych trenerów pracujących według mojej metodyki. Treningi dla dzieci, juniorów i dorosłych
+          oraz turnieje Kapusz Cup i Kapusz Tennis Tour.
+        </p>
+        <div class="k-actions at-actions">
+          <a class="k-pill" href={sites.academy}>Poznaj akademię</a>
+          <a class="k-link" href={`${sites.academy}/#cennik`}>Skonfiguruj trening <span class="k-chev">›</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .at-wrap {
+    padding-block: 120px;
+  }
+
+  .at {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 48px;
+    align-items: center;
+    padding: clamp(36px, 6vw, 80px);
+    border-radius: var(--k-radius-lg);
+    background: var(--k-black);
+    color: var(--k-snow);
+  }
+
+  .at-glow {
+    position: absolute;
+    left: 20%;
+    bottom: -60%;
+    width: 900px;
+    height: 600px;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--k-accent) 28%, transparent), transparent);
+    pointer-events: none;
+  }
+
+  .at-logo {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .at-copy {
+    position: relative;
+  }
+
+  .at-h {
+    font-size: clamp(40px, 4.6vw, 64px);
+  }
+
+  .at-actions {
+    margin-top: 32px;
+  }
+
+  @media (max-width: 860px) {
+    .at {
+      grid-template-columns: 1fr;
+    }
+
+    .at-logo {
+      max-width: 220px;
+      margin: 0;
+    }
+  }
+</style>

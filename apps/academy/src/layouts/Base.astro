@@ -1,0 +1,77 @@
+---
+import "@kapusz/brand/tokens.css";
+import "@kapusz/brand/fonts.css";
+import "@kapusz/brand/base.css";
+import { getImage } from "astro:assets";
+import Reveal from "@kapusz/ui/Reveal.astro";
+import { contact, social } from "@kapusz/brand/contact";
+import ogSource from "../assets/tournaments/kapusz-cup-wide.jpg";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const og = await getImage({ src: ogSource, width: 1200, height: 630, fit: "cover", format: "jpg" });
+const ogUrl = new URL(og.src, Astro.site).href;
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  name: "Kapusz Tennis Academy",
+  description,
+  url: Astro.site?.href,
+  telephone: contact.phone,
+  email: contact.email,
+  image: ogUrl,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: contact.address.street,
+    postalCode: contact.address.postalCode,
+    addressLocality: contact.address.city,
+    addressRegion: contact.address.region,
+    addressCountry: contact.address.country,
+  },
+  geo: { "@type": "GeoCoordinates", ...contact.geo },
+  founder: { "@type": "Person", name: contact.person, jobTitle: "Head coach" },
+  sameAs: [social.instagram, social.facebook],
+};
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    <meta name="theme-color" content="#000000" />
+    <meta name="author" content={contact.person} />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content="Kapusz Tennis Academy" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <Reveal />
+  </body>
+</html>

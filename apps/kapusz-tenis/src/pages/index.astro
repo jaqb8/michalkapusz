@@ -1,0 +1,72 @@
+---
+import Base from "../layouts/Base.astro";
+import HomeHero from "../components/HomeHero.astro";
+import About from "../components/About.astro";
+import Offer from "../components/Offer.astro";
+import AcademyTeaser from "../components/AcademyTeaser.astro";
+import Contact from "../components/Contact.astro";
+import PostCard from "../components/blog/PostCard.astro";
+import Statement from "@kapusz/ui/Statement.astro";
+import Stats from "@kapusz/ui/Stats.astro";
+import Testimonials from "@kapusz/ui/Testimonials.astro";
+import { getPosts } from "../lib/posts";
+
+const latest = (await getPosts()).slice(0, 3);
+---
+
+<Base
+  title="Michał Kapusz - Licencjonowany Trener Tenisa Wrocław | Lekcje Tenisa"
+  description="Profesjonalne lekcje tenisa we Wrocławiu. Trener Michał Kapusz oferuje indywidualne i grupowe treningi tenisa dla dzieci i dorosłych. Wieloletnie doświadczenie i profesjonalne podejście."
+>
+  <HomeHero />
+  <Statement
+    text="Każdy uczeń jest inny. Dlatego program zaczyna się od Twojego poziomu, a kończy na celu, który ustalimy razem — od pierwszego odbicia po pierwszy wygrany mecz."
+    highlight={["razem"]}
+  />
+  <Stats
+    items={[
+      { value: 8, suffix: "+", label: ["Lat", "doświadczenia"] },
+      { value: 5000, suffix: "+", label: ["Przeprowadzonych", "treningów"] },
+      { value: 2, licences: true, label: ["Licencje trenerskie", "PZT i ITF"] },
+      { value: 2, label: ["Własne cykle turniejowe", "Kapusz Cup · Kapusz Tennis Tour"] },
+    ]}
+  />
+  <About />
+  <Offer />
+  <AcademyTeaser />
+  <Testimonials title="Co mówią klienci." />
+
+  <section class="k-snow">
+    <div class="k-container k-section">
+      <div class="bt-head rv">
+        <div>
+          <p class="k-eyebrow fade">Blog</p>
+          <h2 class="k-h2"><span class="ln"><span>Z kortu.</span></span></h2>
+        </div>
+        <a class="k-link fade" href="/blog/">Wszystkie wpisy <span class="k-chev">›</span></a>
+      </div>
+      <div class="bt-grid rv kids">
+        {latest.map((post) => <PostCard post={post} headingLevel="h3" />)}
+      </div>
+    </div>
+  </section>
+
+  <Contact />
+</Base>
+
+<style>
+  .bt-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .bt-grid {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+</style>

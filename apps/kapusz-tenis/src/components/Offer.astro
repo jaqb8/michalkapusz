@@ -1,0 +1,143 @@
+---
+import { getFormat } from "@kapusz/booking";
+
+const groupFrom = getFormat("group4").price;
+const offers = [
+  {
+    no: "01",
+    title: "Trening indywidualny",
+    price: `${getFormat("individual").price} zł`,
+    points: ["Spersonalizowany program", "Analiza techniki", "Elastyczne terminy"],
+  },
+  {
+    no: "02",
+    title: "Trening grupowy",
+    price: `od ${groupFrom} zł / os.`,
+    points: ["Małe grupy (2–4 osoby)", "Dostosowany poziom", "Atrakcyjna cena"],
+    featured: true,
+  },
+  {
+    no: "03",
+    title: "Dla dzieci",
+    price: `od ${groupFrom} zł / os.`,
+    points: ["Nauka przez zabawę", "Rozwój koordynacji", "Bezpieczeństwo"],
+  },
+];
+---
+
+<section class="k-dark">
+  <div class="k-container k-section">
+    <div class="of-head rv">
+      <div>
+        <p class="k-eyebrow k-eyebrow--accent fade">Oferta</p>
+        <h2 class="k-h2"><span class="ln"><span>Trening dopasowany</span></span><span class="ln"><span class="k-muted">do Twojego celu.</span></span></h2>
+      </div>
+      <a class="k-link fade" href="/cennik/">Pełny cennik <span class="k-chev">›</span></a>
+    </div>
+    <div class="of-grid rv kids">
+      {
+        offers.map((offer) => (
+          <article class:list={["of-card", { "of-card--featured": offer.featured }]}>
+            <div class="of-top">
+              <span class="k-eyebrow">{offer.no}</span>
+              {offer.featured && <span class="of-badge">Popularne</span>}
+            </div>
+            <h3 class="of-title">{offer.title}</h3>
+            <p class="of-price">{offer.price}</p>
+            <ul class="of-list">
+              {offer.points.map((point) => (
+                <li>{point}</li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .of-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .of-grid {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .of-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    border-radius: var(--k-radius-md);
+    background: var(--k-night);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition:
+      border-color 0.3s,
+      transform 0.3s var(--k-ease-out);
+  }
+
+  .of-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .of-card--featured {
+    border-color: color-mix(in srgb, var(--k-accent) 60%, transparent);
+  }
+
+  .of-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 28px;
+  }
+
+  .of-badge {
+    display: inline-flex;
+    align-items: center;
+    min-height: 26px;
+    padding: 0 12px;
+    border-radius: var(--k-radius-pill);
+    background: var(--k-accent);
+    color: var(--k-accent-ink);
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .of-title {
+    margin: 28px 0 0;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .of-price {
+    margin: 8px 0 0;
+    font-family: var(--k-font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--k-accent);
+  }
+
+  .of-list {
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--k-line-dark);
+  }
+
+  .of-list li {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--k-line-dark);
+    font-size: 15px;
+    color: var(--k-gray-400);
+  }
+</style>

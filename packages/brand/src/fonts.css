@@ -1,0 +1,5 @@
+/* Fonty hostowane lokalnie (bez Google Fonts: szybciej i bez zgody na transfer danych). */
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "@fontsource/sofia-sans-extra-condensed/700.css";
+@import "@fontsource/sofia-sans-extra-condensed/800.css";

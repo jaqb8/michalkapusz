@@ -1,0 +1,25 @@
+{
+  "name": "@kapusz/brand",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Wspólna identyfikacja marki Kapusz: tokeny, fonty, style bazowe, logo i dane kontaktowe.",
+  "exports": {
+    "./tokens.css": "./src/tokens.css",
+    "./fonts.css": "./src/fonts.css",
+    "./base.css": "./src/base.css",
+    "./contact": "./src/contact.ts",
+    "./assets/*": "./assets/*"
+  },
+  "scripts": {
+    "check": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@fontsource/sofia-sans-extra-condensed": "^5.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,77 @@
+---
+import logoMark from "@kapusz/brand/assets/logo-mark.webp";
+import { addressLine, contact } from "@kapusz/brand/contact";
+---
+
+<section id="kontakt" class="k-dark ct">
+  <div class="ct-glow" aria-hidden="true"></div>
+  <div class="k-grain-wrap" aria-hidden="true"><div class="k-grain"></div></div>
+  <div class="ct-in rv kids">
+    <img src={logoMark.src} width={logoMark.width} height={logoMark.height} alt="" class="ct-mark" />
+    <h2 class="k-h2 k-h2--xl ct-h">Pierwszy trening.<br /><span class="k-muted">Zaczyna się tutaj.</span></h2>
+    <p class="k-lead ct-lead">Zadzwoń, napisz albo skonfiguruj trening — dobierzemy program, trenera i termin.</p>
+    <div class="k-actions ct-actions">
+      <a class="k-pill" href={`tel:${contact.phone}`}>Zadzwoń · {contact.phoneShort}</a>
+      <a class="k-pill k-pill--ghost" href={`mailto:${contact.email}`}>{contact.email}</a>
+    </div>
+    <p class="k-eyebrow ct-addr">{addressLine}</p>
+  </div>
+</section>
+
+<style>
+  .ct {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ct-glow {
+    position: absolute;
+    left: 50%;
+    bottom: -380px;
+    width: 1200px;
+    height: 760px;
+    translate: -50% 0;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--k-accent) 30%, transparent), transparent);
+  }
+
+  .ct-in {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 190px var(--k-gutter) 200px;
+    text-align: center;
+  }
+
+  .ct-mark {
+    height: 56px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .ct-h {
+    margin-top: 32px;
+    font-size: clamp(48px, 7.2vw, 104px);
+    line-height: 1.02;
+  }
+
+  .ct-lead {
+    max-width: 620px;
+    margin: 24px auto 0;
+  }
+
+  .ct-actions {
+    margin-top: 36px;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .ct-addr {
+    margin-top: 44px;
+  }
+
+  @media (max-width: 520px) {
+    .ct-actions .k-pill {
+      width: 100%;
+    }
+  }
+</style>

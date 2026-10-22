@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+import Chrome from "../components/Chrome.astro";
+import Hero from "../components/Hero.astro";
+import Team from "../components/Team.astro";
+import Method from "../components/Method.astro";
+import Pricing from "../components/Pricing.astro";
+import Tournaments from "../components/Tournaments.astro";
+import Contact from "../components/Contact.astro";
+import Statement from "@kapusz/ui/Statement.astro";
+import Stats from "@kapusz/ui/Stats.astro";
+import Testimonials from "@kapusz/ui/Testimonials.astro";
+---
+
+<Base
+  title="Kapusz Tennis Academy — szkoła tenisa we Wrocławiu | Michał Kapusz"
+  description="Akademia tenisa we Wrocławiu: zespół licencjonowanych trenerów, jedna metodyka head coacha Michała Kapusza. Treningi dla dzieci, juniorów i dorosłych. Skonfiguruj trening próbny."
+>
+  <Chrome>
+    <Hero />
+    <Statement
+      text="Na korcie liczysz tylko na siebie. Ale do formy nikt nie dochodzi w pojedynkę. Za techniką, taktyką, ruchem i głową stoi zespół — i jedna metoda, którą prowadzi head coach Michał Kapusz."
+      highlight={["zespół"]}
+    />
+    <Stats
+      items={[
+        { value: 8, suffix: "+", label: ["Lat doświadczenia", "head coacha"] },
+        { value: 5000, suffix: "+", label: ["Przeprowadzonych", "treningów"] },
+        { value: 2, licences: true, label: ["Licencje trenerskie", "PZT i ITF"] },
+        { value: 2, label: ["Własne cykle turniejowe", "Kapusz Cup · Kapusz Tennis Tour"] },
+      ]}
+    />
+    <Team />
+    <Method />
+    <Pricing />
+    <Tournaments />
+    <Testimonials />
+    <Contact />
+  </Chrome>
+</Base>

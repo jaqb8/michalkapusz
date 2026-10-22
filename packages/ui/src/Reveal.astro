@@ -1,0 +1,29 @@
+---
+/**
+ * Ujawnianie przy przewijaniu: elementy z klasą .rv dostają .in, gdy wjadą na ekran.
+ * <html> dostaje .armed dopiero po pierwszym raporcie obserwatora, więc bez JS treść zostaje widoczna.
+ */
+---
+
+<script>
+  function initReveal() {
+    const items = document.querySelectorAll<HTMLElement>(".rv:not(.in)");
+    if (items.length === 0 || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        document.documentElement.classList.add("armed");
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0 },
+    );
+
+    items.forEach((item) => observer.observe(item));
+  }
+
+  initReveal();
+</script>

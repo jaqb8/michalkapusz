@@ -1,0 +1,116 @@
+---
+export interface FooterColumn {
+  title: string;
+  links: { href?: string; label: string; external?: boolean }[];
+}
+
+interface Props {
+  columns: FooterColumn[];
+  legal: string;
+}
+
+const { columns, legal } = Astro.props;
+---
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-top">
+      <div class="foot-logo"><slot name="logo" /></div>
+      <div class="foot-cols">
+        {
+          columns.map((col) => (
+            <div class="foot-col">
+              <p class="foot-title">{col.title}</p>
+              {col.links.map((link) =>
+                link.href ? (
+                  <a
+                    href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <span>{link.label}</span>
+                ),
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>{legal}</span>
+      <slot name="bottom" />
+    </div>
+  </div>
+</footer>
+
+<style>
+  .foot {
+    background: var(--k-night);
+    color: var(--k-gray-500);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .foot-in {
+    max-width: var(--k-container);
+    margin: 0 auto;
+    padding: 40px var(--k-gutter) 48px;
+  }
+
+  .foot-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .foot-cols {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, auto));
+    gap: 24px 48px;
+  }
+
+  @media (max-width: 560px) {
+    .foot-cols {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .foot-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .foot-title {
+    margin: 0;
+    color: var(--k-snow);
+    font-weight: 600;
+  }
+
+  .foot-col a {
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .foot-col a:hover {
+    color: var(--k-snow);
+  }
+
+  .foot-bottom {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .foot-bottom :global(a) {
+    color: var(--k-gray-400);
+  }
+</style>

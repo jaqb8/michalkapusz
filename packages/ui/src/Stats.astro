@@ -1,0 +1,132 @@
+---
+import pzt from "@kapusz/brand/assets/pzt.png";
+import itf from "@kapusz/brand/assets/itf.jpg";
+
+export interface Stat {
+  value: number;
+  /** Np. "+", rysowane w kolorze akcentu. */
+  suffix?: string;
+  label: string[];
+  /** Pokazuje loga licencji PZT i ITF obok liczby. */
+  licences?: boolean;
+}
+
+interface Props {
+  items: Stat[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="k-dark">
+  <div class="stats rv kids">
+    {
+      items.map((stat) => (
+        <div class="stat">
+          <span class="hair stat-hair" aria-hidden="true" />
+          <div class="stat-row">
+            <div class="k-numeral stat-num">
+              <span class="sr-only">
+                {stat.value}
+                {stat.suffix}
+              </span>
+              <span aria-hidden="true">
+                <span class="cnt" style={`--to: ${stat.value}`} />
+                {stat.suffix && <span class="stat-suffix">{stat.suffix}</span>}
+              </span>
+            </div>
+            {stat.licences && (
+              <div class="stat-badges">
+                <span class="stat-badge">
+                  <img src={pzt.src} width={pzt.width} height={pzt.height} alt="Polski Związek Tenisowy" />
+                </span>
+                <span class="stat-badge">
+                  <img src={itf.src} width={itf.width} height={itf.height} alt="ITF Coaching" />
+                </span>
+              </div>
+            )}
+          </div>
+          <p class="stat-label">
+            {stat.label.map((line, i) => (
+              <>
+                {i > 0 && <br />}
+                {line}
+              </>
+            ))}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .stats {
+    max-width: var(--k-container);
+    margin: 0 auto;
+    padding: 0 var(--k-gutter) 170px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 48px 40px;
+  }
+
+  .stat {
+    position: relative;
+    padding-top: 26px;
+  }
+
+  .stat-hair {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 18px;
+  }
+
+  .stat-num {
+    font-size: 136px;
+  }
+
+  .stat-suffix {
+    color: var(--k-accent);
+  }
+
+  .stat-badges {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 6px;
+  }
+
+  .stat-badge {
+    display: inline-flex;
+    padding: 5px;
+    border-radius: 10px;
+    background: var(--k-snow);
+  }
+
+  .stat-badge img {
+    height: 34px;
+    width: auto;
+  }
+
+  .stat-label {
+    margin: 16px 0 0;
+    font-family: var(--k-font-mono);
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--k-gray-500);
+  }
+
+  @media (max-width: 720px) {
+    .stat-num {
+      font-size: 112px;
+    }
+  }
+</style>

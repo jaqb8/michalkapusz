@@ -1,0 +1,71 @@
+---
+/** Nawigacja i stopka akademii owinięte wokół treści strony. */
+import SiteNav from "@kapusz/ui/SiteNav.astro";
+import SiteFooter from "@kapusz/ui/SiteFooter.astro";
+import logoAcademy from "@kapusz/brand/assets/logo-academy.webp";
+import { contact, sites, social } from "@kapusz/brand/contact";
+
+const home = Astro.url.pathname === "/" ? "" : "/";
+---
+
+<SiteNav
+  brand="Kapusz Tennis Academy"
+  homeHref="/"
+  currentPath={Astro.url.pathname}
+  links={[
+    { href: `${home}#zespol`, label: "Zespół" },
+    { href: `${home}#metoda`, label: "Metoda" },
+    { href: `${home}#cennik`, label: "Cennik" },
+    { href: `${home}#turnieje`, label: "Turnieje" },
+    { href: `${home}#kontakt`, label: "Kontakt" },
+  ]}
+  cta={{ href: `${home}#cennik`, label: "Trening próbny" }}
+/>
+
+<main>
+  <slot />
+</main>
+
+<SiteFooter
+  legal="© 2026 Kapusz Tennis Academy. Część marki Kapusz Tenis."
+  columns={[
+    {
+      title: "Akademia",
+      links: [
+        { href: `${home}#zespol`, label: "Zespół" },
+        { href: `${home}#metoda`, label: "Metoda" },
+        { href: `${home}#turnieje`, label: "Turnieje" },
+        { href: sites.tenis, label: "kapusz-tenis.pl" },
+      ],
+    },
+    {
+      title: "Treningi",
+      links: [
+        { href: `${home}#cennik`, label: "Cennik" },
+        { href: `${home}#cennik`, label: "Trening próbny" },
+        { label: "Multisport" },
+        { href: "/polityka-prywatnosci/", label: "Polityka prywatności" },
+      ],
+    },
+    {
+      title: "Kontakt",
+      links: [
+        { href: `tel:${contact.phone}`, label: contact.phoneDisplay },
+        { href: `mailto:${contact.email}`, label: contact.email },
+        { href: social.instagram, label: "Instagram", external: true },
+        { href: social.facebook, label: "Facebook", external: true },
+      ],
+    },
+  ]}
+>
+  <img
+    slot="logo"
+    src={logoAcademy.src}
+    width={logoAcademy.width}
+    height={logoAcademy.height}
+    alt="Kapusz Tennis Academy"
+    style="height: 72px; width: auto"
+    loading="lazy"
+  />
+  <span slot="bottom">{contact.address.city}, Polska</span>
+</SiteFooter>

@@ -1,0 +1,230 @@
+---
+import Base from "../layouts/Base.astro";
+import { FORMATS, MULTISPORT_DISCOUNT, PACK_SIZE, SESSION_MINUTES } from "@kapusz/booking";
+import { contact, sites } from "@kapusz/brand/contact";
+
+// Od treningu indywidualnego do grupowego, jak w poprzednim cenniku.
+const formats = [...FORMATS].reverse();
+const players = (n: number) => (n === 1 ? "1 osoba" : `${n} osoby`);
+---
+
+<Base
+  title="Cennik - Lekcje Tenisa z Michałem Kapuszem | Wrocław"
+  description="Sprawdź cennik lekcji tenisa we Wrocławiu. Oferujemy treningi indywidualne i grupowe w atrakcyjnych cenach. Rabaty dla posiadaczy karty Multisport."
+  crumbs={[{ name: "Cennik", path: "/cennik/" }]}
+>
+  <section class="k-dark pl-hero">
+    <div class="k-container pl-hero-in">
+      <p class="k-eyebrow k-eyebrow--accent">Cennik</p>
+      <h1 class="k-h1 pl-h1">Cennik treningów.</h1>
+      <p class="k-lead">
+        Trening trwa {SESSION_MINUTES} minut. Do ceny trenera doliczana jest odpowiednia część ceny kortu.
+      </p>
+      <ul class="pl-chips">
+        <li>Płatność gotówką lub kartą</li>
+        <li>Multisport: {MULTISPORT_DISCOUNT} zł rabatu</li>
+        <li>Pakiety {PACK_SIZE} treningów</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="k-snow">
+    <div class="k-container pl-body">
+      <div class="pl-grid rv kids">
+        {
+          formats.map((format) => (
+            <article class="pl-card">
+              <p class="k-eyebrow">
+                {players(format.players)} · {SESSION_MINUTES} min
+              </p>
+              <h2 class="pl-name">{format.longName}</h2>
+              <p class="pl-price">
+                <span class="k-numeral pl-num">{format.price}</span>
+                <span class="pl-unit">zł{format.players > 1 ? " / osoba" : " / trening"}</span>
+              </p>
+              <p class="pl-court">+ {format.court}</p>
+              {"pack" in format && (
+                <div class="pl-pack">
+                  <div>
+                    <p class="pl-pack-name">Pakiet {PACK_SIZE} treningów</p>
+                    <p class="pl-pack-sub">
+                      {format.pack.perSession} zł za trening{format.players > 1 ? " / osoba" : ""}
+                    </p>
+                  </div>
+                  <div class="pl-pack-right">
+                    <p class="pl-pack-price">{format.pack.price} zł</p>
+                    <span class="pl-save">oszczędzasz {format.pack.saving} zł</span>
+                  </div>
+                </div>
+              )}
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="pl-cta rv up">
+        <div>
+          <h2 class="pl-cta-h">Masz pytania?</h2>
+          <p class="pl-cta-p">Zadzwoń albo skonfiguruj trening próbny w Kapusz Tennis Academy.</p>
+        </div>
+        <div class="k-actions">
+          <a class="k-pill k-pill--ink" href={`tel:${contact.phone}`}>Zadzwoń · {contact.phoneShort}</a>
+          <a class="k-link" href={`${sites.academy}/#cennik`}>Konfigurator treningu <span class="k-chev">›</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pl-hero-in {
+    padding-block: 150px 90px;
+  }
+
+  .pl-h1 {
+    margin-top: 16px;
+  }
+
+  .pl-chips {
+    margin: 32px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pl-chips li {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 16px;
+    border-radius: var(--k-radius-pill);
+    border: 1px solid var(--k-line-dark);
+    font-size: 14px;
+    color: var(--k-gray-300);
+  }
+
+  .pl-body {
+    padding-block: 96px 140px;
+  }
+
+  .pl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .pl-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    border-radius: var(--k-radius-md);
+    background: var(--k-white);
+  }
+
+  .pl-name {
+    margin: 12px 0 0;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .pl-price {
+    margin: 28px 0 0;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .pl-num {
+    font-size: 88px;
+  }
+
+  .pl-unit {
+    font-size: 17px;
+    color: var(--k-gray-600);
+  }
+
+  .pl-court {
+    margin: 12px 0 0;
+    font-size: 15px;
+    color: var(--k-gray-600);
+  }
+
+  .pl-pack {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--k-gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .pl-card:has(.pl-pack) .pl-court {
+    margin-bottom: 28px;
+  }
+
+  .pl-pack p {
+    margin: 0;
+  }
+
+  .pl-pack-name {
+    font-weight: 600;
+  }
+
+  .pl-pack-sub {
+    font-size: 14px;
+    color: var(--k-gray-600);
+  }
+
+  .pl-pack-right {
+    text-align: right;
+  }
+
+  .pl-pack-price {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .pl-save {
+    display: inline-flex;
+    margin-top: 4px;
+    padding: 2px 10px;
+    border-radius: var(--k-radius-pill);
+    background: var(--k-accent);
+    color: var(--k-accent-ink);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .pl-cta {
+    margin-top: 48px;
+    padding: 36px;
+    border-radius: var(--k-radius-md);
+    background: var(--k-white);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .pl-cta-h {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  .pl-cta-p {
+    margin: 6px 0 0;
+    color: var(--k-gray-600);
+  }
+
+  .pl-cta .k-link {
+    color: var(--k-ink);
+  }
+</style>

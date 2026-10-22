@@ -1,0 +1,83 @@
+---
+/** Linki w treści wpisów: zewnętrzne otwierane w nowej karcie, wyniki z Advantage jako karta. */
+
+interface Props {
+  href?: string;
+  title?: string;
+}
+
+const { href = "", title } = Astro.props;
+const isAdvantage = href.startsWith("https://advantage-app.pl/");
+const isExternal = /^https?:\/\//.test(href);
+---
+
+{
+  isAdvantage ? (
+    <a href={href} title={title} target="_blank" rel="noopener noreferrer" class="adv">
+      <img src="/advantage-favicon.svg" alt="" width="36" height="36" />
+      <span class="adv-label">
+        <slot />
+      </span>
+      <span class="adv-src">Advantage</span>
+      <span class="adv-arrow" aria-hidden="true">
+        ↗
+      </span>
+    </a>
+  ) : (
+    <a href={href} title={title} {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+      <slot />
+    </a>
+  )
+}
+
+<style>
+  .adv {
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--k-radius-sm);
+    border: 1px solid var(--k-gray-200);
+    background: var(--k-snow);
+    color: var(--k-ink);
+    text-decoration: none;
+    transition:
+      border-color 0.25s,
+      transform 0.25s;
+  }
+
+  .adv:hover {
+    border-color: var(--k-gray-500);
+    transform: translateY(-1px);
+  }
+
+  .adv img {
+    flex: none;
+    border-radius: 8px;
+  }
+
+  .adv-label {
+    flex: 1;
+    min-width: 0;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .adv-src {
+    font-size: 14px;
+    color: var(--k-gray-600);
+  }
+
+  .adv-arrow {
+    color: var(--k-ink);
+  }
+
+  @media (max-width: 520px) {
+    .adv-src {
+      display: none;
+    }
+  }
+</style>

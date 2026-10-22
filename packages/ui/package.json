@@ -1,0 +1,17 @@
+{
+  "name": "@kapusz/ui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Wspólne komponenty Astro w stylu marki Kapusz (kierunek D).",
+  "exports": {
+    "./*.astro": "./src/*.astro",
+    "./testimonials": "./src/testimonials.ts"
+  },
+  "dependencies": {
+    "@kapusz/brand": "0.1.0"
+  },
+  "peerDependencies": {
+    "astro": "^7.4.2"
+  }
+}

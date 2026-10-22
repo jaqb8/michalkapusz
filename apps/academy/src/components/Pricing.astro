@@ -1,0 +1,31 @@
+---
+import { contact } from "@kapusz/brand/contact";
+import Configurator from "./configurator/Configurator";
+---
+
+<section id="cennik" class="k-snow">
+  <div class="k-container k-section">
+    <div class="pr-head rv">
+      <p class="k-eyebrow fade">Cennik</p>
+      <h2 class="k-h2"><span class="ln"><span>Skonfiguruj swój trening.</span></span></h2>
+      <p class="k-lead fade pr-lead">Wybierz, kto gra i w jakim formacie. Cena policzy się sama.</p>
+    </div>
+    <div class="pr-body rv up">
+      <Configurator client:visible phone={contact.phone} />
+    </div>
+  </div>
+</section>
+
+<style>
+  .pr-head {
+    text-align: center;
+  }
+
+  .pr-lead {
+    margin-inline: auto;
+  }
+
+  .pr-body {
+    margin-top: 64px;
+  }
+</style>
