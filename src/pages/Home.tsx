@@ -58,7 +58,7 @@ function Home() {
           name="description"
           content="Profesjonalne lekcje tenisa we Wrocławiu. Trener Michał Kapusz oferuje indywidualne i grupowe treningi tenisa dla dzieci i dorosłych. Wieloletnie doświadczenie i profesjonalne podejście."
         />
-        <link rel="canonical" href="https://kapusz-tenis.pl/" />
+        <link rel="canonical" href="https://kapusz-tennis.pl/" />
         <meta
           property="og:title"
           content="Michał Kapusz - Licencjonowany Trener Tenisa Wrocław"
@@ -67,10 +67,10 @@ function Home() {
           property="og:description"
           content="Profesjonalne lekcje tenisa we Wrocławiu. Indywidualne i grupowe treningi dla dzieci i dorosłych."
         />
-        <meta property="og:url" content="https://kapusz-tenis.pl/" />
+        <meta property="og:url" content="https://kapusz-tennis.pl/" />
         <meta
           property="og:image"
-          content="https://kapusz-tenis.pl/og-logo-v2.jpg"
+          content="https://kapusz-tennis.pl/og-logo-v2.jpg"
         />
       </Helmet>
 

@@ -63,15 +63,15 @@ function BlogPost({ post }: BlogPostProps) {
   const imageUrl = post.image
     ? post.image.startsWith("http")
       ? post.image
-      : `https://kapusz-tenis.pl${post.image}`
-    : "https://kapusz-tenis.pl/og-logo-v2.jpg";
-  const postUrl = `https://kapusz-tenis.pl/blog/${post.slug}/`;
+      : `https://kapusz-tennis.pl${post.image}`
+    : "https://kapusz-tennis.pl/og-logo-v2.jpg";
+  const postUrl = `https://kapusz-tennis.pl/blog/${post.slug}/`;
   const schemaImages = [
     imageUrl,
     ...(post.gallery?.map((image) =>
       image.src.startsWith("http")
         ? image.src
-        : `https://kapusz-tenis.pl${image.src}`,
+        : `https://kapusz-tennis.pl${image.src}`,
     ) ?? []),
   ];
   const blogPostingSchema = {

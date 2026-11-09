@@ -21,7 +21,7 @@ type ShareStatus = {
   message: string;
 };
 
-const SITE_ORIGIN = "https://kapusz-tenis.pl";
+const SITE_ORIGIN = "https://kapusz-tennis.pl";
 
 function getShareUrl(slug: string) {
   return `${SITE_ORIGIN}/blog/${slug}/`;

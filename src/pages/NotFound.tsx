@@ -21,7 +21,7 @@ function NotFound() {
         />
         <meta
           property="og:image"
-          content="https://kapusz-tenis.pl/og-logo-v2.jpg"
+          content="https://kapusz-tennis.pl/og-logo-v2.jpg"
         />
       </Helmet>
 

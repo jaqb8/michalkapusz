@@ -34,7 +34,7 @@ function Blog() {
           name="description"
           content="Blog o tenisie - porady, wskazówki i ciekawostki dla graczy na każdym poziomie zaawansowania. Dowiedz się więcej o technice, taktyce i sprzęcie tenisowym."
         />
-        <link rel="canonical" href="https://kapusz-tenis.pl/blog/" />
+        <link rel="canonical" href="https://kapusz-tennis.pl/blog/" />
         <meta
           property="og:title"
           content="Blog - Lekcje Tenisa z Michałem Kapuszem | Wrocław"
@@ -43,11 +43,11 @@ function Blog() {
           property="og:description"
           content="Blog o tenisie - porady, wskazówki i ciekawostki dla graczy na każdym poziomie zaawansowania."
         />
-        <meta property="og:url" content="https://kapusz-tenis.pl/blog/" />
+        <meta property="og:url" content="https://kapusz-tennis.pl/blog/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://kapusz-tenis.pl/og-logo-v2.jpg"
+          content="https://kapusz-tennis.pl/og-logo-v2.jpg"
         />
       </Helmet>
 

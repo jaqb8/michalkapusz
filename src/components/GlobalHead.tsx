@@ -1,6 +1,6 @@
 import { Helmet } from "../lib/helmet";
 
-const SITE_PREVIEW_IMAGE = "https://kapusz-tenis.pl/og-logo-v2.jpg";
+const SITE_PREVIEW_IMAGE = "https://kapusz-tennis.pl/og-logo-v2.jpg";
 
 const gtmScript = `window.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
@@ -58,7 +58,7 @@ const personSchema = {
     experienceInYears: "8",
     skills: ["Trening indywidualny", "Trening grupowy", "Trening dzieci"],
   },
-  url: "https://kapusz-tenis.pl/",
+  url: "https://kapusz-tennis.pl/",
   telephone: "+48605242945",
   email: "kapusztenis@gmail.com",
   image: SITE_PREVIEW_IMAGE,
@@ -163,7 +163,7 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Michał Kapusz - Trener Tenisa",
-  url: "https://kapusz-tenis.pl/",
+  url: "https://kapusz-tennis.pl/",
   inLanguage: "pl-PL",
 };
 
@@ -176,14 +176,14 @@ const navigationSchema = {
       position: 1,
       name: "Cennik",
       description: "Cennik zajęć tenisowych dla dorosłych i dzieci",
-      url: "https://kapusz-tenis.pl/cennik/",
+      url: "https://kapusz-tennis.pl/cennik/",
     },
     {
       "@type": "SiteNavigationElement",
       position: 2,
       name: "Blog",
       description: "Blog o tenisie i treningach",
-      url: "https://kapusz-tenis.pl/blog/",
+      url: "https://kapusz-tennis.pl/blog/",
     },
   ],
 };
