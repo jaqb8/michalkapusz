@@ -32,7 +32,7 @@ function PriceList() {
           name="description"
           content="Sprawdź cennik lekcji tenisa we Wrocławiu. Oferujemy treningi indywidualne i grupowe w atrakcyjnych cenach. Rabaty dla posiadaczy karty Multisport."
         />
-        <link rel="canonical" href="https://kapusz-tenis.pl/cennik/" />
+        <link rel="canonical" href="https://kapusz-tennis.pl/cennik/" />
         <meta
           property="og:title"
           content="Cennik - Lekcje Tenisa z Michałem Kapuszem | Wrocław"
@@ -41,11 +41,11 @@ function PriceList() {
           property="og:description"
           content="Sprawdź cennik lekcji tenisa we Wrocławiu. Oferujemy treningi indywidualne i grupowe w atrakcyjnych cenach."
         />
-        <meta property="og:url" content="https://kapusz-tenis.pl/cennik/" />
+        <meta property="og:url" content="https://kapusz-tennis.pl/cennik/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://kapusz-tenis.pl/og-logo-v2.jpg"
+          content="https://kapusz-tennis.pl/og-logo-v2.jpg"
         />
       </Helmet>
 

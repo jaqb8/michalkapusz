@@ -59,7 +59,7 @@ export const BreadcrumbNavigation = () => {
                         "@type": "ListItem",
                         "position": index + 1,
                         "name": item.name,
-                        "item": `https://kapusz-tenis.pl${item.url}`
+                        "item": `https://kapusz-tennis.pl${item.url}`
                     }))
                 })}
             </script>

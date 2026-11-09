@@ -1,9 +1,11 @@
 # Netlify redirects for pre-rendered SSG site
 # Static files are served first automatically
-# Druga domena (kapusz-tennis.pl) przekierowuje na domenę główną, żeby Google nie widział dwóch kopii strony.
-# Musi być przed regułą /* poniżej, bo pierwsza pasująca reguła wygrywa.
-https://kapusz-tennis.pl/*      https://kapusz-tenis.pl/:splat  301!
-https://www.kapusz-tennis.pl/*  https://kapusz-tenis.pl/:splat  301!
+# Domena główna to kapusz-tennis.pl. Stara kapusz-tenis.pl i warianty www przekierowują na nią (301),
+# żeby Google przeniósł pozycje na nową domenę i nie widział dwóch kopii strony.
+# Muszą być przed regułą /* poniżej, bo pierwsza pasująca reguła wygrywa.
+https://kapusz-tenis.pl/*       https://kapusz-tennis.pl/:splat  301!
+https://www.kapusz-tenis.pl/*   https://kapusz-tennis.pl/:splat  301!
+https://www.kapusz-tennis.pl/*  https://kapusz-tennis.pl/:splat  301!
 
 # Retire legacy/discovered error URLs instead of letting them remain in Coverage.
 /404   /   301
