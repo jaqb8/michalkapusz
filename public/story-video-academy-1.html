@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Cennik Story – Kapusz Tennis Academy – wariant 1</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Saira+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #000; display: flex; justify-content: center; }
+
+  .s1 {
+    --navy-950: #0a0f1a; --navy-900: #0c1829; --navy-800: #101d32; --navy-700: #1a2d4a;
+    --e500: #00c8ff; --e400: #38d4ff; --e300: #6ee2ff;
+    width: 1080px; height: 1920px; position: relative; overflow: hidden;
+    background:
+      radial-gradient(900px 700px at 100% 0%, rgba(0,200,255,.18), transparent 60%),
+      radial-gradient(800px 600px at 0% 100%, rgba(0,200,255,.10), transparent 60%),
+      linear-gradient(180deg, var(--navy-900), var(--navy-950));
+    color: #fff; font-family: 'DM Sans', sans-serif;
+    padding: 160px 72px 190px;
+    display: flex; flex-direction: column;
+  }
+  .s1::before {
+    content: ""; position: absolute; inset: 0; opacity: 1;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300c8ff' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .s1 > * { position: relative; }
+
+  .s1-brand { display: flex; align-items: center; gap: 24px; }
+  .s1-brand { justify-content: space-between; }
+  .s1-brand img { height: 124px; width: auto; }
+  .s1-brand .s1-pill { margin-top: 0; }
+  .s1-brand b { display: block; font: 700 46px/1 'Saira Condensed'; letter-spacing: 2px; }
+  .s1-brand span { font: 500 22px/1 'DM Sans'; color: var(--e500); letter-spacing: 6px; text-transform: uppercase; }
+
+  .s1-pill { margin-top: 30px; align-self: flex-start; display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 26px; border-radius: 999px; background: rgba(16,29,50,.7); border: 1px solid rgba(0,200,255,.25);
+    color: var(--e500); font: 600 26px/1 'Saira Condensed'; letter-spacing: 4px; }
+  .s1-pill i { width: 10px; height: 10px; border-radius: 50%; background: var(--e500); box-shadow: 0 0 12px var(--e500); }
+
+  .s1 h1 { margin-top: 36px; font: 800 118px/.95 'Saira Condensed'; letter-spacing: -1px; }
+  .s1 h1 em { font-style: normal;
+    background: linear-gradient(135deg, var(--e500), var(--e300)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(0,200,255,.35)); }
+
+  .s1-chips { margin-top: 26px; display: flex; gap: 14px; }
+  .s1-chip { display: flex; align-items: center; gap: 10px; padding: 14px 20px; border-radius: 14px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); font: 500 24px/1 'DM Sans'; color: rgba(255,255,255,.8); }
+  .s1-chip svg { width: 26px; height: 26px; color: var(--e500); }
+  .s1-chip b { color: #fff; }
+
+  .s1-list { margin-top: 34px; display: flex; flex-direction: column; gap: 12px; }
+  .s1-cat { font: 600 24px/1 'Saira Condensed'; letter-spacing: 5px; color: rgba(255,255,255,.4); margin: 10px 0 0 4px; }
+  .s1-cat:first-child { margin-top: 0; }
+  .s1-row { display: flex; align-items: center; gap: 24px; padding: 14px 28px; border-radius: 22px;
+    background: rgba(16,29,50,.7); border: 1px solid rgba(0,200,255,.1); position: relative; overflow: hidden; }
+  .s1-row.hot { border-color: rgba(0,200,255,.45); background: linear-gradient(135deg, rgba(0,200,255,.14), rgba(16,29,50,.75) 55%); }
+  .s1-ico { width: 64px; height: 64px; flex: none; border-radius: 16px; background: rgba(0,200,255,.1); display: grid; place-items: center; color: var(--e500); }
+  .s1-ico svg { width: 34px; height: 34px; }
+  .s1-txt { flex: 1; }
+  .s1-txt b { display: block; font: 700 38px/1 'Saira Condensed'; letter-spacing: .5px; }
+  .s1-txt span { display: inline-block; margin-top: 8px; font: 400 22px/1 'DM Sans'; color: rgba(255,255,255,.5); }
+  .s1-txt .save { display: inline-block; font-style: normal; margin-left: 10px; vertical-align: 2px; padding: 6px 12px; border-radius: 8px; background: var(--e500); color: var(--navy-950); font: 700 19px/1 'DM Sans'; }
+  .s1-price { text-align: right; }
+  .s1-price b { font: 700 66px/1 'Saira Condensed'; color: var(--e500); }
+  .s1-price b small { font-size: 32px; color: rgba(255,255,255,.7); margin-left: 4px; }
+  .s1-price span { display: block; margin-top: 4px; font: 500 20px/1.3 'DM Sans'; color: rgba(255,255,255,.45); }
+
+  .s1-list { margin-bottom: 0; }
+  .s1-foot { margin-top: 26px !important; }
+  .s1-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 36px; border-radius: 26px; background: linear-gradient(135deg, var(--e500), #0090c0); color: var(--navy-950); }
+  .s1-foot small { display: block; font: 700 24px/1 'Saira Condensed'; letter-spacing: 4px; opacity: .75; }
+  .s1-foot b { display: block; margin-top: 6px; font: 800 64px/1 'Saira Condensed'; }
+  .s1-foot .url { text-align: right; font: 600 22px/1.4 'DM Sans'; }
+</style>
+</head>
+<body>
+<div class="s1">
+  <div class="s1-brand"><img src="/academy/kapusz-academy-logo-light.webp" alt="Kapusz Tennis Academy"><div class="s1-pill"><i></i>OFERTA 2026</div></div>
+
+  <h1>CENNIK <em>TRENINGÓW</em></h1>
+
+  <div class="s1-chips">
+    <div class="s1-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><b>60 min</b></div>
+    <div class="s1-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Multisport <b>−15 zł</b></div>
+    <div class="s1-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>Gotówka / karta</div>
+  </div>
+
+  <div class="s1-list">
+    <div class="s1-cat">INDYWIDUALNE</div>
+    <div class="s1-row">
+      <div class="s1-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <div class="s1-txt"><b>TRENING INDYWIDUALNY</b><span>1 sesja treningowa</span></div>
+      <div class="s1-price"><b>120<small>zł</small></b><span>+ cena kortu</span></div>
+    </div>
+    <div class="s1-row hot">
+      <div class="s1-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
+      <div class="s1-txt"><b>PAKIET 10 TRENINGÓW</b><span>110 zł / trening</span><em class="save">−100 ZŁ</em></div>
+      <div class="s1-price"><b>1100<small>zł</small></b><span>+ cena kortu</span></div>
+    </div>
+
+    <div class="s1-cat">W PARZE</div>
+    <div class="s1-row">
+      <div class="s1-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="s1-txt"><b>TRENING DWUOSOBOWY</b><span>cena za osobę</span></div>
+      <div class="s1-price"><b>75<small>zł</small></b><span>+ ½ ceny kortu</span></div>
+    </div>
+    <div class="s1-row hot">
+      <div class="s1-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></div>
+      <div class="s1-txt"><b>PAKIET 10 W PARZE</b><span>70 zł / trening</span><em class="save">−50 ZŁ</em></div>
+      <div class="s1-price"><b>700<small>zł</small></b><span>+ ½ ceny kortu</span></div>
+    </div>
+
+    <div class="s1-cat">GRUPOWE</div>
+    <div class="s1-row">
+      <div class="s1-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="s1-txt"><b>GRUPA 3-OSOBOWA</b><span>cena za osobę</span></div>
+      <div class="s1-price"><b>60<small>zł</small></b><span>+ ⅓ ceny kortu</span></div>
+    </div>
+    <div class="s1-row">
+      <div class="s1-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="s1-txt"><b>GRUPA 4-OSOBOWA</b><span>cena za osobę</span></div>
+      <div class="s1-price"><b>50<small>zł</small></b><span>+ ¼ ceny kortu</span></div>
+    </div>
+  </div>
+
+  <div class="s1-foot">
+    <div><small>ZAPISZ SIĘ JUŻ DZIŚ</small><b>+48 605 242 945</b></div>
+    <div class="url">kapusz-tenis.pl</div>
+  </div>
+</div>
+<script src="/story-anim/anim.js"></script>
+</body>
+</html>
