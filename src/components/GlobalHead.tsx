@@ -60,7 +60,7 @@ const personSchema = {
   },
   url: "https://kapusz-tennis.pl/",
   telephone: "+48605242945",
-  email: "kapusztenis@gmail.com",
+  email: "kontakt@kapusz-tennis.pl",
   image: SITE_PREVIEW_IMAGE,
   sameAs: [
     "https://www.facebook.com/michal.kapusz/",
