@@ -584,7 +584,7 @@ function Home() {
                 </div>
 
                 <a
-                  href="mailto:kapusztenis@gmail.com"
+                  href="mailto:kontakt@kapusz-tennis.pl"
                   className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-electric-500/10 transition-colors group"
                 >
                   <div className="w-14 h-14 rounded-xl bg-electric-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -593,7 +593,7 @@ function Home() {
                   <div>
                     <p className="text-white/50 text-sm">Email</p>
                     <p className="text-white font-semibold text-lg">
-                      kapusztenis@gmail.com
+                      kontakt@kapusz-tennis.pl
                     </p>
                   </div>
                 </a>
@@ -636,7 +636,7 @@ function Home() {
                   <span>Zadzwoń teraz</span>
                 </a>
                 <a
-                  href="mailto:kapusztenis@gmail.com"
+                  href="mailto:kontakt@kapusz-tennis.pl"
                   className="flex items-center justify-center gap-3 bg-white/10 text-white px-6 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all hover:scale-[1.02] w-full backdrop-blur-sm"
                 >
                   <Mail className="h-5 w-5" />

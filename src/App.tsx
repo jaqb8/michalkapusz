@@ -357,11 +357,11 @@ function App() {
                 </li>
                 <li>
                   <a
-                    href="mailto:kapusztenis@gmail.com"
+                    href="mailto:kontakt@kapusz-tennis.pl"
                     className="flex items-center gap-3 text-white/60 hover:text-electric-500 transition-colors"
                   >
                     <Mail className="h-5 w-5 text-electric-500" />
-                    kapusztenis@gmail.com
+                    kontakt@kapusz-tennis.pl
                   </a>
                 </li>
               </ul>
